@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressIndicatorView" customModule="VideoSpeed" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="dpF-uh-c96"/>
+                <outlet property="progressView" destination="8yr-e9-jhh" id="FjD-XY-W0P"/>
+                <outlet property="progressViewContainer" destination="rsQ-Fc-Mak" id="h1U-eS-WYO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="545"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-Fc-Mak">
+                    <rect key="frame" x="24" y="208.66666666666663" width="342" height="128"/>
+                    <subviews>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-e9-jhh">
+                            <rect key="frame" x="10" y="62.000000000000028" width="322" height="4"/>
+                        </progressView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exporting Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSi-E6-Dod">
+                            <rect key="frame" x="110.66666666666666" y="17" width="121" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="7uq-Yj-nTF"/>
+                        <constraint firstItem="8yr-e9-jhh" firstAttribute="leading" secondItem="rsQ-Fc-Mak" secondAttribute="leading" constant="10" id="DCj-cP-lJb"/>
+                        <constraint firstItem="8yr-e9-jhh" firstAttribute="centerY" secondItem="rsQ-Fc-Mak" secondAttribute="centerY" id="OZ6-xb-9kU"/>
+                        <constraint firstAttribute="trailing" secondItem="8yr-e9-jhh" secondAttribute="trailing" constant="10" id="XWN-pU-0y7"/>
+                        <constraint firstItem="zSi-E6-Dod" firstAttribute="top" secondItem="rsQ-Fc-Mak" secondAttribute="top" constant="17" id="YRF-UL-X93"/>
+                        <constraint firstItem="zSi-E6-Dod" firstAttribute="centerX" secondItem="rsQ-Fc-Mak" secondAttribute="centerX" id="Zgj-RR-5tc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="rsQ-Fc-Mak" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6uj-og-vaz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rsQ-Fc-Mak" secondAttribute="trailing" constant="24" id="oe6-b7-dNj"/>
+                <constraint firstItem="rsQ-Fc-Mak" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="uZl-rz-0ca"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-95.384615384615387" y="38.744075829383881"/>
+        </view>
+    </objects>
+</document>
