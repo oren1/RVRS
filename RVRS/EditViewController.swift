@@ -105,10 +105,23 @@ class EditViewController: UIViewController {
                                            String(kCVPixelBufferWidthKey): NSNumber(value: naturalSize.width),
                                            String(kCVPixelBufferHeightKey): NSNumber(value: naturalSize.height)]
             
-            let trackOutput = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: outputSettings)
-            
-            assetReader.add(trackOutput)
-            assetReader.timeRange = CMTimeRange(start: .zero, duration: videoTrackTimeRange.duration)
+            let audioOutputSettings: [String: NSNumber] = [
+                AVFormatIDKey: NSNumber(value: kAudioFormatLinearPCM),
+                AVLinearPCMBitDepthKey: NSNumber(value: 32),
+                AVLinearPCMIsFloatKey: NSNumber(value: 1)
+            ]
+
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
+
+            let videoTrackOutput = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: outputSettings)
+            var audioTrackOutput: AVAssetReaderTrackOutput?
+            assetReader.add(videoTrackOutput)
+            if let audioTrack = try? await asset.loadTracks(withMediaType: .audio).first {
+                audioTrackOutput = AVAssetReaderTrackOutput(track: audioTrack, outputSettings: audioOutputSettings)
+                assetReader.add(audioTrackOutput!)
+            }
+            assetReader.timeRange = CMTimeRange(start: .zero, duration: trackDuration)
 
             let success = assetReader.startReading()
             if !success {
@@ -116,9 +129,17 @@ class EditViewController: UIViewController {
             }
             
             var buffers = [CMSampleBuffer]()
-            while let nextBuffer = trackOutput.copyNextSampleBuffer() {
+            while let nextBuffer = videoTrackOutput.copyNextSampleBuffer() {
                 buffers.append(nextBuffer)
             }
+            
+            var audionSampleBuffers = [CMSampleBuffer]()
+            if let audioTrackOutput = audioTrackOutput {
+                while let nextBuffer = audioTrackOutput.copyNextSampleBuffer() {
+                    audionSampleBuffers.append(nextBuffer)
+                }
+            }
+           
             
             let status = assetReader.status
             guard status == .completed else { return }
@@ -138,31 +159,32 @@ class EditViewController: UIViewController {
             
             guard let assetWriter = try? AVAssetWriter(url: writeURL, fileType: .mov) else { return }
 
-            let writerInput: AVAssetWriterInput
+            let writerVideoInput: AVAssetWriterInput
             if let formatDescription = try? await videoTrack.load(.formatDescriptions).first {
-                writerInput = AVAssetWriterInput(mediaType: .video, outputSettings: writerSettings, sourceFormatHint: formatDescription)
+                writerVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: writerSettings, sourceFormatHint: formatDescription)
             } else {
-                writerInput = AVAssetWriterInput.init(mediaType: .video, outputSettings: writerSettings)
+                writerVideoInput = AVAssetWriterInput.init(mediaType: .video, outputSettings: writerSettings)
             }
             
             let preferredTransform = try! await videoTrack.load(.preferredTransform)
             let (orientation, _) = VideoHelper.orientation(from: preferredTransform)
-            writerInput.transform = VideoHelper.getVideoTransform(orientation: orientation)
-            let pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerInput, sourcePixelBufferAttributes: nil)
+            writerVideoInput.transform = VideoHelper.getVideoTransform(orientation: orientation)
+            let pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerVideoInput, sourcePixelBufferAttributes: nil)
 
-            assetWriter.add(writerInput)
+            // Create writer audio input
+            
+            
+            assetWriter.add(writerVideoInput)
             assetWriter.shouldOptimizeForNetworkUse = true
             assetWriter.startWriting()
             assetWriter.startSession(atSourceTime: .zero)
 
             
-            let dispatchGroup = DispatchGroup()
             var currentSampleIndex = 0
-            dispatchGroup.enter()
-            writerInput.requestMediaDataWhenReady(on: DispatchQueue.main) {
+            writerVideoInput.requestMediaDataWhenReady(on: DispatchQueue.main) {
                 for i in currentSampleIndex..<buffers.count {
                     currentSampleIndex = i
-                    guard writerInput.isReadyForMoreMediaData else {return}
+                    guard writerVideoInput.isReadyForMoreMediaData else {return}
                     
                     let presentationTime = CMSampleBufferGetPresentationTimeStamp(buffers[i])
                     guard let imageBuffer = CMSampleBufferGetImageBuffer(buffers[buffers.count - i - 1]) else {
@@ -174,7 +196,7 @@ class EditViewController: UIViewController {
                     }
                 }
                 
-                writerInput.markAsFinished()
+                writerVideoInput.markAsFinished()
                 dispatchGroup.leave()
             }
             
