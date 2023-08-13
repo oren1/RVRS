@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import Accelerate
 
 class EditViewController: UIViewController {
     var playerController: AVPlayerViewController!
@@ -42,74 +43,176 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        
         showSpeedSection()
-//        Task {
-//                guard let (composition, videoComposition) = await self.createCompositionWith(speed: self.speed, fps: self.fps, soundOn: self.soundOn) else {
-//                    return self.showNoTracksError()
-//                }
-//                self.composition = composition
-//                self.videoComposition = videoComposition
-//
-//                let compositionCopy = self.composition.copy() as! AVComposition
-//                let videoCompositionCopy = self.videoComposition.copy() as! AVVideoComposition
-//                let playerItem = AVPlayerItem(asset: composition)
-//                playerItem.audioTimePitchAlgorithm = .spectral
-//                playerItem.videoComposition = videoCompositionCopy
-//
-//                let player = AVPlayer(playerItem: playerItem)
-//
-//                self.playerController = AVPlayerViewController()
-//                self.playerController.player = player
-//                self.addPlayerToTop()
-//                self.loopVideo()
-//            }
         asset = AVAsset(url: assetUrl)
-        showLoading()
-        reverseAsset { [weak self] reversedAsset in
-            guard let self = self else {return}
-            self.hideLoading()
-            self.reversedAsset = reversedAsset
-            Task {
-                    guard let (composition, videoComposition) = await self.createCompositionWith(speed: self.speed, fps: self.fps, soundOn: self.soundOn) else {
-                        return self.showNoTracksError()
-                    }
-                    self.composition = composition
-                    self.videoComposition = videoComposition
-
-                    let compositionCopy = self.composition.copy() as! AVComposition
-                    let videoCompositionCopy = self.videoComposition.copy() as! AVVideoComposition
-                    let playerItem = AVPlayerItem(asset: compositionCopy)
-                    playerItem.audioTimePitchAlgorithm = .spectral
-                    playerItem.videoComposition = videoCompositionCopy
-
-                    let player = AVPlayer(playerItem: playerItem)
-
-                    self.playerController = AVPlayerViewController()
-                    self.playerController.player = player
-                    self.addPlayerToTop()
-                    self.loopVideo()
-                }
+        
+        reverseAsset { reversedAsset in
+            guard let reversedAsset = reversedAsset else {
+                return
             }
+            
+            Task {
+
+                let playerItem = AVPlayerItem(asset: reversedAsset)
+                playerItem.audioTimePitchAlgorithm = .spectral
+                let player = AVPlayer(playerItem: playerItem)
+
+                self.playerController = AVPlayerViewController()
+                self.playerController.player = player
+                self.addPlayerToTop()
+                self.loopVideo()
+            }
+        }
+    
         
     }
+    func reverseAsset(completion: @escaping (AVAsset?) -> ()) {
+        reverseVideo { [weak self] reversedVideo in
+            guard let self = self else {return}
+            guard let reversedVideo = reversedVideo else {
+                return completion(nil)
+            }
+            
+            Task {
+                if let audioFileURL = await self.extractAudioTrackToFileIfExists(asset: self.asset),
+                   let reversedAudioUrl = self.reverseAudio(fromUrl: audioFileURL) {
+                    let reversedAudio = AVAsset(url: reversedAudioUrl)
+                    
+                    // combine reversed audio asset to video
+                    let reversedAsset = await self.integrate(reversedVideo: reversedVideo, reversedAudio: reversedAudio)
+                    if reversedAsset != nil {
+                        self.reversedAsset = reversedAsset
+                        completion(reversedAsset)
+                    }
+                    else {
+                        completion(nil)
+                    }
+                }
+                else {
+                    self.reversedAsset = reversedVideo
+                    completion(reversedVideo)
+                }
+            }
+        }
+    }
 
-    func reverseAsset(completion: @escaping (AVAsset) -> ()) {
+    
+    func integrate(reversedVideo: AVAsset, reversedAudio: AVAsset) async -> AVAsset? {
+        let composition = AVMutableComposition(urlAssetInitializationOptions: nil)
+
+        let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: 1)!
+        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
+        let assetDuration = try! await asset.load(.duration)
+        
+        
+        let videoTracks = try! await reversedVideo.loadTracks(withMediaType: .video)
+        guard  videoTracks.count > 0 else { return nil }
+        let videoTrack = videoTracks[0]
+        try? compositionVideoTrack.insertTimeRange(CMTimeRange(start: .zero, duration: assetDuration),
+                                                                of: videoTrack,
+                                                                at: CMTime.invalid)
+        
+        let audioTracks = try! await reversedAudio.loadTracks(withMediaType: .audio)
+        guard  audioTracks.count > 0 else { return nil }
+        let audioTrack = audioTracks[0]
+        try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: assetDuration),
+                                                                of: audioTrack,
+                                                                at: CMTime.invalid)
+        
+        return composition
+    }
+    
+    func extractAudioTrackToFileIfExists(asset: AVAsset) async -> URL? {
+        guard let audioTrack = try? await asset.loadTracks(withMediaType: .audio).first else {
+            return nil
+        }
+        let assetDuration = try! await asset.load(.duration)
+        
+        let composition = AVMutableComposition(urlAssetInitializationOptions: nil)
+        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: 1)!
+        try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: assetDuration),
+                                                                of: audioTrack,
+                                                                at: CMTime.invalid)
+        guard let exportSession = AVAssetExportSession(
+          asset: composition,
+          presetName: AVAssetExportPresetAppleM4A)
+          else {
+            print("Cannot create export session.")
+            return nil
+        }
+        
+        
+        let audioName = UUID().uuidString
+        let exportURL = URL(fileURLWithPath: NSTemporaryDirectory())
+          .appendingPathComponent(audioName)
+          .appendingPathExtension("m4a")
+        
+        exportSession.outputFileType = .m4a
+        exportSession.outputURL = exportURL
+        await exportSession.export()
+        
+        switch exportSession.status {
+        case .completed:
+          print("completed export with url: \(exportURL)")
+          return exportURL
+        default:
+          print("Something went wrong during export.")
+          print(exportSession.error ?? "unknown error")
+          return nil
+        }
+
+    }
+    
+    func reverseAudio(fromUrl: URL) -> URL? {
+        do {
+            let input = try AVAudioFile(forReading: fromUrl)
+            let format = input.processingFormat
+            let frameCount = AVAudioFrameCount(input.length)
+
+            let outSettings = [AVNumberOfChannelsKey: format.channelCount,
+                               AVSampleRateKey: format.sampleRate,
+                               AVLinearPCMBitDepthKey: 16,
+                               AVFormatIDKey: kAudioFormatMPEG4AAC] as [String: Any]
+
+            let outputUrl = FileManager.default.temporaryDirectory.appendingPathComponent("reversed.m4a")
+            try? FileManager.default.removeItem(at: outputUrl)
+
+            let output = try AVAudioFile(forWriting: outputUrl, settings: outSettings)
+            guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frameCount) else {
+                return nil
+            }
+
+            try input.read(into: buffer)
+            let frameLength = buffer.frameLength
+
+            guard let data = buffer.floatChannelData else { return nil }
+
+            for i in 0..<buffer.format.channelCount {
+                let stride = vDSP_Stride(1)
+                vDSP_vrvrs(data.advanced(by: Int(i)).pointee, stride, vDSP_Length(frameLength))
+            }
+
+            try output.write(from: buffer)
+            return outputUrl
+        } catch let error {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+        
+    func reverseVideo(completion: @escaping (AVAsset?) -> ()) {
         Task {
             let assetReader = try! AVAssetReader(asset: asset)
-            let videoTrack = try! await asset.loadTracks(withMediaType: .video)[0]
+            guard let videoTrack = try? await asset.loadTracks(withMediaType: .video).first else {
+                return completion(nil)
+            }
             let trackDuration = try! await asset.load(.duration)
             let naturalSize = try! await videoTrack.load(.naturalSize)
-            let videoTrackTimeRange = try! await videoTrack.load(.timeRange)
             let outputSettings: [String: NSNumber] = [
                                            String(kCVPixelBufferWidthKey): NSNumber(value: naturalSize.width),
                                            String(kCVPixelBufferHeightKey): NSNumber(value: naturalSize.height)]
             
-            let audioOutputSettings: [String: NSNumber] = [
-                AVFormatIDKey: NSNumber(value: kAudioFormatLinearPCM),
-                AVLinearPCMBitDepthKey: NSNumber(value: 32),
-                AVLinearPCMIsFloatKey: NSNumber(value: 1)
-            ]
+            
 
             let dispatchGroup = DispatchGroup()
             dispatchGroup.enter()
@@ -117,10 +220,6 @@ class EditViewController: UIViewController {
             let videoTrackOutput = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: outputSettings)
             var audioTrackOutput: AVAssetReaderTrackOutput?
             assetReader.add(videoTrackOutput)
-            if let audioTrack = try? await asset.loadTracks(withMediaType: .audio).first {
-                audioTrackOutput = AVAssetReaderTrackOutput(track: audioTrack, outputSettings: audioOutputSettings)
-                assetReader.add(audioTrackOutput!)
-            }
             assetReader.timeRange = CMTimeRange(start: .zero, duration: trackDuration)
 
             let success = assetReader.startReading()
@@ -143,13 +242,6 @@ class EditViewController: UIViewController {
             
             let status = assetReader.status
             guard status == .completed else { return }
-
-            let writerSettings: [String:Any] = [
-                        AVVideoCodecKey : AVVideoCodecType.h264,
-                        AVVideoWidthKey : naturalSize.width,
-                        AVVideoHeightKey: naturalSize.height,
-            ]
-            
             
             let fileExtension = "mov"
             let videoName = UUID().uuidString
@@ -157,23 +249,27 @@ class EditViewController: UIViewController {
               .appendingPathComponent(videoName)
               .appendingPathExtension(fileExtension)
             
+            let compressionVideoSettings: [String:Any] = [
+                        AVVideoCodecKey : AVVideoCodecType.h264,
+                        AVVideoWidthKey : naturalSize.width,
+                        AVVideoHeightKey: naturalSize.height,
+            ]
+            
             guard let assetWriter = try? AVAssetWriter(url: writeURL, fileType: .mov) else { return }
 
             let writerVideoInput: AVAssetWriterInput
             if let formatDescription = try? await videoTrack.load(.formatDescriptions).first {
-                writerVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: writerSettings, sourceFormatHint: formatDescription)
+                writerVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: compressionVideoSettings, sourceFormatHint: formatDescription)
             } else {
-                writerVideoInput = AVAssetWriterInput.init(mediaType: .video, outputSettings: writerSettings)
+                writerVideoInput = AVAssetWriterInput.init(mediaType: .video, outputSettings: compressionVideoSettings)
             }
             
             let preferredTransform = try! await videoTrack.load(.preferredTransform)
             let (orientation, _) = VideoHelper.orientation(from: preferredTransform)
             writerVideoInput.transform = VideoHelper.getVideoTransform(orientation: orientation)
             let pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerVideoInput, sourcePixelBufferAttributes: nil)
-
-            // Create writer audio input
             
-            
+                        
             assetWriter.add(writerVideoInput)
             assetWriter.shouldOptimizeForNetworkUse = true
             assetWriter.startWriting()
@@ -200,14 +296,15 @@ class EditViewController: UIViewController {
                 dispatchGroup.leave()
             }
             
+            
             dispatchGroup.notify(queue: DispatchQueue.main) {
                 Task {
                     await assetWriter.finishWriting()
                     if assetWriter.status != .completed {
                         print("VideoWriter reverseVideo: error - \(String(describing: assetWriter.error))")
                     } else {
-                         let reversedAsset = AVAsset(url: writeURL)
-                         completion(reversedAsset)
+                         let reversedVideo = AVAsset(url: writeURL)
+                         completion(reversedVideo)
                     }
                 }
             }
@@ -373,7 +470,9 @@ class EditViewController: UIViewController {
               }
             }
 
-        }    }
+        }
+        
+    }
     
     @objc func video(
       _ videoPath: String,

@@ -33,6 +33,7 @@
 		6BB4EE6C2A823965006CF87C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4EE6B2A823965006CF87C /* GoogleService-Info.plist */; };
 		6BB4EE6E2A823A93006CF87C /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4EE6D2A823A93006CF87C /* remote_config_defaults.plist */; };
 		6BB4EE702A8268C2006CF87C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB4EE6F2A8268C2006CF87C /* UIViewController+Extension.swift */; };
+		6BB4EE722A862E5A006CF87C /* bla.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4EE712A862E5A006CF87C /* bla.mp3 */; };
 		6BCAF7EC2A63C5100039BE15 /* SpeedSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAF7EA2A63C5100039BE15 /* SpeedSectionVC.swift */; };
 		6BCAF7ED2A63C5100039BE15 /* SpeedSectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BCAF7EB2A63C5100039BE15 /* SpeedSectionVC.xib */; };
 		6BCDCF4D2A67E5FA00D8B656 /* FPSSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDCF4B2A67E5FA00D8B656 /* FPSSectionVC.swift */; };
@@ -82,6 +83,7 @@
 		6BB4EE6B2A823965006CF87C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6BB4EE6D2A823A93006CF87C /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = remote_config_defaults.plist; sourceTree = "<group>"; };
 		6BB4EE6F2A8268C2006CF87C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		6BB4EE712A862E5A006CF87C /* bla.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bla.mp3; sourceTree = "<group>"; };
 		6BCAF7EA2A63C5100039BE15 /* SpeedSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedSectionVC.swift; sourceTree = "<group>"; };
 		6BCAF7EB2A63C5100039BE15 /* SpeedSectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedSectionVC.xib; sourceTree = "<group>"; };
 		6BCDCF4B2A67E5FA00D8B656 /* FPSSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSSectionVC.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		6BE9A2EA2A5FC80C00FF8CB0 /* RVRS */ = {
 			isa = PBXGroup;
 			children = (
+				6BB4EE712A862E5A006CF87C /* bla.mp3 */,
 				6BE9A3012A5FD5A000FF8CB0 /* climbing.mov */,
 				6BE9A2EB2A5FC80C00FF8CB0 /* AppDelegate.swift */,
 				6BE9A2ED2A5FC80C00FF8CB0 /* SceneDelegate.swift */,
@@ -299,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB4EE722A862E5A006CF87C /* bla.mp3 in Resources */,
 				6BB4EE6C2A823965006CF87C /* GoogleService-Info.plist in Resources */,
 				6B92E3692A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib in Resources */,
 				6BE9A2F82A5FC80D00FF8CB0 /* LaunchScreen.storyboard in Resources */,
