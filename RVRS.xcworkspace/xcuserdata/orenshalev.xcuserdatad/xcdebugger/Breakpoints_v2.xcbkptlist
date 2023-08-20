@@ -20,5 +20,2174 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "677"
+            endingLineNumber = "677">
+            <Locations>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - de39f55bbadf4deb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "531"
+                  endingLineNumber = "531"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - be79e5ef5191d842"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.createRightItemLabel() -&gt; __C.UILabel"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "532"
+                  endingLineNumber = "532"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - be79e5ef5191db88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.createRightItemLabel() -&gt; __C.UILabel"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "538"
+                  endingLineNumber = "538"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - be79e5ef5191da3c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.createRightItemLabel() -&gt; __C.UILabel"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "550"
+                  endingLineNumber = "550"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - be79e5ef5191cb6f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.createRightItemLabel() -&gt; __C.UILabel"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "665"
+                  endingLineNumber = "665"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - be79e5ef5191cb08"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.createRightItemLabel() -&gt; __C.UILabel"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "666"
+                  endingLineNumber = "666"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - be79e5ef5191caeb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.createRightItemLabel() -&gt; __C.UILabel"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "669"
+                  endingLineNumber = "669"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - be79e5ef5191ca55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.createRightItemLabel() -&gt; __C.UILabel"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "671"
+                  endingLineNumber = "671"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "56ED6FFE-D72E-4714-84ED-EC7360EFBEDA - be79e5ef5191cdbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.createRightItemLabel() -&gt; __C.UILabel"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "678"
+                  endingLineNumber = "678"
+                  offsetFromSymbolStart = "412">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "693"
+            endingLineNumber = "693">
+            <Locations>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf4ffa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "546"
+                  endingLineNumber = "546"
+                  offsetFromSymbolStart = "1844">
+               </Location>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf4f1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "547"
+                  endingLineNumber = "547"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf48d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "553"
+                  endingLineNumber = "553"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf4949"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "565"
+                  endingLineNumber = "565"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf5855"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "681"
+                  endingLineNumber = "681"
+                  offsetFromSymbolStart = "1448">
+               </Location>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf5855"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "681"
+                  endingLineNumber = "681"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf59b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "684"
+                  endingLineNumber = "684"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf59ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "686"
+                  endingLineNumber = "686"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  uuid = "6BD190D8-CEC5-46BF-ACDD-0E9C6CF9D611 - de39f55bbadf5ac9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "693"
+                  endingLineNumber = "693"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "700"
+            endingLineNumber = "700">
+            <Locations>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf48d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "553"
+                  endingLineNumber = "553"
+                  offsetFromSymbolStart = "2344">
+               </Location>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf48f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "554"
+                  endingLineNumber = "554"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf49ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "560"
+                  endingLineNumber = "560"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf4a20"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "572"
+                  endingLineNumber = "572"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf594d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "689"
+                  endingLineNumber = "689"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf592c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "688"
+                  endingLineNumber = "688"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf5a8b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "691"
+                  endingLineNumber = "691"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf5ac9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "693"
+                  endingLineNumber = "693"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+               <Location
+                  uuid = "5F53F147-2E20-40C9-8E60-52EA49EBD228 - de39f55bbadf5ba0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "700"
+                  endingLineNumber = "700"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "702"
+            endingLineNumber = "702">
+            <Locations>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf4813"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "555"
+                  endingLineNumber = "555"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf4830"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "556"
+                  endingLineNumber = "556"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf49ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "562"
+                  endingLineNumber = "562"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf4b9e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "574"
+                  endingLineNumber = "574"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf596a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "690"
+                  endingLineNumber = "690"
+                  offsetFromSymbolStart = "2248">
+               </Location>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf596a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "690"
+                  endingLineNumber = "690"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf5ac9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "693"
+                  endingLineNumber = "693"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf5a07"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "695"
+                  endingLineNumber = "695"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+               <Location
+                  uuid = "81458F72-CBA4-4787-B9C5-7D816FE953B3 - de39f55bbadf5b1e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "702"
+                  endingLineNumber = "702"
+                  offsetFromSymbolStart = "2200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "705"
+            endingLineNumber = "705">
+            <Locations>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - c47d0b9033cf07e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "558"
+                  endingLineNumber = "558"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - de39f55bbadf49ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "560"
+                  endingLineNumber = "560"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - de39f55bbadf4966"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "566"
+                  endingLineNumber = "566"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - de39f55bbadf4b1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "578"
+                  endingLineNumber = "578"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - de39f55bbadf5ac9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "693"
+                  endingLineNumber = "693"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - de39f55bbadf5ae6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "694"
+                  endingLineNumber = "694"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - de39f55bbadf5a45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "697"
+                  endingLineNumber = "697"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - de39f55bbadf5b83"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "699"
+                  endingLineNumber = "699"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+               <Location
+                  uuid = "98CF7A54-1EDB-4383-8C99-5B5DF89A2290 - de39f55bbadf649a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "706"
+                  endingLineNumber = "706"
+                  offsetFromSymbolStart = "2460">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "192A1808-8747-41BF-9A00-037742D31933"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "683"
+            endingLineNumber = "683">
+            <Locations>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf4e84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "536"
+                  endingLineNumber = "536"
+                  offsetFromSymbolStart = "1236">
+               </Location>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf4ea5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "537"
+                  endingLineNumber = "537"
+                  offsetFromSymbolStart = "868">
+               </Location>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf4f9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "543"
+                  endingLineNumber = "543"
+                  offsetFromSymbolStart = "868">
+               </Location>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf4813"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "555"
+                  endingLineNumber = "555"
+                  offsetFromSymbolStart = "868">
+               </Location>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf5f3c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "672"
+                  endingLineNumber = "672"
+                  offsetFromSymbolStart = "1208">
+               </Location>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf5f1f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "671"
+                  endingLineNumber = "671"
+                  offsetFromSymbolStart = "868">
+               </Location>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf5f7a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "674"
+                  endingLineNumber = "674"
+                  offsetFromSymbolStart = "868">
+               </Location>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf58b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "676"
+                  endingLineNumber = "676"
+                  offsetFromSymbolStart = "868">
+               </Location>
+               <Location
+                  uuid = "192A1808-8747-41BF-9A00-037742D31933 - de39f55bbadf5993"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RVRS.EditViewController.exportVideo() -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "683"
+                  endingLineNumber = "683"
+                  offsetFromSymbolStart = "868">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "046E2D0B-89BB-49BB-8C43-DF9BB1858BBB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/AVReverser.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-assetByReversingAsset:forTempURL:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "046E2D0B-89BB-49BB-8C43-DF9BB1858BBB - e57f4a05843b8829"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AVReverser assetByReversingAsset:forTempURL:]"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/AVReverser.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  uuid = "046E2D0B-89BB-49BB-8C43-DF9BB1858BBB - e57f4a05843b88ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AVReverser assetByReversingAsset:forTempURL:]"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/AVReverser.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "376">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "createCompositionWith(speed:fps:soundOn:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2f343"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "226"
+                  endingLineNumber = "226"
+                  offsetFromSymbolStart = "2548">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2f343"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "226"
+                  endingLineNumber = "226"
+                  offsetFromSymbolStart = "2264">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2f38d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "232"
+                  endingLineNumber = "232"
+                  offsetFromSymbolStart = "2264">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2f511"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "2264">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2e20d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "360"
+                  endingLineNumber = "360"
+                  offsetFromSymbolStart = "2320">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2e20d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "360"
+                  endingLineNumber = "360"
+                  offsetFromSymbolStart = "2264">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2e2aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "2264">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2e568"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "365"
+                  endingLineNumber = "365"
+                  offsetFromSymbolStart = "2264">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - 4eca4af67af2e591"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "372"
+                  endingLineNumber = "372"
+                  offsetFromSymbolStart = "2264">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - a1a9c6532db16daa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(15) suspend resume partial function for RVRS.EditViewController.createCompositionWith(speed: Swift.Float, fps: Swift.Int32, soundOn: Swift.Bool) async -&gt; Swift.Optional&lt;(composition: __C.AVMutableComposition, videoComposition: __C.AVMutableVideoComposition)&gt;"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "373"
+                  endingLineNumber = "373"
+                  offsetFromSymbolStart = "1392">
+               </Location>
+               <Location
+                  uuid = "B949D509-0C2E-47C5-8EA2-CAC483512CB1 - a1a9c6532db16f71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(15) suspend resume partial function for RVRS.EditViewController.createCompositionWith(speed: Swift.Float, fps: Swift.Int32, soundOn: Swift.Bool) async -&gt; Swift.Optional&lt;(composition: __C.AVMutableComposition, videoComposition: __C.AVMutableVideoComposition)&gt;"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "394"
+                  endingLineNumber = "394"
+                  offsetFromSymbolStart = "1392">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "535"
+            endingLineNumber = "535"
+            landmarkName = "compositionLayerInstruction(for:assetTrack:videoSize:isPortrait:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbc854"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "382"
+                  endingLineNumber = "382"
+                  offsetFromSymbolStart = "920">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbc875"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "383"
+                  endingLineNumber = "383"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbc933"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "389"
+                  endingLineNumber = "389"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbc6a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "401"
+                  endingLineNumber = "401"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbb9b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "517"
+                  endingLineNumber = "517"
+                  offsetFromSymbolStart = "736">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbb9b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "517"
+                  endingLineNumber = "517"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbb61e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "520"
+                  endingLineNumber = "520"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbb658"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "522"
+                  endingLineNumber = "522"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - f8d36b453cbb727"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "529"
+                  endingLineNumber = "529"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - a9a70a430a458614"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RVRS.EditViewController.compositionLayerInstruction(for: __C.AVCompositionTrack, assetTrack: __C.AVAssetTrack, videoSize: __C.CGSize, isPortrait: Swift.Bool) async -&gt; __C.AVMutableVideoCompositionLayerInstruction"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "530"
+                  endingLineNumber = "530"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "043EE189-8C41-4F9A-B567-3BABEDA5E93A - a9a70a430a458349"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RVRS.EditViewController.compositionLayerInstruction(for: __C.AVCompositionTrack, assetTrack: __C.AVAssetTrack, videoSize: __C.CGSize, isPortrait: Swift.Bool) async -&gt; __C.AVMutableVideoCompositionLayerInstruction"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "551"
+                  endingLineNumber = "551"
+                  offsetFromSymbolStart = "420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/EditViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
+            landmarkName = "createCompositionWith(speed:fps:soundOn:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 3805747b2933e37"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 6b9920dcd500f593"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) await resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 4eca4af67af2cf63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - a401658cdb5dc863"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(20) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 564acccb87f9f214"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - aba2cb4b458278c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 3805747b2933e16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 4eca4af67af2cf42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "2712">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 59b8606b09eff74a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 564acccb87f9f2da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - aba2cb4b45827807"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 3805747b2933ed8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 4eca4af67af2cf8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "2712">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 59b8606b09eff784"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 564acccb87f9cc46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - aba2cb4b4582469b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 3805747b2930044"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 4eca4af67af2f110"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "2712">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 59b8606b09efc918"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 59b8606b09efc604"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 564acccb87f9c35a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - aba2cb4b45824987"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 3805747b2930f58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 4eca4af67af2fe0c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "2712">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 59b8606b09efc604"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 564acccb87f9c3ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "332"
+                  endingLineNumber = "332"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - aba2cb4b45824922"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "332"
+                  endingLineNumber = "332"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 3805747b2930ffd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "332"
+                  endingLineNumber = "332"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 4eca4af67af2fea9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "332"
+                  endingLineNumber = "332"
+                  offsetFromSymbolStart = "2712">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 59b8606b09efc6a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "332"
+                  endingLineNumber = "332"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 564acccb87f9dc21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "334"
+                  endingLineNumber = "334"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - aba2cb4b458256fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "334"
+                  endingLineNumber = "334"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 3805747b2931023"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "334"
+                  endingLineNumber = "334"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 4eca4af67af2e177"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "334"
+                  endingLineNumber = "334"
+                  offsetFromSymbolStart = "2712">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 59b8606b09efd97f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "334"
+                  endingLineNumber = "334"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 564acccb87f9dcc6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "341"
+                  endingLineNumber = "341"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - aba2cb4b4582561b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "341"
+                  endingLineNumber = "341"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 3805747b29310c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "341"
+                  endingLineNumber = "341"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 4eca4af67af2e190"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "341"
+                  endingLineNumber = "341"
+                  offsetFromSymbolStart = "2712">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 59b8606b09efd998"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(19) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RVRS.EditViewController.reverseAsset(completion: (Swift.Optional&lt;__C.AVAsset&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "341"
+                  endingLineNumber = "341"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 985ff6631ab965ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for RVRS.EditViewController.createCompositionWith(speed: Swift.Float, fps: Swift.Int32, soundOn: Swift.Bool) async -&gt; Swift.Optional&lt;(composition: __C.AVMutableComposition, videoComposition: __C.AVMutableVideoComposition)&gt;"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "342"
+                  endingLineNumber = "342"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "82A8CBD9-87EB-4DFD-80C1-35C81A0314FF - 985ff6631ab9673b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for RVRS.EditViewController.createCompositionWith(speed: Swift.Float, fps: Swift.Int32, soundOn: Swift.Bool) async -&gt; Swift.Optional&lt;(composition: __C.AVMutableComposition, videoComposition: __C.AVMutableVideoComposition)&gt;"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "328">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/Utils/AVUtilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "reverse(_:outputURL:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - 7f315cd804bb81ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - c532a54ff6c58179"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - 8e835412d16809a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - e6cc504e3747d5a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - 7f315cd804bb81ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - c532a54ff6c58179"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - 7f315cd804bb81ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "516">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
+         <BreakpointContent
+            uuid = "2E745485-DCB3-4272-BEC3-6515F94EA15F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
+         <BreakpointContent
+            uuid = "6F34F886-D4A1-42F9-8777-97311FB1DD8D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "CB5FCD6F-FBD6-44AD-BA8C-31051C25A0D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10DE6021-1FF0-4B56-B388-157F73C9ADD3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/Utils/VideoHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "orientation(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE248FEB-1A2E-4EBA-8789-50433C976F91"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/Utils/VideoHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "orientationFromTransform(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4412981-A70E-4A98-8AC6-46A89DC1BE5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RVRS/Utils/AssetReverseSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "init(asset:outputFileURL:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

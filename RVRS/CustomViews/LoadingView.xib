@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="VideoSpeed" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="RVRS" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="OFw-sI-NZb" id="WPe-ci-Jvn"/>
+                <outlet property="activityIndicator" destination="qWT-TG-HND" id="b4f-0q-kLe"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="s8D-5r-ZYz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view alpha="0.40000000000000002" contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="390" height="644"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="OFw-sI-NZb">
-                    <rect key="frame" x="176.66666666666666" y="302.66666666666669" width="37" height="37"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="qWT-TG-HND">
+                    <rect key="frame" x="176.66666666666666" y="303.66666666666669" width="37" height="37"/>
                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reversing Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB3-do-0vh">
+                    <rect key="frame" x="133.66666666666666" y="270.66666666666669" width="122.99999999999997" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="OFw-sI-NZb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DBY-Ws-zOH"/>
-                <constraint firstItem="OFw-sI-NZb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Nzj-pY-ova"/>
+                <constraint firstItem="bB3-do-0vh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Gby-Ts-AaH"/>
+                <constraint firstItem="qWT-TG-HND" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aBT-SV-G1I"/>
+                <constraint firstItem="qWT-TG-HND" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aG7-Ph-y2i"/>
+                <constraint firstItem="qWT-TG-HND" firstAttribute="top" secondItem="bB3-do-0vh" secondAttribute="bottom" constant="12" id="ncY-wl-PLX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="136.92307692307691" y="-50.473933649289094"/>
+            <point key="canvasLocation" x="-209" y="-55"/>
         </view>
     </objects>
 </document>

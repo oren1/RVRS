@@ -46,55 +46,61 @@ class EditViewController: UIViewController {
         showSpeedSection()
         asset = AVAsset(url: assetUrl)
         
-        reverseAsset { reversedAsset in
-            guard let reversedAsset = reversedAsset else {
-                return
-            }
-            
-            Task {
-
-                let playerItem = AVPlayerItem(asset: reversedAsset)
-                playerItem.audioTimePitchAlgorithm = .spectral
-                let player = AVPlayer(playerItem: playerItem)
-
-                self.playerController = AVPlayerViewController()
-                self.playerController.player = player
-                self.addPlayerToTop()
-                self.loopVideo()
-            }
-        }
+    }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let fileExtension = "mov"
+         let videoName = UUID().uuidString
+         let outputURL = URL(fileURLWithPath: NSTemporaryDirectory())
+           .appendingPathComponent(videoName)
+           .appendingPathExtension(fileExtension)
         
-    }
-    func reverseAsset(completion: @escaping (AVAsset?) -> ()) {
-        reverseVideo { [weak self] reversedVideo in
-            guard let self = self else {return}
-            guard let reversedVideo = reversedVideo else {
-                return completion(nil)
-            }
-            
-            Task {
-                if let audioFileURL = await self.extractAudioTrackToFileIfExists(asset: self.asset),
-                   let reversedAudioUrl = self.reverseAudio(fromUrl: audioFileURL) {
-                    let reversedAudio = AVAsset(url: reversedAudioUrl)
-                    
-                    // combine reversed audio asset to video
-                    let reversedAsset = await self.integrate(reversedVideo: reversedVideo, reversedAudio: reversedAudio)
-                    if reversedAsset != nil {
-                        self.reversedAsset = reversedAsset
-                        completion(reversedAsset)
-                    }
-                    else {
-                        completion(nil)
-                    }
-                }
-                else {
-                    self.reversedAsset = reversedVideo
-                    completion(reversedVideo)
-                }
-            }
+        Task {
+            showLoading()
+            let session = await AssetReverseSession(asset: self.asset, outputFileURL: outputURL)
+            let reversedAsset = try await session.reverse()
+            hideLoading()
+            let playerItem = AVPlayerItem(asset: reversedAsset)
+            playerItem.audioTimePitchAlgorithm = .spectral
+            let player = AVPlayer(playerItem: playerItem)
+            self.playerController = AVPlayerViewController()
+            self.playerController.player = player
+            self.addPlayerToTop()
+            self.loopVideo()
         }
     }
+    
+//    func reverseAsset(completion: @escaping (AVAsset?) -> ()) {
+//        reverseVideo { [weak self] reversedVideo in
+//            guard let self = self else {return}
+//            guard let reversedVideo = reversedVideo else {
+//                return completion(nil)
+//            }
+//            
+//            Task {
+//                if let audioFileURL = await self.extractAudioTrackToFileIfExists(asset: self.asset),
+//                   let reversedAudioUrl = self.reverseAudio(fromUrl: audioFileURL) {
+//                    let reversedAudio = AVAsset(url: reversedAudioUrl)
+//                    
+//                    // combine reversed audio asset to video
+//                    let reversedAsset = await self.integrate(reversedVideo: reversedVideo, reversedAudio: reversedAudio)
+//                    if reversedAsset != nil {
+//                        self.reversedAsset = reversedAsset
+//                        completion(reversedAsset)
+//                    }
+//                    else {
+//                        completion(nil)
+//                    }
+//                }
+//                else {
+//                    self.reversedAsset = reversedVideo
+//                    completion(reversedVideo)
+//                }
+//            }
+//        }
+//    }
 
     
     func integrate(reversedVideo: AVAsset, reversedAudio: AVAsset) async -> AVAsset? {
@@ -200,116 +206,116 @@ class EditViewController: UIViewController {
         }
     }
         
-    func reverseVideo(completion: @escaping (AVAsset?) -> ()) {
-        Task {
-            let assetReader = try! AVAssetReader(asset: asset)
-            guard let videoTrack = try? await asset.loadTracks(withMediaType: .video).first else {
-                return completion(nil)
-            }
-            let trackDuration = try! await asset.load(.duration)
-            let naturalSize = try! await videoTrack.load(.naturalSize)
-            let outputSettings: [String: NSNumber] = [
-                                           String(kCVPixelBufferWidthKey): NSNumber(value: naturalSize.width),
-                                           String(kCVPixelBufferHeightKey): NSNumber(value: naturalSize.height)]
-            
-            
-
-            let dispatchGroup = DispatchGroup()
-            dispatchGroup.enter()
-
-            let videoTrackOutput = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: outputSettings)
-            var audioTrackOutput: AVAssetReaderTrackOutput?
-            assetReader.add(videoTrackOutput)
-            assetReader.timeRange = CMTimeRange(start: .zero, duration: trackDuration)
-
-            let success = assetReader.startReading()
-            if !success {
-                return print("start reading failed: \(assetReader.status)")
-            }
-            
-            var buffers = [CMSampleBuffer]()
-            while let nextBuffer = videoTrackOutput.copyNextSampleBuffer() {
-                buffers.append(nextBuffer)
-            }
-            
-            var audionSampleBuffers = [CMSampleBuffer]()
-            if let audioTrackOutput = audioTrackOutput {
-                while let nextBuffer = audioTrackOutput.copyNextSampleBuffer() {
-                    audionSampleBuffers.append(nextBuffer)
-                }
-            }
-           
-            
-            let status = assetReader.status
-            guard status == .completed else { return }
-            
-            let fileExtension = "mov"
-            let videoName = UUID().uuidString
-            let writeURL = URL(fileURLWithPath: NSTemporaryDirectory())
-              .appendingPathComponent(videoName)
-              .appendingPathExtension(fileExtension)
-            
-            let compressionVideoSettings: [String:Any] = [
-                        AVVideoCodecKey : AVVideoCodecType.h264,
-                        AVVideoWidthKey : naturalSize.width,
-                        AVVideoHeightKey: naturalSize.height,
-            ]
-            
-            guard let assetWriter = try? AVAssetWriter(url: writeURL, fileType: .mov) else { return }
-
-            let writerVideoInput: AVAssetWriterInput
-            if let formatDescription = try? await videoTrack.load(.formatDescriptions).first {
-                writerVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: compressionVideoSettings, sourceFormatHint: formatDescription)
-            } else {
-                writerVideoInput = AVAssetWriterInput.init(mediaType: .video, outputSettings: compressionVideoSettings)
-            }
-            
-            let preferredTransform = try! await videoTrack.load(.preferredTransform)
-            let (orientation, _) = VideoHelper.orientation(from: preferredTransform)
-            writerVideoInput.transform = VideoHelper.getVideoTransform(orientation: orientation)
-            let pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerVideoInput, sourcePixelBufferAttributes: nil)
-            
-                        
-            assetWriter.add(writerVideoInput)
-            assetWriter.shouldOptimizeForNetworkUse = true
-            assetWriter.startWriting()
-            assetWriter.startSession(atSourceTime: .zero)
-
-            
-            var currentSampleIndex = 0
-            writerVideoInput.requestMediaDataWhenReady(on: DispatchQueue.main) {
-                for i in currentSampleIndex..<buffers.count {
-                    currentSampleIndex = i
-                    guard writerVideoInput.isReadyForMoreMediaData else {return}
-                    
-                    let presentationTime = CMSampleBufferGetPresentationTimeStamp(buffers[i])
-                    guard let imageBuffer = CMSampleBufferGetImageBuffer(buffers[buffers.count - i - 1]) else {
-                        print("VideoWriter reverseVideo: warning, could not get imageBuffer from SampleBuffer...")
-                        continue
-                    }
-                    if !pixelBufferAdaptor.append(imageBuffer, withPresentationTime: presentationTime) {
-                        print("VideoWriter reverseVideo: warning, could not append imageBuffer...")
-                    }
-                }
-                
-                writerVideoInput.markAsFinished()
-                dispatchGroup.leave()
-            }
-            
-            
-            dispatchGroup.notify(queue: DispatchQueue.main) {
-                Task {
-                    await assetWriter.finishWriting()
-                    if assetWriter.status != .completed {
-                        print("VideoWriter reverseVideo: error - \(String(describing: assetWriter.error))")
-                    } else {
-                         let reversedVideo = AVAsset(url: writeURL)
-                         completion(reversedVideo)
-                    }
-                }
-            }
-        }
-    }
+//    func reverseVideo(completion: @escaping (AVAsset?) -> ()) {
+//        Task {
+//            let assetReader = try! AVAssetReader(asset: asset)
+//            guard let videoTrack = try? await asset.loadTracks(withMediaType: .video).first else {
+//                return completion(nil)
+//            }
+//            let trackDuration = try! await asset.load(.duration)
+//            let naturalSize = try! await videoTrack.load(.naturalSize)
+//            let outputSettings: [String: NSNumber] = [
+//                                           String(kCVPixelBufferWidthKey): NSNumber(value: naturalSize.width),
+//                                           String(kCVPixelBufferHeightKey): NSNumber(value: naturalSize.height)]
+//            
+//            
+//
+//            let dispatchGroup = DispatchGroup()
+//            dispatchGroup.enter()
+//
+//            let videoTrackOutput = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: outputSettings)
+//            var audioTrackOutput: AVAssetReaderTrackOutput?
+//            assetReader.add(videoTrackOutput)
+//            assetReader.timeRange = CMTimeRange(start: .zero, duration: trackDuration)
+//
+//            let success = assetReader.startReading()
+//            if !success {
+//                return print("start reading failed: \(assetReader.status)")
+//            }
+//            
+//            var buffers = [CMSampleBuffer]()
+//            while let nextBuffer = videoTrackOutput.copyNextSampleBuffer() {
+//                buffers.append(nextBuffer)
+//            }
+//            
+//            var audionSampleBuffers = [CMSampleBuffer]()
+//            if let audioTrackOutput = audioTrackOutput {
+//                while let nextBuffer = audioTrackOutput.copyNextSampleBuffer() {
+//                    audionSampleBuffers.append(nextBuffer)
+//                }
+//            }
+//           
+//            
+//            let status = assetReader.status
+//            guard status == .completed else { return }
+//            
+//            let fileExtension = "mov"
+//            let videoName = UUID().uuidString
+//            let writeURL = URL(fileURLWithPath: NSTemporaryDirectory())
+//              .appendingPathComponent(videoName)
+//              .appendingPathExtension(fileExtension)
+//            
+//            let compressionVideoSettings: [String:Any] = [
+//                        AVVideoCodecKey : AVVideoCodecType.h264,
+//                        AVVideoWidthKey : naturalSize.width,
+//                        AVVideoHeightKey: naturalSize.height,
+//            ]
+//            
+//            guard let assetWriter = try? AVAssetWriter(url: writeURL, fileType: .mov) else { return }
+//
+//            let writerVideoInput: AVAssetWriterInput
+//            if let formatDescription = try? await videoTrack.load(.formatDescriptions).first {
+//                writerVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: compressionVideoSettings, sourceFormatHint: formatDescription)
+//            } else {
+//                writerVideoInput = AVAssetWriterInput.init(mediaType: .video, outputSettings: compressionVideoSettings)
+//            }
+//            
+//            let preferredTransform = try! await videoTrack.load(.preferredTransform)
+//            let (orientation, _) = VideoHelper.orientation(from: preferredTransform)
+//            writerVideoInput.transform = VideoHelper.getVideoTransform(orientation: orientation)
+//            let pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerVideoInput, sourcePixelBufferAttributes: nil)
+//            
+//                        
+//            assetWriter.add(writerVideoInput)
+//            assetWriter.shouldOptimizeForNetworkUse = true
+//            assetWriter.startWriting()
+//            assetWriter.startSession(atSourceTime: .zero)
+//
+//            
+//            var currentSampleIndex = 0
+//            writerVideoInput.requestMediaDataWhenReady(on: DispatchQueue.main) {
+//                for i in currentSampleIndex..<buffers.count {
+//                    currentSampleIndex = i
+//                    guard writerVideoInput.isReadyForMoreMediaData else {return}
+//                    
+//                    let presentationTime = CMSampleBufferGetPresentationTimeStamp(buffers[i])
+//                    guard let imageBuffer = CMSampleBufferGetImageBuffer(buffers[buffers.count - i - 1]) else {
+//                        print("VideoWriter reverseVideo: warning, could not get imageBuffer from SampleBuffer...")
+//                        continue
+//                    }
+//                    if !pixelBufferAdaptor.append(imageBuffer, withPresentationTime: presentationTime) {
+//                        print("VideoWriter reverseVideo: warning, could not append imageBuffer...")
+//                    }
+//                }
+//                
+//                writerVideoInput.markAsFinished()
+//                dispatchGroup.leave()
+//            }
+//            
+//            
+//            dispatchGroup.notify(queue: DispatchQueue.main) {
+//                Task {
+//                    await assetWriter.finishWriting()
+//                    if assetWriter.status != .completed {
+//                        print("VideoWriter reverseVideo: error - \(String(describing: assetWriter.error))")
+//                    } else {
+//                         let reversedVideo = AVAsset(url: writeURL)
+//                         completion(reversedVideo)
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     
     func createCompositionWith(speed: Float, fps: Int32, soundOn: Bool) async -> (composition: AVMutableComposition, videoComposition: AVMutableVideoComposition)? {

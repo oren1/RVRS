@@ -75,9 +75,9 @@ class VideoHelper {
             case .down:
                 return CGAffineTransform(rotationAngle: .pi)
             case .left:
-                return CGAffineTransform(rotationAngle: .pi/2)
-            case .right:
                 return CGAffineTransform(rotationAngle: -.pi/2)
+            case .right:
+                return CGAffineTransform(rotationAngle: .pi/2)
             default:
                 return .identity
             }
