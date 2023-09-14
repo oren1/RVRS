@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoLibraryUsageDisabledView" customModule="VideoSpeed" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoLibraryUsageDisabledView" customModule="RVRS" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="l2D-YJ-1yk"/>
             </connections>
@@ -44,15 +44,13 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PS4-Rn-Agr">
-                            <rect key="frame" x="331" y="32.666666666666664" width="50" height="34.999999999999993"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cER-6g-8kr">
+                            <rect key="frame" x="329" y="30.000000000000007" width="40" height="40.333333333333336"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="72o-6e-o2n"/>
-                                <constraint firstAttribute="height" constant="35" id="VTc-v4-QMX"/>
+                                <constraint firstAttribute="height" constant="45.670000000000002" id="818-fR-gtB"/>
+                                <constraint firstAttribute="width" constant="40" id="haW-Z3-c8N"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="arrow.forward" catalog="system"/>
-                        </button>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
@@ -60,8 +58,8 @@
                         <constraint firstItem="UHv-Xd-Rgv" firstAttribute="leading" secondItem="q5i-C3-V29" secondAttribute="leading" constant="24" id="566-vF-MHZ"/>
                         <constraint firstAttribute="height" constant="100" id="ATl-6i-fYL"/>
                         <constraint firstItem="UHv-Xd-Rgv" firstAttribute="centerY" secondItem="q5i-C3-V29" secondAttribute="centerY" id="Mjx-Ek-EPE"/>
-                        <constraint firstAttribute="trailing" secondItem="PS4-Rn-Agr" secondAttribute="trailing" constant="12" id="Q11-mo-0Av"/>
-                        <constraint firstItem="PS4-Rn-Agr" firstAttribute="centerY" secondItem="q5i-C3-V29" secondAttribute="centerY" id="WGT-Vy-7RR"/>
+                        <constraint firstAttribute="trailing" secondItem="cER-6g-8kr" secondAttribute="trailing" constant="24" id="bXA-I4-QSP"/>
+                        <constraint firstItem="cER-6g-8kr" firstAttribute="centerY" secondItem="q5i-C3-V29" secondAttribute="centerY" id="vwO-55-Fcj"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="xO7-Fp-DvQ" appends="YES" id="qbw-fN-veX"/>

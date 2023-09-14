@@ -10,8 +10,10 @@ import UIKit
 
 extension UIViewController {
     
-    func showLoading() {
+    func showLoading(opacity: Float?, title: String?) {
         let loadingView = LoadingView()
+        loadingView.layer.opacity = opacity ?? 1
+        loadingView.titleLabel.text = title ?? ""
         loadingView.tag = 12
         disablePresentaionDismiss()
         loadingView.activityIndicator.startAnimating()

@@ -26,8 +26,8 @@ extension Notification.Name {
 
 class SpidProducts {
     
-    static let proVersion = "com.spid.app.pro"
-    static let proVersionConsumable = "ProVersion345"
+    static let proVersion = "ProVersion1234"
+    static let proVersionConsumable = "ProVesionConsumable"
 
     private static let productIdentifiers: Set<ProductIdentifier> = [proVersion, proVersionConsumable]
     
@@ -79,11 +79,11 @@ class IAPManager: NSObject {
     }
 
     func userPurchasedProVersion() -> ProductIdentifier? {
-        #if DEBUG
-            // this string doesn't mean anything, i just return it so the return value
-            // won't be null
-            return "test_identifier"
-        #else
+//        #if DEBUG
+//            // this string doesn't mean anything, i just return it so the return value
+//            // won't be null
+//            return "test_identifier"
+//        #else
             if let purchasedProduct = productIdentifiers.first(where: { productIdentifier in
                 return isProductPurchased(productIdentifier)
             }) {
@@ -91,7 +91,7 @@ class IAPManager: NSObject {
             }
             
             return nil
-        #endif
+//        #endif
     }
     
     public func isProductPurchased(_ productIdentifier: ProductIdentifier) -> Bool {

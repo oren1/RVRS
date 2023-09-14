@@ -9,11 +9,18 @@ import UIKit
 import AVFoundation
 import AVKit
 import Accelerate
+import FirebaseRemoteConfig
+
+
+enum BusinessModelType: Int {
+    case onlyProVersionExport = 0, allowedReverseExport
+}
 
 class EditViewController: UIViewController {
     var playerController: AVPlayerViewController!
     var asset: AVAsset!
     var reversedAsset: AVAsset!
+    var reversedAudio: AVAsset?
     var composition: AVMutableComposition!
     var videoComposition: AVMutableVideoComposition!
     var speed: Float = 1
@@ -25,6 +32,14 @@ class EditViewController: UIViewController {
     var compositionVideoTrack: AVMutableCompositionTrack!
     var exportSession: AVAssetExportSession?
     var timer: Timer?
+    var numberOfLoops: Int = 0
+    var loopStartingPoint: LoopStart = .forward
+    var proButton: UIButton!
+
+    @IBOutlet weak var tabCollectionView: UICollectionView!
+    @IBOutlet weak var soundSwitch: UISwitch!
+    @IBOutlet weak var loopSwitch: UISwitch!
+    @IBOutlet weak var slider: UISlider!
     
     lazy var loadingView: LoadingView = {
         loadingView = LoadingView()
@@ -37,20 +52,37 @@ class EditViewController: UIViewController {
         return progressIndicatorView
     }()
     
+    lazy var blackTransparentOverlay: BlackTransparentOverlay = {
+        blackTransparentOverlay = BlackTransparentOverlay()
+        return blackTransparentOverlay
+    }()
+    
+    lazy var usingProFeaturesAlertView: UsingProFeaturesAlertView = {
+        usingProFeaturesAlertView = UsingProFeaturesAlertView()
+        return usingProFeaturesAlertView
+    }()
     
     @IBOutlet weak var dashboardContainerView: UIView!
-
+    @IBOutlet weak var sectionContainerView: UIView!
+    
+    var speedSectionVC: SpeedSectionVC!
+    var loopSectionVC: LoopSectionVC!
+    var soundSectionVC: SoundSectionVC!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        title = "Edit"
+        proButton = createProButton()
+
+        showLoading(opacity: 1, title: "Reversing Video")
+        
+        addSpeedSection()
+        addLoopSection()
+        addSoundSection()
+        
+
         showSpeedSection()
         asset = AVAsset(url: assetUrl)
-        
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         let fileExtension = "mov"
          let videoName = UUID().uuidString
          let outputURL = URL(fileURLWithPath: NSTemporaryDirectory())
@@ -58,12 +90,43 @@ class EditViewController: UIViewController {
            .appendingPathExtension(fileExtension)
         
         Task {
-            showLoading()
             let session = await AssetReverseSession(asset: self.asset, outputFileURL: outputURL)
-            let reversedAsset = try await session.reverse()
+            let reversedVideo = try await session.reverse()
+           
+            if let audioFileURL = await self.extractAudioTrackToFileIfExists(asset: self.asset),
+               let reversedAudioUrl = self.reverseAudio(fromUrl: audioFileURL) {
+                
+                let reversedAudio = AVAsset(url: reversedAudioUrl)
+                self.reversedAudio = reversedAudio
+                let reversedAsset = await self.integrate(reversedVideo: reversedVideo, reversedAudio: reversedAudio)
+                if reversedAsset != nil {
+                    self.reversedAsset = reversedAsset
+                }
+                else {
+                    self.reversedAsset = reversedVideo
+                }
+            }
+            else {
+                self.reversedAsset = reversedVideo
+            }
+            
+            
+            guard let (composition, videoComposition) = await createCompositionWith(speed: speed,
+                                                                                    fps: fps,
+                                                                                    soundOn: UserDataManager.soundOn) else {
+                return showNoTracksError()
+            }
+            self.composition = composition
+            self.videoComposition = videoComposition
+            let compositionCopy = self.composition.copy() as! AVComposition
+            let videoCompositionCopy = self.videoComposition.copy() as! AVVideoComposition
+
+            
             hideLoading()
-            let playerItem = AVPlayerItem(asset: reversedAsset)
+            setNavigationItems()
+            let playerItem = AVPlayerItem(asset: compositionCopy)
             playerItem.audioTimePitchAlgorithm = .spectral
+            playerItem.videoComposition = videoCompositionCopy
             let player = AVPlayer(playerItem: playerItem)
             self.playerController = AVPlayerViewController()
             self.playerController.player = player
@@ -72,36 +135,11 @@ class EditViewController: UIViewController {
         }
     }
     
-//    func reverseAsset(completion: @escaping (AVAsset?) -> ()) {
-//        reverseVideo { [weak self] reversedVideo in
-//            guard let self = self else {return}
-//            guard let reversedVideo = reversedVideo else {
-//                return completion(nil)
-//            }
-//            
-//            Task {
-//                if let audioFileURL = await self.extractAudioTrackToFileIfExists(asset: self.asset),
-//                   let reversedAudioUrl = self.reverseAudio(fromUrl: audioFileURL) {
-//                    let reversedAudio = AVAsset(url: reversedAudioUrl)
-//                    
-//                    // combine reversed audio asset to video
-//                    let reversedAsset = await self.integrate(reversedVideo: reversedVideo, reversedAudio: reversedAudio)
-//                    if reversedAsset != nil {
-//                        self.reversedAsset = reversedAsset
-//                        completion(reversedAsset)
-//                    }
-//                    else {
-//                        completion(nil)
-//                    }
-//                }
-//                else {
-//                    self.reversedAsset = reversedVideo
-//                    completion(reversedVideo)
-//                }
-//            }
-//        }
-//    }
-
+    deinit {
+        UserDataManager.usingLoops = false
+        UserDataManager.usingSpeedSlider = false
+        UserDataManager.soundOn = true
+    }
     
     func integrate(reversedVideo: AVAsset, reversedAudio: AVAsset) async -> AVAsset? {
         let composition = AVMutableComposition(urlAssetInitializationOptions: nil)
@@ -125,6 +163,8 @@ class EditViewController: UIViewController {
                                                                 of: audioTrack,
                                                                 at: CMTime.invalid)
         
+        let preferredTransform = try! await videoTrack.load(.preferredTransform)
+        compositionVideoTrack.preferredTransform = preferredTransform
         return composition
     }
     
@@ -206,125 +246,138 @@ class EditViewController: UIViewController {
         }
     }
         
-//    func reverseVideo(completion: @escaping (AVAsset?) -> ()) {
-//        Task {
-//            let assetReader = try! AVAssetReader(asset: asset)
-//            guard let videoTrack = try? await asset.loadTracks(withMediaType: .video).first else {
-//                return completion(nil)
-//            }
-//            let trackDuration = try! await asset.load(.duration)
-//            let naturalSize = try! await videoTrack.load(.naturalSize)
-//            let outputSettings: [String: NSNumber] = [
-//                                           String(kCVPixelBufferWidthKey): NSNumber(value: naturalSize.width),
-//                                           String(kCVPixelBufferHeightKey): NSNumber(value: naturalSize.height)]
-//            
-//            
-//
-//            let dispatchGroup = DispatchGroup()
-//            dispatchGroup.enter()
-//
-//            let videoTrackOutput = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: outputSettings)
-//            var audioTrackOutput: AVAssetReaderTrackOutput?
-//            assetReader.add(videoTrackOutput)
-//            assetReader.timeRange = CMTimeRange(start: .zero, duration: trackDuration)
-//
-//            let success = assetReader.startReading()
-//            if !success {
-//                return print("start reading failed: \(assetReader.status)")
-//            }
-//            
-//            var buffers = [CMSampleBuffer]()
-//            while let nextBuffer = videoTrackOutput.copyNextSampleBuffer() {
-//                buffers.append(nextBuffer)
-//            }
-//            
-//            var audionSampleBuffers = [CMSampleBuffer]()
-//            if let audioTrackOutput = audioTrackOutput {
-//                while let nextBuffer = audioTrackOutput.copyNextSampleBuffer() {
-//                    audionSampleBuffers.append(nextBuffer)
-//                }
-//            }
-//           
-//            
-//            let status = assetReader.status
-//            guard status == .completed else { return }
-//            
-//            let fileExtension = "mov"
-//            let videoName = UUID().uuidString
-//            let writeURL = URL(fileURLWithPath: NSTemporaryDirectory())
-//              .appendingPathComponent(videoName)
-//              .appendingPathExtension(fileExtension)
-//            
-//            let compressionVideoSettings: [String:Any] = [
-//                        AVVideoCodecKey : AVVideoCodecType.h264,
-//                        AVVideoWidthKey : naturalSize.width,
-//                        AVVideoHeightKey: naturalSize.height,
-//            ]
-//            
-//            guard let assetWriter = try? AVAssetWriter(url: writeURL, fileType: .mov) else { return }
-//
-//            let writerVideoInput: AVAssetWriterInput
-//            if let formatDescription = try? await videoTrack.load(.formatDescriptions).first {
-//                writerVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: compressionVideoSettings, sourceFormatHint: formatDescription)
-//            } else {
-//                writerVideoInput = AVAssetWriterInput.init(mediaType: .video, outputSettings: compressionVideoSettings)
-//            }
-//            
-//            let preferredTransform = try! await videoTrack.load(.preferredTransform)
-//            let (orientation, _) = VideoHelper.orientation(from: preferredTransform)
-//            writerVideoInput.transform = VideoHelper.getVideoTransform(orientation: orientation)
-//            let pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerVideoInput, sourcePixelBufferAttributes: nil)
-//            
-//                        
-//            assetWriter.add(writerVideoInput)
-//            assetWriter.shouldOptimizeForNetworkUse = true
-//            assetWriter.startWriting()
-//            assetWriter.startSession(atSourceTime: .zero)
-//
-//            
-//            var currentSampleIndex = 0
-//            writerVideoInput.requestMediaDataWhenReady(on: DispatchQueue.main) {
-//                for i in currentSampleIndex..<buffers.count {
-//                    currentSampleIndex = i
-//                    guard writerVideoInput.isReadyForMoreMediaData else {return}
-//                    
-//                    let presentationTime = CMSampleBufferGetPresentationTimeStamp(buffers[i])
-//                    guard let imageBuffer = CMSampleBufferGetImageBuffer(buffers[buffers.count - i - 1]) else {
-//                        print("VideoWriter reverseVideo: warning, could not get imageBuffer from SampleBuffer...")
-//                        continue
-//                    }
-//                    if !pixelBufferAdaptor.append(imageBuffer, withPresentationTime: presentationTime) {
-//                        print("VideoWriter reverseVideo: warning, could not append imageBuffer...")
-//                    }
-//                }
-//                
-//                writerVideoInput.markAsFinished()
-//                dispatchGroup.leave()
-//            }
-//            
-//            
-//            dispatchGroup.notify(queue: DispatchQueue.main) {
-//                Task {
-//                    await assetWriter.finishWriting()
-//                    if assetWriter.status != .completed {
-//                        print("VideoWriter reverseVideo: error - \(String(describing: assetWriter.error))")
-//                    } else {
-//                         let reversedVideo = AVAsset(url: writeURL)
-//                         completion(reversedVideo)
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-    
+    func createLoopAsset(startingPoint: LoopStart) async -> (composition: AVMutableComposition, videoComposition: AVMutableVideoComposition)? {
+        let composition = AVMutableComposition(urlAssetInitializationOptions: nil)
+        let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: 1)!
+        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
+
+        if  soundOn,
+            let reversedAudioTrack = try? await reversedAsset.loadTracks(withMediaType: .audio).first,
+            let forwardAudioTrack = try? await asset.loadTracks(withMediaType: .audio).first {
+            
+            
+            guard let reversedAudioDuration = try? await reversedAsset.load(.duration),
+                  let forwardAudioDuration = try? await asset.load(.duration) else {return nil}
+            
+            if startingPoint == .forward {
+                try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: forwardAudioDuration),
+                                                           of: forwardAudioTrack,
+                                                           at: CMTime.invalid)
+                try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: reversedAudioDuration),
+                                                           of: reversedAudioTrack,
+                                                           at: CMTime.invalid)
+            }
+            else if startingPoint == .reverse{
+                try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: reversedAudioDuration),
+                                                           of: reversedAudioTrack,
+                                                           at: CMTime.invalid)
+                try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: forwardAudioDuration),
+                                                           of: forwardAudioTrack,
+                                                           at: CMTime.invalid)
+            }
+        }
+        
+        
+        guard let reversedVideoTrack = try? await reversedAsset.loadTracks(withMediaType: .video).first,
+              let forwardVideoTrack = try? await asset.loadTracks(withMediaType: .video).first,
+              let reversedVideoDuration = try? await reversedAsset.load(.duration),
+              let forwardVideoDuration = try? await asset.load(.duration) else {return nil}
+        
+        
+        if startingPoint == .forward {
+            try? compositionVideoTrack.insertTimeRange(CMTimeRange(start: .zero, duration: forwardVideoDuration),
+                                                       of: forwardVideoTrack,
+                                                       at: CMTime.invalid)
+            try? compositionVideoTrack.insertTimeRange(CMTimeRange(start: .zero, duration: reversedVideoDuration),
+                                                       of: reversedVideoTrack,
+                                                       at: CMTime.invalid)
+        }
+        else if startingPoint == .reverse{
+            try? compositionVideoTrack.insertTimeRange(CMTimeRange(start: .zero, duration: reversedVideoDuration),
+                                                       of: reversedVideoTrack,
+                                                       at: CMTime.invalid)
+            try? compositionVideoTrack.insertTimeRange(CMTimeRange(start: .zero, duration: forwardVideoDuration),
+                                                       of: forwardVideoTrack,
+                                                       at: CMTime.invalid)
+        }
+        
+        guard let compositioDuration = try? await composition.load(.duration) else {return nil}
+        let newDuration = Int64(compositioDuration.seconds / Double(speed))
+        composition.scaleTimeRange(CMTimeRange(start: .zero, duration: compositioDuration), toDuration: CMTime(value: newDuration, timescale: 1))
+        
+        let loopComposition = AVMutableComposition(urlAssetInitializationOptions: nil)
+        let loopCompositionVideoTrack = loopComposition.addMutableTrack(withMediaType: .video, preferredTrackID: 1)!
+        let loopCompositionAudioTrack = loopComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
+        
+        if numberOfLoops != 0 {
+            guard let compositionVideoTrack = try? await composition.loadTracks(withMediaType: .video).first,
+                  let compositionAudioTrack = try? await composition.loadTracks(withMediaType: .audio).first
+            else
+            {
+                return nil
+                
+            }
+            
+            for i in 0..<numberOfLoops {
+                try? loopCompositionVideoTrack.insertTimeRange(CMTimeRange(start: .zero, duration: compositioDuration), of: compositionVideoTrack, at: CMTime.invalid)
+                try? loopCompositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: compositioDuration), of: compositionAudioTrack, at: CMTime.invalid)
+            }
+            
+            
+            let naturalSize = try! await reversedVideoTrack.load(.naturalSize)
+            let preferredTransform = try! await reversedVideoTrack.load(.preferredTransform)
+            compositionVideoTrack.preferredTransform = preferredTransform
+
+            let videoInfo = VideoHelper.orientation(from: preferredTransform)
+            print("videoInfo.orientation \(videoInfo.orientation)")
+
+            let videoSize: CGSize
+
+            if videoInfo.isPortrait {
+              videoSize = CGSize(
+                width: naturalSize.height,
+                height: naturalSize.width)
+            } else {
+              videoSize = naturalSize
+            }
+            
+            print("videoSize \(videoSize)")
+
+            
+            let instruction = AVMutableVideoCompositionInstruction()
+            instruction.timeRange = CMTimeRange(
+              start: .zero,
+              duration: loopComposition.duration)
+            
+            let layerInstruction = await compositionLayerInstruction(
+              for: compositionVideoTrack,
+              assetTrack: reversedVideoTrack,
+              videoSize: videoSize,
+              isPortrait: videoInfo.isPortrait)
+            
+            instruction.layerInstructions = [layerInstruction]
+            
+            let videoComposition = AVMutableVideoComposition()
+            videoComposition.instructions = [instruction]
+            videoComposition.frameDuration = CMTimeMake(value: 1, timescale: fps)
+            videoComposition.renderSize = videoSize
+
+
+            return (loopComposition,videoComposition)
+        }
+        else {
+            return nil
+        }
+        
+    }
     func createCompositionWith(speed: Float, fps: Int32, soundOn: Bool) async -> (composition: AVMutableComposition, videoComposition: AVMutableVideoComposition)? {
         let composition = AVMutableComposition(urlAssetInitializationOptions: nil)
 
         let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: 1)!
-        
-        if let audioTracks = try? await reversedAsset.loadTracks(withMediaType: .audio),
-           soundOn && audioTracks.count > 0 {
+
+        if  soundOn,
+            let audioTracks = try? await reversedAsset.loadTracks(withMediaType: .audio),
+            audioTracks.count > 0 {
             let audioTrack = audioTracks[0]
             let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
             let audioDuration = try! await reversedAsset.load(.duration)
@@ -332,7 +385,6 @@ class EditViewController: UIViewController {
             try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: audioDuration),
                                                                     of: audioTrack,
                                                                     at: CMTime.invalid)
-
         }
         
         
@@ -401,7 +453,25 @@ class EditViewController: UIViewController {
     
     
     func reloadComposition() async {
-        guard let (composition, videoComposition) = await createCompositionWith(speed: speed, fps: fps, soundOn: soundOn) else {
+        
+        if numberOfLoops != 0,
+           let (composition, videoComposition) = await createLoopAsset(startingPoint: loopStartingPoint){
+            self.composition = composition
+            self.videoComposition = videoComposition
+            let compositionCopy = self.composition.copy() as! AVComposition
+            let videoCompositionCopy = self.videoComposition.copy() as! AVVideoComposition
+
+            let playerItem = AVPlayerItem(asset: compositionCopy)
+            playerItem.audioTimePitchAlgorithm = .spectral
+            playerItem.videoComposition = videoCompositionCopy
+
+            playerController.player?.replaceCurrentItem(with: playerItem)
+            return
+        }
+        
+        guard let (composition, videoComposition) = await createCompositionWith(speed: speed,
+                                                                                fps: fps,
+                                                                                soundOn: UserDataManager.soundOn) else {
             return showNoTracksError()
         }
         self.composition = composition
@@ -432,52 +502,56 @@ class EditViewController: UIViewController {
     }
     
     @objc func exportVideo() {
-        let theComposition = composition.copy() as! AVComposition
-        let videoComposition = videoComposition.copy() as! AVVideoComposition
-        
-        guard let exportSession = AVAssetExportSession(
-          asset: theComposition,
-          presetName: AVAssetExportPresetHighestQuality)
-          else {
-            print("Cannot create export session.")
-            return
-        }
-        
-        self.exportSession = nil
-        self.exportSession = exportSession
-        
-        let fileExtension = fileType == .mov ? "mov" : "mp4"
-        let videoName = UUID().uuidString
-        let exportURL = URL(fileURLWithPath: NSTemporaryDirectory())
-          .appendingPathComponent(videoName)
-          .appendingPathExtension(fileExtension)
-        
-        exportSession.videoComposition = videoComposition
-        exportSession.outputFileType = fileType
-        exportSession.outputURL = exportURL
-        
-        showProgreeView()
-        exportSession.exportAsynchronously {
-            DispatchQueue.main.async { [weak self] in
-              guard let self = self else { return  }
-              self.removeProgressView()
-              switch exportSession.status {
-              case .completed:
-                print("completed export with url: \(exportURL)")
-                  guard UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(exportURL.relativePath) else { return }
-                   
-                   // 3
-                  UISaveVideoAtPathToSavedPhotosAlbum(exportURL.relativePath, self, #selector(self.video(_:didFinishSavingWithError:contextInfo:)),nil)
-                  
-              default:
-                print("Something went wrong during export.")
-                print(exportSession.error ?? "unknown error")
-                break
-              }
+        Task {
+            let theComposition = composition.copy() as! AVComposition
+            let videoComposition = videoComposition.copy() as! AVVideoComposition
+            
+            guard let exportSession = AVAssetExportSession(
+              asset: theComposition,
+              presetName: AVAssetExportPresetHighestQuality)
+              else {
+                print("Cannot create export session.")
+                return
             }
+            
+            let compositionDuration = try! await theComposition.load(.duration)
+            let fifthOfSecond = CMTime(value: 50, timescale: 1000)
+            exportSession.timeRange = CMTimeRange(start: fifthOfSecond, duration: compositionDuration - fifthOfSecond)
+            self.exportSession = nil
+            self.exportSession = exportSession
+            
+            let fileExtension = "mov"
+            let videoName = UUID().uuidString
+            let exportURL = URL(fileURLWithPath: NSTemporaryDirectory())
+              .appendingPathComponent(videoName)
+              .appendingPathExtension(fileExtension)
+            
+            exportSession.videoComposition = videoComposition
+            exportSession.outputFileType = .mov
+            exportSession.outputURL = exportURL
+            
+            showProgreeView()
+            exportSession.exportAsynchronously {
+                DispatchQueue.main.async { [weak self] in
+                  guard let self = self else { return  }
+                  self.removeProgressView()
+                  switch exportSession.status {
+                  case .completed:
+                    print("completed export with url: \(exportURL)")
+                      guard UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(exportURL.relativePath) else { return }
+                       
+                       // 3
+                      UISaveVideoAtPathToSavedPhotosAlbum(exportURL.relativePath, self, #selector(self.video(_:didFinishSavingWithError:contextInfo:)),nil)
+                      
+                  default:
+                    print("Something went wrong during export.")
+                    print(exportSession.error ?? "unknown error")
+                    break
+                  }
+                }
 
+            }
         }
-        
     }
     
     @objc func video(
@@ -546,32 +620,199 @@ class EditViewController: UIViewController {
         return instruction
     }
     
+    // MARK: - UI
+    func setNavigationItems() {
+        let exportButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tryToExportVideo))
     
+        navigationItem.rightBarButtonItems = [exportButton]
+    }
+    func showBlackTransparentOverlay() {
+        self.navigationController!.view.addSubview(blackTransparentOverlay)
+        blackTransparentOverlay.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            blackTransparentOverlay.topAnchor.constraint(equalTo: navigationController!.view.topAnchor),
+            blackTransparentOverlay.leftAnchor.constraint(equalTo: navigationController!.view.leftAnchor),
+            blackTransparentOverlay.rightAnchor.constraint(equalTo: navigationController!.view.rightAnchor),
+            blackTransparentOverlay.bottomAnchor.constraint(equalTo: navigationController!.view.bottomAnchor),
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    func hideBlackTransparentOverlay() {
+        blackTransparentOverlay.removeFromSuperview()
+    }
+    
+    func showUsingProFeaturesAlertView() {
+        usingProFeaturesAlertView.updateStatus(usingSlider: UserDataManager.usingSpeedSlider,
+                                               usingLoops: UserDataManager.usingLoops,
+                                               soundOn: UserDataManager.soundOn)
+        usingProFeaturesAlertView.layer.opacity = 0
+        self.navigationController!.view.addSubview(usingProFeaturesAlertView)
+        usingProFeaturesAlertView.translatesAutoresizingMaskIntoConstraints = false
+        usingProFeaturesAlertView.onCancel = { [weak self] in
+            self?.hideProFeatureAlert()
+        }
+        usingProFeaturesAlertView.onContinue = { [weak self] in
+            self?.showPurchaseViewController()
+            self?.hideProFeatureAlert()
+        }
+        let constraints = [
+            usingProFeaturesAlertView.heightAnchor.constraint(equalToConstant: 300),
+            usingProFeaturesAlertView.widthAnchor.constraint(equalToConstant: 340),
+            usingProFeaturesAlertView.centerXAnchor.constraint(equalTo: navigationController!.view.safeAreaLayoutGuide.centerXAnchor),
+            usingProFeaturesAlertView.centerYAnchor.constraint(equalTo: navigationController!.view.safeAreaLayoutGuide.centerYAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            self?.usingProFeaturesAlertView.layer.opacity = 1
+        }
+        
+    }
+    func hideUsingProFeaturesAlertView() {
+        usingProFeaturesAlertView.removeFromSuperview()
+    }
+    
+    func showProFeatureAlert() {
+        showBlackTransparentOverlay()
+        showUsingProFeaturesAlertView()
+    }
+    
+    func hideProFeatureAlert() {
+        self.hideBlackTransparentOverlay()
+        self.hideUsingProFeaturesAlertView()
+    }
+    
+    func createProButton() -> UIButton {
+        let proButton = UIButton(type: .roundedRect)
+        proButton.tintColor = .systemBlue
+        proButton.backgroundColor = .white
+        proButton.setTitle("Pro Version", for: .normal)
+        proButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        proButton.addTarget(self, action: #selector(proButtonTapped), for: .touchUpInside)
+        proButton.layer.cornerRadius = 8
+        proButton.layer.borderWidth = 1
+        proButton.layer.borderColor = UIColor.lightGray.cgColor
+        return proButton
+    }
+    
+    func showProButtonIfNeeded() {
+        guard SpidProducts.store.userPurchasedProVersion() == nil else {return}
+        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
+        let businessModel = BusinessModelType(rawValue: businessModelType)
+        guard businessModel == .allowedReverseExport  else {return}
+        
+        if UserDataManager.main.usingProFeatures() {
+            self.showProButton()
+        }
+        else {
+            self.hideProButton()
+        }
+    }
+    func showProButton() {
+        self.view.addSubview(proButton)
+        proButton.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            proButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            proButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18),
+            proButton.widthAnchor.constraint(equalToConstant: 100),
+            proButton.heightAnchor.constraint(equalToConstant: 34)
+        ]
+        NSLayoutConstraint.activate(constraints)
+    }
+    func hideProButton() {
+        proButton.removeFromSuperview()
+    }
     // MARK: - Actions
-    
+    @IBAction func soundStateChanged(_ switch: UISwitch) {
+        Task {
+            await reloadComposition()
+        }
+    }
     // MARK: - Sections Logic
     func addSection(sectionVC: SectionViewController) {
         addChild(sectionVC)
-        dashboardContainerView.addSubview(sectionVC.view)
+        sectionContainerView.addSubview(sectionVC.view)
         sectionVC.view.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
-            sectionVC.view.topAnchor.constraint(equalTo: dashboardContainerView.topAnchor),
-            sectionVC.view.leftAnchor.constraint(equalTo: dashboardContainerView.leftAnchor),
-            sectionVC.view.rightAnchor.constraint(equalTo: dashboardContainerView.rightAnchor),
-            sectionVC.view.bottomAnchor.constraint(equalTo: dashboardContainerView.bottomAnchor),
+            sectionVC.view.topAnchor.constraint(equalTo: sectionContainerView.topAnchor),
+            sectionVC.view.leftAnchor.constraint(equalTo: sectionContainerView.leftAnchor),
+            sectionVC.view.rightAnchor.constraint(equalTo: sectionContainerView.rightAnchor),
+            sectionVC.view.bottomAnchor.constraint(equalTo: sectionContainerView.bottomAnchor),
         ]
         NSLayoutConstraint.activate(constraints)
         
         sectionVC.didMove(toParent: self)
     }
     
+    func addSpeedSection() {
+        speedSectionVC = SpeedSectionVC()
+        
+        speedSectionVC.sliderValueChange = { [weak self] (speed: Float) -> () in
+            self?.showProButtonIfNeeded()
+        }
+        
+        speedSectionVC.speedDidChange = { [weak self] (speed: Float) -> () in
+            self?.speed = speed
+           
+            Task {
+              await self?.reloadComposition()
+            }
+        }
+        
+        addSection(sectionVC: speedSectionVC)
+    }
+    
+    func addLoopSection() {
+        loopSectionVC = LoopSectionVC()
+        loopSectionVC.loopSettingsChanged = { [weak self] (numberOfLoops,loopStartingPoint) in
+            self?.loopStartingPoint = loopStartingPoint
+            self?.numberOfLoops = numberOfLoops
+            self?.showProButtonIfNeeded()
+            
+            Task {
+              await self?.reloadComposition()
+            }
+        }
+        
+        
+        addSection(sectionVC: loopSectionVC)
+    }
+    
+    func addSoundSection() {
+        soundSectionVC = SoundSectionVC()
+        soundSectionVC.soundStateDidChange = {[weak self] soundOn in
+            self?.soundOn = soundOn
+            self?.showProButtonIfNeeded()
+            Task {
+              await self?.reloadComposition()
+            }
+        }
+        
+        addSection(sectionVC: soundSectionVC)
+    }
     
     func showSpeedSection() {
+        speedSectionVC.view.isHidden = false
+        loopSectionVC.view.isHidden = true
+        soundSectionVC.view.isHidden = true
+    }
+    
+    func showLoopSection() {
+        speedSectionVC.view.isHidden = true
+        loopSectionVC.view.isHidden = false
+        soundSectionVC.view.isHidden = true
 
     }
 
+    func showSoundSection() {
+        speedSectionVC.view.isHidden = true
+        loopSectionVC.view.isHidden = true
+        soundSectionVC.view.isHidden = false
 
+    }
     
     func showProgreeView() {
         view.addSubview(progressIndicatorView)
@@ -597,9 +838,40 @@ class EditViewController: UIViewController {
         timer = nil
         progressIndicatorView.removeFromSuperview()
     }
-    
+    @objc func proButtonTapped() {
+         showPurchaseViewController()
+     }
     
     // MARK: - Custom Logic
+    @objc func tryToExportVideo() {
+        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
+        let businessModel = BusinessModelType(rawValue: businessModelType)
+        switch businessModel {
+        case .onlyProVersionExport:
+            guard let _ = SpidProducts.store.userPurchasedProVersion() else {
+                showPurchaseViewController()
+                return
+            }
+
+            exportVideo()
+        case .allowedReverseExport:
+           guard let _ = SpidProducts.store.userPurchasedProVersion() else {
+               if !UserDataManager.main.usingProFeatures() {
+                   exportVideo()
+               }
+               else {
+                   showProFeatureAlert()
+               }
+               return
+            }
+
+            exportVideo()
+        case .none:
+            fatalError()
+        }
+        
+    }
+    
     @objc func updateExportProgress() {
         guard let progress = exportSession?.progress else { return }
         progressIndicatorView.progressView.progress = progress
@@ -607,6 +879,12 @@ class EditViewController: UIViewController {
 
     func showPurchaseViewController() {
         let purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+        
+        purchaseViewController.onDismiss = { [weak self] in
+            if let _ = SpidProducts.store.userPurchasedProVersion() {
+                self?.hideProButton()
+            }
+        }
         if UIDevice.current.userInterfaceIdiom == .phone {
             purchaseViewController.modalPresentationStyle = .fullScreen
         }

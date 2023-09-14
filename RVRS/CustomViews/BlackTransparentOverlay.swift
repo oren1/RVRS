@@ -1,20 +1,15 @@
 //
-//  LoadingView.swift
+//  BlackTransparentOverlay.swift
 //  VideoSpeed
 //
-//  Created by oren shalev on 27/07/2023.
+//  Created by oren shalev on 18/08/2023.
 //
 
 import UIKit
 
-class LoadingView: UIView {
+class BlackTransparentOverlay: UIView {
 
-    
     @IBOutlet var contentView: UIView!
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -26,7 +21,7 @@ class LoadingView: UIView {
     }
     
     func commonInit() {
-        Bundle.main.loadNibNamed("LoadingView", owner: self)
+        Bundle.main.loadNibNamed("BlackTransparentOverlay", owner: self)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

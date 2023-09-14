@@ -22,7 +22,7 @@ extension PHAsset {
     func getAVAssetUrl(completionHandler : @escaping ((_ responseURL : URL?) -> Void)){
                let options: PHVideoRequestOptions = PHVideoRequestOptions()
         options.version = .current
-        options.deliveryMode = .highQualityFormat
+        options.deliveryMode = .fastFormat
                PHImageManager.default().requestAVAsset(forVideo: self, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                    if let urlAsset = asset as? AVURLAsset {
                             let localVideoUrl: URL = urlAsset.url as URL

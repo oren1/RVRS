@@ -7,15 +7,18 @@
 
 import UIKit
 import StoreKit
+import FirebaseRemoteConfig
 
 class PurchaseViewController: UIViewController {
 
     var product: SKProduct!
 
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    
+    var onDismiss: VoidClosure?
+
     @IBOutlet weak var oneTimeChargeLabel: UILabel!
     lazy var loadingView: LoadingView = {
         loadingView = LoadingView()
@@ -28,6 +31,17 @@ class PurchaseViewController: UIViewController {
         product = UserDataManager.main.products.first {$0.productIdentifier == productIdentifier}
         priceLabel.text = product.localizedPrice
         
+        
+        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
+        let businessModel = BusinessModelType(rawValue: businessModelType)
+        switch businessModel {
+        case .onlyProVersionExport:
+            titleLabel.text = "Start Using Rvrs Now!"
+        case .allowedReverseExport:
+            titleLabel.text = "Use Rvrs Pro Now!"
+        case .none:
+            fatalError()
+        }
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             backButton.isHidden = true
@@ -48,12 +62,12 @@ class PurchaseViewController: UIViewController {
             return
         }
         
-        showLoading()
+        showLoading(opacity: 0.4, title: nil)
         SpidProducts.store.buyProduct(product)
     }
     
     @IBAction func restoreButtonTapped(_ sender: Any) {
-        showLoading()
+        showLoading(opacity: 0.4, title: nil)
         SpidProducts.store.restorePurchases()
     }
     
@@ -72,23 +86,19 @@ class PurchaseViewController: UIViewController {
     
     // MARK: - NotificationCenter Selectors
     @objc func purchaseCompleted(notification: Notification) {
+        onDismiss?()
         hideLoading()
-        let alertController = UIAlertController(title: "Purchase completed successfuly", message: "You can enjoy unlimited access to all features", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
-        present(alertController, animated: true, completion: nil)
+        dismiss(animated: true)
+        
     }
 
     
     
     @objc func restoreCompleted(notification: Notification) {
+        onDismiss?()
         hideLoading()
-        let alertController = UIAlertController(title: "Restore completed successfuly", message: "You can enjoy unlimited access to all features", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-
-        alertController.addAction(action)
-
-        present(alertController, animated: true, completion: nil)
+        dismiss(animated: true)
+        
     }
     
     @objc func purchaseFailed(notification: Notification) {

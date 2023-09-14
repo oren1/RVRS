@@ -19,10 +19,9 @@ class SplashViewController: UIViewController, GADFullScreenContentDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        RemoteConfig.remoteConfig().setDefaults(fromPlist: "remote_config_defaults")
-
+        
         let downloadGroup = DispatchGroup()
-
+        
         downloadGroup.enter()
         SpidProducts.store.requestProducts { success, products in
             if let products = products, success {
@@ -69,7 +68,7 @@ class SplashViewController: UIViewController, GADFullScreenContentDelegate {
         }
         
         guard AppOpenAd.manager.amountOfAppOpens >= AppOpenAd.manager.minimumAppOpensRequiredToShowAd else {
-            print("AppOpenAd: amount of ads less than minimum")
+            print("AppOpenAd: amount of ads less than minimum",AppOpenAd.manager.amountOfAppOpens,AppOpenAd.manager.minimumAppOpensRequiredToShowAd)
             completion()
             return
         }
