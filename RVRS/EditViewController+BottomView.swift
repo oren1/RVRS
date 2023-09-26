@@ -25,10 +25,6 @@ private let reuseIdentifier = "tabItem"
 private let sectionInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 private let itemsPerRow: CGFloat = 3
 
-var tabs = [TabItem(title: "Loops", selected: false, imageName: "infinity.circle", selectedImageName: "infinity.circle.fill"),
-            TabItem(title: "Speed", selected: true, imageName: "timer.circle", selectedImageName: "timer.circle.fill"),
-            TabItem(title: "Sound", selected: false, imageName: "volume.2", selectedImageName: "volume.2.fill")
-            ]
 
 // MARK: - UICollectionViewDataSource
 extension EditViewController: UICollectionViewDataSource {

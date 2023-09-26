@@ -31,11 +31,12 @@
 		6B71AADA2A9B79B700C06619 /* LoopItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AAD82A9B79B700C06619 /* LoopItemCollectionViewCell.xib */; };
 		6B71AADD2A9DE5C800C06619 /* SoundSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B71AADB2A9DE5C800C06619 /* SoundSectionVC.swift */; };
 		6B71AADE2A9DE5C800C06619 /* SoundSectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AADC2A9DE5C800C06619 /* SoundSectionVC.xib */; };
-		6B71AAE02AA1DBF200C06619 /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AADF2AA1DBF200C06619 /* remote_config_defaults.plist */; };
 		6B71AAE32AA1E00200C06619 /* BlackTransparentOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B71AAE12AA1E00200C06619 /* BlackTransparentOverlay.swift */; };
 		6B71AAE42AA1E00200C06619 /* BlackTransparentOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AAE22AA1E00200C06619 /* BlackTransparentOverlay.xib */; };
 		6B71AAE72AA1E01100C06619 /* UsingProFeaturesAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AAE52AA1E01000C06619 /* UsingProFeaturesAlertView.xib */; };
 		6B71AAE82AA1E01100C06619 /* UsingProFeaturesAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B71AAE62AA1E01100C06619 /* UsingProFeaturesAlertView.swift */; };
+		6B71AAED2AC2D3A400C06619 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AAEC2AC2D3A400C06619 /* GoogleService-Info.plist */; };
+		6B71AAEF2AC2D4D100C06619 /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AAEE2AC2D4D100C06619 /* remote_config_defaults.plist */; };
 		6B92E3592A77A192008CB22A /* AppOpenAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B92E3582A77A192008CB22A /* AppOpenAd.swift */; };
 		6B92E35B2A77C72C008CB22A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9A2ED2A5FC80C00FF8CB0 /* SceneDelegate.swift */; };
 		6B92E35D2A7933C3008CB22A /* SuccessMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B92E35C2A7933C3008CB22A /* SuccessMessageViewController.swift */; };
@@ -44,7 +45,6 @@
 		6B92E3692A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B92E3682A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib */; };
 		6BAC9BBF2A666EBE0071A41B /* TopIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BAC9BBE2A666EBE0071A41B /* TopIndicatorView.xib */; };
 		6BAC9BC12A666EEA0071A41B /* TopIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAC9BC02A666EEA0071A41B /* TopIndicatorView.swift */; };
-		6BB4EE6C2A823965006CF87C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4EE6B2A823965006CF87C /* GoogleService-Info.plist */; };
 		6BB4EE702A8268C2006CF87C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB4EE6F2A8268C2006CF87C /* UIViewController+Extension.swift */; };
 		6BB4EE722A862E5A006CF87C /* bla.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6BB4EE712A862E5A006CF87C /* bla.mp3 */; };
 		6BCAF7EC2A63C5100039BE15 /* SpeedSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAF7EA2A63C5100039BE15 /* SpeedSectionVC.swift */; };
@@ -95,11 +95,12 @@
 		6B71AAD82A9B79B700C06619 /* LoopItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoopItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		6B71AADB2A9DE5C800C06619 /* SoundSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSectionVC.swift; sourceTree = "<group>"; };
 		6B71AADC2A9DE5C800C06619 /* SoundSectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoundSectionVC.xib; sourceTree = "<group>"; };
-		6B71AADF2AA1DBF200C06619 /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = remote_config_defaults.plist; sourceTree = "<group>"; };
 		6B71AAE12AA1E00200C06619 /* BlackTransparentOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackTransparentOverlay.swift; sourceTree = "<group>"; };
 		6B71AAE22AA1E00200C06619 /* BlackTransparentOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlackTransparentOverlay.xib; sourceTree = "<group>"; };
 		6B71AAE52AA1E01000C06619 /* UsingProFeaturesAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsingProFeaturesAlertView.xib; sourceTree = "<group>"; };
 		6B71AAE62AA1E01100C06619 /* UsingProFeaturesAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsingProFeaturesAlertView.swift; sourceTree = "<group>"; };
+		6B71AAEC2AC2D3A400C06619 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6B71AAEE2AC2D4D100C06619 /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = remote_config_defaults.plist; sourceTree = "<group>"; };
 		6B92E3582A77A192008CB22A /* AppOpenAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAd.swift; sourceTree = "<group>"; };
 		6B92E35C2A7933C3008CB22A /* SuccessMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessMessageViewController.swift; sourceTree = "<group>"; };
 		6B92E3622A7B60AE008CB22A /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		6B92E3682A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoLibraryUsageDisabledView.xib; sourceTree = "<group>"; };
 		6BAC9BBE2A666EBE0071A41B /* TopIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopIndicatorView.xib; sourceTree = "<group>"; };
 		6BAC9BC02A666EEA0071A41B /* TopIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopIndicatorView.swift; sourceTree = "<group>"; };
-		6BB4EE6B2A823965006CF87C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6BB4EE6F2A8268C2006CF87C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		6BB4EE712A862E5A006CF87C /* bla.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bla.mp3; sourceTree = "<group>"; };
 		6BCAF7EA2A63C5100039BE15 /* SpeedSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedSectionVC.swift; sourceTree = "<group>"; };
@@ -271,8 +271,8 @@
 				6BE9A2F42A5FC80D00FF8CB0 /* Assets.xcassets */,
 				6BE9A2F62A5FC80D00FF8CB0 /* LaunchScreen.storyboard */,
 				6BE9A2F92A5FC80D00FF8CB0 /* Info.plist */,
-				6BB4EE6B2A823965006CF87C /* GoogleService-Info.plist */,
-				6B71AADF2AA1DBF200C06619 /* remote_config_defaults.plist */,
+				6B71AAEC2AC2D3A400C06619 /* GoogleService-Info.plist */,
+				6B71AAEE2AC2D4D100C06619 /* remote_config_defaults.plist */,
 				6B6700952A6ABBCE006F2980 /* Managers */,
 				6BAC9BBD2A666E500071A41B /* CustomViews */,
 				6BCAF7E52A63B6800039BE15 /* Utils */,
@@ -342,8 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BB4EE722A862E5A006CF87C /* bla.mp3 in Resources */,
-				6BB4EE6C2A823965006CF87C /* GoogleService-Info.plist in Resources */,
-				6B71AAE02AA1DBF200C06619 /* remote_config_defaults.plist in Resources */,
 				6B92E3692A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib in Resources */,
 				6BE9A2F82A5FC80D00FF8CB0 /* LaunchScreen.storyboard in Resources */,
 				6BE9A3022A5FD5A000FF8CB0 /* climbing.mov in Resources */,
@@ -351,8 +349,10 @@
 				6B71AAD22A9623AB00C06619 /* LoopSectionVC.xib in Resources */,
 				6BCAF7ED2A63C5100039BE15 /* SpeedSectionVC.xib in Resources */,
 				6B67009D2A6BCAD2006F2980 /* ProgressIndicatorView.xib in Resources */,
+				6B71AAEF2AC2D4D100C06619 /* remote_config_defaults.plist in Resources */,
 				6BE9A2F52A5FC80D00FF8CB0 /* Assets.xcassets in Resources */,
 				6B71AAE72AA1E01100C06619 /* UsingProFeaturesAlertView.xib in Resources */,
+				6B71AAED2AC2D3A400C06619 /* GoogleService-Info.plist in Resources */,
 				6B71AAE42AA1E00200C06619 /* BlackTransparentOverlay.xib in Resources */,
 				6BAC9BBF2A666EBE0071A41B /* TopIndicatorView.xib in Resources */,
 				6BCDCF522A67FAC800D8B656 /* MoreSectionVC.xib in Resources */,
@@ -614,8 +614,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.reverse.video.app;
+				MARKETING_VERSION = 1.2.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.reverse.video.2.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -650,8 +650,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.reverse.video.app;
+				MARKETING_VERSION = 1.2.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.reverse.video.2.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

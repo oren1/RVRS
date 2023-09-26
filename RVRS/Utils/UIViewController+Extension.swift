@@ -8,13 +8,16 @@
 import Foundation
 import UIKit
 
+let loadinViewTag = 12
+
+
 extension UIViewController {
     
     func showLoading(opacity: Float?, title: String?) {
         let loadingView = LoadingView()
         loadingView.layer.opacity = opacity ?? 1
         loadingView.titleLabel.text = title ?? ""
-        loadingView.tag = 12
+        loadingView.tag = loadinViewTag
         disablePresentaionDismiss()
         loadingView.activityIndicator.startAnimating()
         view.addSubview(loadingView)
@@ -30,7 +33,7 @@ extension UIViewController {
     }
 
     func hideLoading() {
-        let loadingView = view.viewWithTag(12) as? LoadingView
+        let loadingView = view.viewWithTag(loadinViewTag) as? LoadingView
         enablePresentationDismiss()
         loadingView?.activityIndicator.stopAnimating()
         loadingView?.removeFromSuperview()

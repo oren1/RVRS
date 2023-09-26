@@ -35,7 +35,8 @@ class EditViewController: UIViewController {
     var numberOfLoops: Int = 0
     var loopStartingPoint: LoopStart = .forward
     var proButton: UIButton!
-
+    var tabs: [TabItem]!
+    
     @IBOutlet weak var tabCollectionView: UICollectionView!
     @IBOutlet weak var soundSwitch: UISwitch!
     @IBOutlet weak var loopSwitch: UISwitch!
@@ -82,6 +83,12 @@ class EditViewController: UIViewController {
         
 
         showSpeedSection()
+        
+        tabs = [TabItem(title: "Loops", selected: false, imageName: "infinity.circle", selectedImageName: "infinity.circle.fill"),
+                    TabItem(title: "Speed", selected: true, imageName: "timer.circle", selectedImageName: "timer.circle.fill"),
+                    TabItem(title: "Sound", selected: false, imageName: "volume.2", selectedImageName: "volume.2.fill")
+                    ]
+        
         asset = AVAsset(url: assetUrl)
         let fileExtension = "mov"
          let videoName = UUID().uuidString
@@ -134,11 +141,20 @@ class EditViewController: UIViewController {
             self.loopVideo()
         }
     }
-    
+
     deinit {
         UserDataManager.usingLoops = false
         UserDataManager.usingSpeedSlider = false
         UserDataManager.soundOn = true
+        
+        tabs.forEach { tabItem in
+            if tabItem.title == "Speed" {
+                tabItem.selected = true
+            }
+            else {
+                tabItem.selected = false
+            }
+        }
     }
     
     func integrate(reversedVideo: AVAsset, reversedAudio: AVAsset) async -> AVAsset? {

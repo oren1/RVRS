@@ -27,7 +27,7 @@ class PurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let productIdentifier = SpidProducts.proVersion
+        let productIdentifier = SpidProducts.proVersionConsumable
         product = UserDataManager.main.products.first {$0.productIdentifier == productIdentifier}
         priceLabel.text = product.localizedPrice
         
@@ -58,7 +58,7 @@ class PurchaseViewController: UIViewController {
             return
         }
         
-        guard let product = UserDataManager.main.productforIdentifier(productIndentifier: SpidProducts.proVersion) else {
+        guard let product = UserDataManager.main.productforIdentifier(productIndentifier: SpidProducts.proVersionConsumable) else {
             return
         }
         

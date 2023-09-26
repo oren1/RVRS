@@ -26,8 +26,8 @@ extension Notification.Name {
 
 class SpidProducts {
     
-    static let proVersion = "ProVersion1234"
-    static let proVersionConsumable = "ProVesionConsumable"
+    static let proVersion = "rvrs.pro.1234"
+    static let proVersionConsumable = "reverse.pro.consumable.1234"
 
     private static let productIdentifiers: Set<ProductIdentifier> = [proVersion, proVersionConsumable]
     

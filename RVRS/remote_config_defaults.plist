@@ -4,8 +4,6 @@
 <dict>
 	<key>business_model_type</key>
 	<string>0</string>
-	<key>priceVariant</key>
-	<string>1</string>
 	<key>minimumAppOpensToShowAd</key>
 	<string>2</string>
 	<key>minimumReviewWorthyActionCount</key>

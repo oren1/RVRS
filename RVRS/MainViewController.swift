@@ -248,17 +248,17 @@ extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
         let video = videos![indexPath.row]
-        video.getAVAssetUrl { [weak self] responseURL in
-            DispatchQueue.main.async { [weak self] in
-                guard responseURL != nil else {
-                    let alert = UIAlertController(title: "Error", message: "Failed to load video", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(
-                      title: "OK",
-                      style: UIAlertAction.Style.cancel,
-                      handler: nil))
-                    self?.present(alert, animated: true, completion: nil)
-                    return
+        video.getAVAssetUrl { [weak self] progress, error, stop, info in
+            DispatchQueue.main.async {
+                let loadingView = self?.view.viewWithTag(loadinViewTag)
+                if loadingView == nil && progress != 1 {
+                    self?.showLoading(opacity: 0.4, title: nil)
                 }
+            }
+            
+        } completionHandler: { responseURL in
+            DispatchQueue.main.async { [weak self] in
+                self?.hideLoading()
                 vc.assetUrl = responseURL
                 self?.navigationController?.pushViewController(vc, animated: true)
             }

@@ -91,7 +91,6 @@ extension LoopSectionVC: UICollectionViewDataSource {
 
 extension LoopSectionVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        tabs.forEach({$0.selected = false})
 
         let loopOption = loopOptions[indexPath.row]
         if loopOption == 0 {
