@@ -265,13 +265,14 @@ class EditViewController: UIViewController {
     func createLoopAsset(startingPoint: LoopStart) async -> (composition: AVMutableComposition, videoComposition: AVMutableVideoComposition)? {
         let composition = AVMutableComposition(urlAssetInitializationOptions: nil)
         let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: 1)!
-        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
 
-        if  soundOn,
-            let reversedAudioTrack = try? await reversedAsset.loadTracks(withMediaType: .audio).first,
-            let forwardAudioTrack = try? await asset.loadTracks(withMediaType: .audio).first {
+        if soundOn,
+        let reversedAudioTrack = try? await reversedAsset.loadTracks(withMediaType: .audio).first,
+        let forwardAudioTrack = try? await asset.loadTracks(withMediaType: .audio).first {
             
-            
+            let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
+
+
             guard let reversedAudioDuration = try? await reversedAsset.load(.duration),
                   let forwardAudioDuration = try? await asset.load(.duration) else {return nil}
             
@@ -323,20 +324,23 @@ class EditViewController: UIViewController {
         
         let loopComposition = AVMutableComposition(urlAssetInitializationOptions: nil)
         let loopCompositionVideoTrack = loopComposition.addMutableTrack(withMediaType: .video, preferredTrackID: 1)!
-        let loopCompositionAudioTrack = loopComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
+        var loopCompositionAudioTrack: AVMutableCompositionTrack?
+        if soundOn, let _ = try? await composition.loadTracks(withMediaType: .audio).first {
+            loopCompositionAudioTrack = loopComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
+        }
         
         if numberOfLoops != 0 {
-            guard let compositionVideoTrack = try? await composition.loadTracks(withMediaType: .video).first,
-                  let compositionAudioTrack = try? await composition.loadTracks(withMediaType: .audio).first
-            else
-            {
-                return nil
-                
-            }
+            guard let compositionVideoTrack = try? await composition.loadTracks(withMediaType: .video).first else {return nil}
             
-            for i in 0..<numberOfLoops {
+            for _ in 0..<numberOfLoops {
                 try? loopCompositionVideoTrack.insertTimeRange(CMTimeRange(start: .zero, duration: compositioDuration), of: compositionVideoTrack, at: CMTime.invalid)
-                try? loopCompositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: compositioDuration), of: compositionAudioTrack, at: CMTime.invalid)
+                if soundOn {
+                    guard let compositionAudioTrack = try? await composition.loadTracks(withMediaType: .audio).first else {
+                        continue
+                    }
+                    try? loopCompositionAudioTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: compositioDuration), of: compositionAudioTrack, at: CMTime.invalid)
+                }
+                
             }
             
             
@@ -531,7 +535,7 @@ class EditViewController: UIViewController {
             }
             
             let compositionDuration = try! await theComposition.load(.duration)
-            let fifthOfSecond = CMTime(value: 50, timescale: 1000)
+            let fifthOfSecond = CMTime(value: 20, timescale: 1000)
             exportSession.timeRange = CMTimeRange(start: fifthOfSecond, duration: compositionDuration - fifthOfSecond)
             self.exportSession = nil
             self.exportSession = exportSession
