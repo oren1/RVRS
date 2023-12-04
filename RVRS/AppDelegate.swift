@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         RemoteConfig.remoteConfig().setDefaults(fromPlist: "remote_config_defaults")
+        InterstitialAd.manager.loadInterstitialAd()
         
         return true
     }

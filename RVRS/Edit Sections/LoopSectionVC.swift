@@ -22,7 +22,7 @@ class LoopSectionVC: SectionViewController {
     
     let loopOptions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     var loopSettingsChanged: LoopSettingsClosure?
-    var selectedLoop: Int = 0 {
+    var selectedLoop: Int = 1 {
         didSet {
             let loopStartingPoint = LoopStart(rawValue: segmentedControl.selectedSegmentIndex)!
             loopSettingsChanged?(selectedLoop,loopStartingPoint)

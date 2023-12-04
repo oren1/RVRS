@@ -27,7 +27,7 @@ class PurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let productIdentifier = SpidProducts.proVersion
+        let productIdentifier = SpidProducts.proVersionLatest
         product = UserDataManager.main.products.first {$0.productIdentifier == productIdentifier}
         priceLabel.text = product.localizedPrice
         
@@ -38,7 +38,7 @@ class PurchaseViewController: UIViewController {
         case .onlyProVersionExport:
             titleLabel.text = "Start Using Rvrs Now!"
         case .allowedReverseExport:
-            titleLabel.text = "Use Rvrs Pro Now!"
+            titleLabel.text = "Use Boomerang Pro Now!"
         case .none:
             fatalError()
         }
@@ -58,7 +58,7 @@ class PurchaseViewController: UIViewController {
             return
         }
         
-        guard let product = UserDataManager.main.productforIdentifier(productIndentifier: SpidProducts.proVersion) else {
+        guard let product = UserDataManager.main.productforIdentifier(productIndentifier: SpidProducts.proVersionLatest) else {
             return
         }
         

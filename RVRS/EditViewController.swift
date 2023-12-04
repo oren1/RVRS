@@ -32,8 +32,8 @@ class EditViewController: UIViewController {
     var compositionVideoTrack: AVMutableCompositionTrack!
     var exportSession: AVAssetExportSession?
     var timer: Timer?
-    var numberOfLoops: Int = 0
-    var loopStartingPoint: LoopStart = .forward
+    var numberOfLoops: Int = 1
+    var loopStartingPoint: LoopStart = .reverse
     var proButton: UIButton!
     var tabs: [TabItem]!
     
@@ -82,10 +82,10 @@ class EditViewController: UIViewController {
         addSoundSection()
         
 
-        showSpeedSection()
+        showLoopSection()
         
-        tabs = [TabItem(title: "Loops", selected: false, imageName: "infinity.circle", selectedImageName: "infinity.circle.fill"),
-                    TabItem(title: "Speed", selected: true, imageName: "timer.circle", selectedImageName: "timer.circle.fill"),
+        tabs = [TabItem(title: "Loops", selected: true, imageName: "infinity.circle", selectedImageName: "infinity.circle.fill"),
+                    TabItem(title: "Speed", selected: false, imageName: "timer.circle", selectedImageName: "timer.circle.fill"),
                     TabItem(title: "Sound", selected: false, imageName: "volume.2", selectedImageName: "volume.2.fill")
                     ]
         
@@ -129,7 +129,6 @@ class EditViewController: UIViewController {
             let videoCompositionCopy = self.videoComposition.copy() as! AVVideoComposition
 
             
-            hideLoading()
             setNavigationItems()
             let playerItem = AVPlayerItem(asset: compositionCopy)
             playerItem.audioTimePitchAlgorithm = .spectral
@@ -138,7 +137,11 @@ class EditViewController: UIViewController {
             self.playerController = AVPlayerViewController()
             self.playerController.player = player
             self.addPlayerToTop()
+            await self.reloadComposition()
             self.loopVideo()
+            self.playerController.player?.play()
+            hideLoading()
+
         }
     }
 
@@ -148,7 +151,7 @@ class EditViewController: UIViewController {
         UserDataManager.soundOn = true
         
         tabs.forEach { tabItem in
-            if tabItem.title == "Speed" {
+            if tabItem.title == "Loops" {
                 tabItem.selected = true
             }
             else {
@@ -618,7 +621,7 @@ class EditViewController: UIViewController {
         
          // tell the childviewcontroller it's contained in it's parent
         playerController.didMove(toParent: self)
-        self.playerController.player?.play()
+//        self.playerController.player?.play()
     }
 
     
@@ -771,7 +774,7 @@ class EditViewController: UIViewController {
         speedSectionVC = SpeedSectionVC()
         
         speedSectionVC.sliderValueChange = { [weak self] (speed: Float) -> () in
-            self?.showProButtonIfNeeded()
+//            self?.showProButtonIfNeeded()
         }
         
         speedSectionVC.speedDidChange = { [weak self] (speed: Float) -> () in
@@ -790,7 +793,7 @@ class EditViewController: UIViewController {
         loopSectionVC.loopSettingsChanged = { [weak self] (numberOfLoops,loopStartingPoint) in
             self?.loopStartingPoint = loopStartingPoint
             self?.numberOfLoops = numberOfLoops
-            self?.showProButtonIfNeeded()
+//            self?.showProButtonIfNeeded()
             
             Task {
               await self?.reloadComposition()
@@ -805,7 +808,7 @@ class EditViewController: UIViewController {
         soundSectionVC = SoundSectionVC()
         soundSectionVC.soundStateDidChange = {[weak self] soundOn in
             self?.soundOn = soundOn
-            self?.showProButtonIfNeeded()
+//            self?.showProButtonIfNeeded()
             Task {
               await self?.reloadComposition()
             }
@@ -877,7 +880,11 @@ class EditViewController: UIViewController {
         case .allowedReverseExport:
            guard let _ = SpidProducts.store.userPurchasedProVersion() else {
                if !UserDataManager.main.usingProFeatures() {
-                   exportVideo()
+                   self.playerController.player?.pause()
+                   InterstitialAd.manager.showAd(controller: self) { [weak self] in
+                       self?.playerController.player?.play()
+                       self?.exportVideo()
+                   }
                }
                else {
                    showProFeatureAlert()

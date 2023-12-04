@@ -247,8 +247,8 @@
             filePath = "RVRS/EditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "createLoopAsset(startingPoint:)"
             landmarkType = "7">
             <Locations>
@@ -372,6 +372,21 @@
                   endingLineNumber = "273"
                   offsetFromSymbolStart = "248">
                </Location>
+               <Location
+                  uuid = "700BA145-CCF9-4D78-BDD0-00DAF68BA809 - 5d4d4852b8070858"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for RVRS.EditViewController.createLoopAsset(startingPoint: RVRS.LoopStart) async -&gt; Swift.Optional&lt;(composition: __C.AVMutableComposition, videoComposition: __C.AVMutableVideoComposition)&gt;"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "273"
+                  endingLineNumber = "273"
+                  offsetFromSymbolStart = "120">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -385,10 +400,42 @@
             filePath = "RVRS/EditViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "createLoopAsset(startingPoint:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D36F0FFD-A943-4B3E-8A18-71C59756A59D - 3c2158a011e1f70e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RVRS.EditViewController.createLoopAsset(startingPoint: RVRS.LoopStart) async -&gt; Swift.Optional&lt;(composition: __C.AVMutableComposition, videoComposition: __C.AVMutableVideoComposition)&gt;"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "267"
+                  endingLineNumber = "267"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "D36F0FFD-A943-4B3E-8A18-71C59756A59D - 3c2158a011e1f72f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for RVRS.EditViewController.createLoopAsset(startingPoint: RVRS.LoopStart) async -&gt; Swift.Optional&lt;(composition: __C.AVMutableComposition, videoComposition: __C.AVMutableVideoComposition)&gt;"
+                  moduleName = "RVRS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/EditViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "266"
+                  endingLineNumber = "266"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

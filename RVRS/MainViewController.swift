@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter Bold", size: 17)!]
 
-        navigationItem.title = "RVRS"
+        navigationItem.title = "Boomerang"
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -59,6 +59,14 @@ class MainViewController: UIViewController {
             }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if SpidProducts.store.userPurchasedProVersion() == nil {
+            addProButton()
+        }
+        else {
+            removeProButton()
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -142,6 +150,43 @@ class MainViewController: UIViewController {
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
         VideoHelper.startMediaBrowser(delegate: self, sourceType: .camera)
+    }
+    
+    // MARK: - UI
+    func removeProButton() {
+        self.navigationItem.rightBarButtonItems = nil
+    }
+    func addProButton() {
+        let proButton = createProButton()
+        let proBarButtonItem = UIBarButtonItem(customView: proButton)
+        navigationItem.rightBarButtonItems = [proBarButtonItem]
+    }
+    
+    func createProButton() -> UIButton {
+        let proButton = UIButton(type: .roundedRect)
+        proButton.tintColor = .white
+        proButton.backgroundColor = .systemBlue
+        proButton.setTitle("  Get Pro  ", for: .normal)
+        proButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        proButton.addTarget(self, action: #selector(showPurchaseViewController), for: .touchUpInside)
+        proButton.layer.cornerRadius = 10
+        proButton.layer.borderWidth = 0
+        proButton.layer.borderColor = UIColor.lightGray.cgColor
+        return proButton
+    }
+    
+    // MARK: - Custom Logic
+    @objc func showPurchaseViewController() {
+        let purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            purchaseViewController.modalPresentationStyle = .fullScreen
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            purchaseViewController.modalPresentationStyle = .formSheet
+        }
+        
+        self.present(purchaseViewController, animated: true)
     }
 }
 
