@@ -867,36 +867,43 @@ class EditViewController: UIViewController {
     
     // MARK: - Custom Logic
     @objc func tryToExportVideo() {
-        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
-        let businessModel = BusinessModelType(rawValue: businessModelType)
-        switch businessModel {
-        case .onlyProVersionExport:
-            guard let _ = SpidProducts.store.userPurchasedProVersion() else {
-                showPurchaseViewController()
-                return
-            }
-
-            exportVideo()
-        case .allowedReverseExport:
-           guard let _ = SpidProducts.store.userPurchasedProVersion() else {
-               if !UserDataManager.main.usingProFeatures() {
-                   self.playerController.player?.pause()
-                   InterstitialAd.manager.showAd(controller: self) { [weak self] in
-                       self?.playerController.player?.play()
-                       self?.exportVideo()
-                   }
-               }
-               else {
-                   showProFeatureAlert()
-               }
-               return
-            }
-
-            exportVideo()
-        case .none:
-            fatalError()
-        }
         
+        guard let _ = SpidProducts.store.userPurchasedProVersion() else {
+            showPurchaseViewController()
+            return
+        }
+
+        exportVideo()
+//        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
+//        let businessModel = BusinessModelType(rawValue: businessModelType)
+//        switch businessModel {
+//        case .onlyProVersionExport:
+//            guard let _ = SpidProducts.store.userPurchasedProVersion() else {
+//                showPurchaseViewController()
+//                return
+//            }
+//
+//            exportVideo()
+//        case .allowedReverseExport:
+//           guard let _ = SpidProducts.store.userPurchasedProVersion() else {
+//               if !UserDataManager.main.usingProFeatures() {
+//                   self.playerController.player?.pause()
+//                   InterstitialAd.manager.showAd(controller: self) { [weak self] in
+//                       self?.playerController.player?.play()
+//                       self?.exportVideo()
+//                   }
+//               }
+//               else {
+//                   showProFeatureAlert()
+//               }
+//               return
+//            }
+//
+//            exportVideo()
+//        case .none:
+//            fatalError()
+//        }
+
     }
     
     @objc func updateExportProgress() {

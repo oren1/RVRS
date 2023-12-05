@@ -32,16 +32,16 @@ class PurchaseViewController: UIViewController {
         priceLabel.text = product.localizedPrice
         
         
-        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
-        let businessModel = BusinessModelType(rawValue: businessModelType)
-        switch businessModel {
-        case .onlyProVersionExport:
-            titleLabel.text = "Start Using Rvrs Now!"
-        case .allowedReverseExport:
-            titleLabel.text = "Use Boomerang Pro Now!"
-        case .none:
-            fatalError()
-        }
+//        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
+//        let businessModel = BusinessModelType(rawValue: businessModelType)
+//        switch businessModel {
+//        case .onlyProVersionExport:
+//            titleLabel.text = "Start Using Rvrs Now!"
+//        case .allowedReverseExport:
+//            titleLabel.text = "Use Boomerang Pro Now!"
+//        case .none:
+//            fatalError()
+//        }
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             backButton.isHidden = true
