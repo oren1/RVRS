@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B4EDA9A2B1F449D00B5D3CD /* PryntTrimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EDA982B1F449D00B5D3CD /* PryntTrimmerView.swift */; };
+		6B4EDA9B2B1F449D00B5D3CD /* HandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EDA992B1F449D00B5D3CD /* HandlerView.swift */; };
+		6B4EDA9D2B1F44F700B5D3CD /* AVAssetTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EDA9C2B1F44F700B5D3CD /* AVAssetTimeSelector.swift */; };
+		6B4EDA9F2B1F450D00B5D3CD /* AssetVideoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EDA9E2B1F450D00B5D3CD /* AssetVideoScrollView.swift */; };
+		6B4EDAA12B1F469A00B5D3CD /* TrimmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EDAA02B1F469A00B5D3CD /* TrimmViewController.swift */; };
+		6B4EDAA32B20340300B5D3CD /* AssetSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EDAA22B20340300B5D3CD /* AssetSelectionViewController.swift */; };
+		6B4EDAA52B2034E900B5D3CD /* AVPlayer+isPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EDAA42B2034E900B5D3CD /* AVPlayer+isPlaying.swift */; };
 		6B51C1FA2A7233A50013ABAD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B51C1F92A7233A50013ABAD /* LoadingView.swift */; };
 		6B51C1FC2A7233B80013ABAD /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B51C1FB2A7233B80013ABAD /* LoadingView.xib */; };
 		6B6700942A6A6C13006F2980 /* PhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6700932A6A6C13006F2980 /* PhotosHeader.swift */; };
@@ -71,6 +78,13 @@
 		37189D00D0A5671600F0B3B4 /* Pods_RVRS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RVRS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B541F26891959A885C76DA /* Pods-VideoSpeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoSpeed.debug.xcconfig"; path = "Target Support Files/Pods-VideoSpeed/Pods-VideoSpeed.debug.xcconfig"; sourceTree = "<group>"; };
 		66B32283D13CCB3D61A1CDB4 /* Pods-RVRS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RVRS.debug.xcconfig"; path = "Target Support Files/Pods-RVRS/Pods-RVRS.debug.xcconfig"; sourceTree = "<group>"; };
+		6B4EDA982B1F449D00B5D3CD /* PryntTrimmerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PryntTrimmerView.swift; sourceTree = "<group>"; };
+		6B4EDA992B1F449D00B5D3CD /* HandlerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandlerView.swift; sourceTree = "<group>"; };
+		6B4EDA9C2B1F44F700B5D3CD /* AVAssetTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAssetTimeSelector.swift; sourceTree = "<group>"; };
+		6B4EDA9E2B1F450D00B5D3CD /* AssetVideoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetVideoScrollView.swift; sourceTree = "<group>"; };
+		6B4EDAA02B1F469A00B5D3CD /* TrimmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmViewController.swift; sourceTree = "<group>"; };
+		6B4EDAA22B20340300B5D3CD /* AssetSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetSelectionViewController.swift; sourceTree = "<group>"; };
+		6B4EDAA42B2034E900B5D3CD /* AVPlayer+isPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+isPlaying.swift"; sourceTree = "<group>"; };
 		6B51C1F92A7233A50013ABAD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6B51C1FB2A7233B80013ABAD /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		6B6700932A6A6C13006F2980 /* PhotosHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosHeader.swift; sourceTree = "<group>"; };
@@ -156,6 +170,19 @@
 				DF12EDDA54B7688C44561AE8 /* Pods-RVRS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6B4EDA972B1F444600B5D3CD /* Trimmer */ = {
+			isa = PBXGroup;
+			children = (
+				6B4EDAA42B2034E900B5D3CD /* AVPlayer+isPlaying.swift */,
+				6B4EDAA22B20340300B5D3CD /* AssetSelectionViewController.swift */,
+				6B4EDA9E2B1F450D00B5D3CD /* AssetVideoScrollView.swift */,
+				6B4EDA9C2B1F44F700B5D3CD /* AVAssetTimeSelector.swift */,
+				6B4EDA992B1F449D00B5D3CD /* HandlerView.swift */,
+				6B4EDA982B1F449D00B5D3CD /* PryntTrimmerView.swift */,
+			);
+			path = Trimmer;
 			sourceTree = "<group>";
 		};
 		6B6700952A6ABBCE006F2980 /* Managers */ = {
@@ -262,6 +289,7 @@
 				6BE9A2EF2A5FC80C00FF8CB0 /* EditViewController.swift */,
 				6B71AACB2A94BD6A00C06619 /* EditViewController+BottomView.swift */,
 				6BE9A3032A6116EF00FF8CB0 /* MainViewController.swift */,
+				6B4EDAA02B1F469A00B5D3CD /* TrimmViewController.swift */,
 				6B92E35C2A7933C3008CB22A /* SuccessMessageViewController.swift */,
 				6B6700A52A6CF77E006F2980 /* PurchaseViewController.swift */,
 				6B6700A12A6CD981006F2980 /* SplashViewController.swift */,
@@ -275,6 +303,7 @@
 				6B71AAEE2AC2D4D100C06619 /* remote_config_defaults.plist */,
 				6B6700952A6ABBCE006F2980 /* Managers */,
 				6BAC9BBD2A666E500071A41B /* CustomViews */,
+				6B4EDA972B1F444600B5D3CD /* Trimmer */,
 				6BCAF7E52A63B6800039BE15 /* Utils */,
 				6BCAF7E42A63B6360039BE15 /* Edit Sections */,
 			);
@@ -419,7 +448,9 @@
 				6BE9A2F02A5FC80C00FF8CB0 /* EditViewController.swift in Sources */,
 				6BB4EE702A8268C2006CF87C /* UIViewController+Extension.swift in Sources */,
 				6B92E3632A7B60AE008CB22A /* InterstitialAd.swift in Sources */,
+				6B4EDAA32B20340300B5D3CD /* AssetSelectionViewController.swift in Sources */,
 				6B92E3672A7E2F3C008CB22A /* PhotoLibraryUsageDisabledView.swift in Sources */,
+				6B4EDA9F2B1F450D00B5D3CD /* AssetVideoScrollView.swift in Sources */,
 				6B6700A22A6CD981006F2980 /* SplashViewController.swift in Sources */,
 				6B51C1FA2A7233A50013ABAD /* LoadingView.swift in Sources */,
 				6B92E35D2A7933C3008CB22A /* SuccessMessageViewController.swift in Sources */,
@@ -445,8 +476,13 @@
 				6B71AACC2A94BD6A00C06619 /* EditViewController+BottomView.swift in Sources */,
 				6BCAF7EC2A63C5100039BE15 /* SpeedSectionVC.swift in Sources */,
 				6B71AAC92A92215C00C06619 /* AssetReverseSession.swift in Sources */,
+				6B4EDAA12B1F469A00B5D3CD /* TrimmViewController.swift in Sources */,
+				6B4EDA9B2B1F449D00B5D3CD /* HandlerView.swift in Sources */,
 				6B6700AC2A6E6032006F2980 /* Consts.swift in Sources */,
+				6B4EDAA52B2034E900B5D3CD /* AVPlayer+isPlaying.swift in Sources */,
+				6B4EDA9D2B1F44F700B5D3CD /* AVAssetTimeSelector.swift in Sources */,
 				6B71AAE32AA1E00200C06619 /* BlackTransparentOverlay.swift in Sources */,
+				6B4EDA9A2B1F449D00B5D3CD /* PryntTrimmerView.swift in Sources */,
 				6BE9A3042A6116EF00FF8CB0 /* MainViewController.swift in Sources */,
 				6B6700A62A6CF77E006F2980 /* PurchaseViewController.swift in Sources */,
 			);

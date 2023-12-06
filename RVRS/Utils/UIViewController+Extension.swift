@@ -47,5 +47,16 @@ extension UIViewController {
         isModalInPresentation = false
     }
 
+    func showError(message: String) {
+        let alert = UIAlertController(
+          title: "Error",
+          message: message,
+          preferredStyle: .alert)
+        alert.addAction(UIAlertAction(
+          title: "OK",
+          style: UIAlertAction.Style.cancel,
+          handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }
 
