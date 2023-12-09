@@ -82,9 +82,13 @@ extension LoopSectionVC: UICollectionViewDataSource {
            cell.titleLabel.textColor = .white
        }
        
+       if loopOption == 0 {
+           cell.titleLabel.text = "rvrs"
+           return cell
+       }
+       
        cell.titleLabel.text = "\(loopOption)"
-   
-    return cell
+       return cell
   }
     
 }

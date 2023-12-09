@@ -33,13 +33,26 @@ class TrimmViewController: AssetSelectionViewController {
         trimmerView.regenerateThumbnails()
 
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        player?.pause()
+    }
+    
     @IBAction func continueButtonTapped(_ sender: Any) {
+        Task {
+            guard let assetUrl = try? await getTrimmedAsset() else {return}
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
+            vc.assetUrl = assetUrl
+            navigationController?.pushViewController(vc, animated: true)
+            player?.pause()
+        }
     }
     
     override func loadAsset(_ asset: AVAsset) {
         trimmerView.asset = asset
         trimmerView.delegate = self
         addVideoPlayer(with: asset, playerView: playerView)
+        player?.volume = 0
         player?.play()
     }
 
@@ -98,7 +111,7 @@ class TrimmViewController: AssetSelectionViewController {
 
 
     // MARK: - Custom Logic
-    func getTrimmedAsset() async throws -> AVAsset?  {
+    func getTrimmedAsset() async throws -> URL?  {
         guard let asset = asset else {
             throw TrimmigError.general(description: "Unable Reading Asset")
         }
@@ -128,7 +141,8 @@ class TrimmViewController: AssetSelectionViewController {
         await exportSession.export()
         switch exportSession.status {
         case .completed:
-            return AVAsset(url: exportURL)
+            return exportURL
+//            return AVAsset(url: exportURL)
         default:
             throw TrimmigError.general(description: "Something went wrong during export.")
             

@@ -23,7 +23,7 @@ class TabItem {
 
 private let reuseIdentifier = "tabItem"
 private let sectionInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-private let itemsPerRow: CGFloat = 3
+private let itemsPerRow: CGFloat = 2
 
 
 // MARK: - UICollectionViewDataSource

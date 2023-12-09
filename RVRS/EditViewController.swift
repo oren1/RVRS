@@ -86,7 +86,7 @@ class EditViewController: UIViewController {
         
         tabs = [TabItem(title: "Loops", selected: true, imageName: "infinity.circle", selectedImageName: "infinity.circle.fill"),
                     TabItem(title: "Speed", selected: false, imageName: "timer.circle", selectedImageName: "timer.circle.fill"),
-                    TabItem(title: "Sound", selected: false, imageName: "volume.2", selectedImageName: "volume.2.fill")
+//                    TabItem(title: "Sound", selected: false, imageName: "volume.2", selectedImageName: "volume.2.fill")
                     ]
         
         asset = AVAsset(url: assetUrl)
@@ -577,7 +577,7 @@ class EditViewController: UIViewController {
         else {
             let alert = UIAlertController(
               title: "Error",
-              message: "Video failed to save",
+              message: "Video failed to save please try again",
               preferredStyle: .alert)
             alert.addAction(UIAlertAction(
               title: "OK",
@@ -854,7 +854,10 @@ class EditViewController: UIViewController {
     @objc func tryToExportVideo() {
         
         guard let _ = SpidProducts.store.userPurchasedProVersion() else {
-            showPurchaseViewController()
+            InterstitialAd.manager.showAd(controller: self) { [weak self] in
+                    self?.playerController.player?.play()
+                    self?.exportVideo()
+            }
             return
         }
 
