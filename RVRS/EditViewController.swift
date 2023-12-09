@@ -100,22 +100,7 @@ class EditViewController: UIViewController {
             let session = await AssetReverseSession(asset: self.asset, outputFileURL: outputURL)
             let reversedVideo = try await session.reverse()
            
-            if let audioFileURL = await self.extractAudioTrackToFileIfExists(asset: self.asset),
-               let reversedAudioUrl = self.reverseAudio(fromUrl: audioFileURL) {
-                
-                let reversedAudio = AVAsset(url: reversedAudioUrl)
-                self.reversedAudio = reversedAudio
-                let reversedAsset = await self.integrate(reversedVideo: reversedVideo, reversedAudio: reversedAudio)
-                if reversedAsset != nil {
-                    self.reversedAsset = reversedAsset
-                }
-                else {
-                    self.reversedAsset = reversedVideo
-                }
-            }
-            else {
-                self.reversedAsset = reversedVideo
-            }
+            self.reversedAsset = reversedVideo
             
             
             guard let (composition, videoComposition) = await createCompositionWith(speed: speed,

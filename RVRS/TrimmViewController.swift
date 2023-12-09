@@ -33,7 +33,9 @@ class TrimmViewController: AssetSelectionViewController {
         trimmerView.regenerateThumbnails()
 
     }
-
+    @IBAction func continueButtonTapped(_ sender: Any) {
+    }
+    
     override func loadAsset(_ asset: AVAsset) {
         trimmerView.asset = asset
         trimmerView.delegate = self
