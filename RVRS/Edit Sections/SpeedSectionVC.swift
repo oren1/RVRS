@@ -32,12 +32,17 @@ class SpeedSectionVC: SectionViewController {
     @IBAction func onSliderChange(_ sender: Any) {
         let slider = sender as! UISlider
         speed = convertSliderValue(value: slider.value)
-        if speed != 1 {
-            UserDataManager.usingSpeedSlider = true
+        if speed > 1.5 {
+            UserDataManager.speedSliderAboveOnePointFive = true
+        }
+        else if speed < 1 {
+            UserDataManager.speedSliderBelowOne = true
         }
         else {
-            UserDataManager.usingSpeedSlider = false
+            UserDataManager.speedSliderAboveOnePointFive = false
+            UserDataManager.speedSliderBelowOne = false
         }
+
         sliderValueChange?(speed)
     }
 

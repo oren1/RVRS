@@ -12,9 +12,10 @@ class UserDataManager {
     
     static let main: UserDataManager = UserDataManager()
     var products: [SKProduct]!
-    static var usingSpeedSlider: Bool = false
-    static var usingLoops: Bool = false
-    static var soundOn: Bool = true
+    static var usingMoreThanTwoLoops = false
+    static var usingRverse = false
+    static var speedSliderAboveOnePointFive = false
+    static var speedSliderBelowOne = false
     
     func productforIdentifier(productIndentifier: ProductIdentifier) -> SKProduct? {
         if let product =  products.first(where: { $0.productIdentifier ==  productIndentifier}) {
@@ -25,9 +26,10 @@ class UserDataManager {
     }
     
     func usingProFeatures() -> Bool {
-        if UserDataManager.usingSpeedSlider ||
-            UserDataManager.usingLoops ||
-            !UserDataManager.soundOn {
+        if UserDataManager.usingMoreThanTwoLoops ||
+            UserDataManager.usingRverse ||
+            UserDataManager.speedSliderAboveOnePointFive ||
+            UserDataManager.speedSliderBelowOne {
             return true
         }
         return false

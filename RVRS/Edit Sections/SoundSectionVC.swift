@@ -20,7 +20,7 @@ class SoundSectionVC: SectionViewController {
     }
 
     @IBAction func soundStateChanged(_ sender: UISwitch) {
-        UserDataManager.soundOn = sender.isOn
+//        UserDataManager.soundOn = sender.isOn
         soundStateDidChange?(sender.isOn)
     }
     

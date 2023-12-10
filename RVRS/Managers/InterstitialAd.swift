@@ -45,7 +45,7 @@ class InterstitialAd: NSObject {
             self.rootController = controller
             finishedAdLogic = completion
         
-            guard SpidProducts.store.userPurchasedProVersion() == nil else {
+            guard BoomerangProducts.store.userPurchasedProVersion() == nil else {
                 print("purchased pro version")
                 finishedAdLogic?()
                 return

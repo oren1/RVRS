@@ -60,7 +60,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if SpidProducts.store.userPurchasedProVersion() == nil {
+        if BoomerangProducts.store.userPurchasedProVersion() == nil {
             addProButton()
         }
         else {

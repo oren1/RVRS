@@ -21,13 +21,14 @@ class UsingProFeaturesAlertView: UIView {
     }
    
     @IBOutlet weak var loopsView: UIView!
-    @IBOutlet weak var soundOffView: UIView!
     @IBOutlet weak var sliderView: UIView!
+    @IBOutlet weak var reverseView: UIView!
     
+    @IBOutlet weak var speedSliderLabel: UILabel!
     @IBOutlet weak var sliderViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var loopsViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var soundViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var reverseViewHeightConstraint: NSLayoutConstraint!
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
@@ -43,28 +44,65 @@ class UsingProFeaturesAlertView: UIView {
     }
     
     func updateStatus(usingSlider: Bool, usingLoops: Bool, soundOn: Bool) {
-        sliderViewHeightConstraint.constant = 0
-        sliderView.isHidden = true
-        
-        soundViewHeightConstraint.constant = 0
-        soundOffView.isHidden = true
         
         loopsViewHeightConstraint.constant = 0
         loopsView.isHidden = true
+        
+        sliderViewHeightConstraint.constant = 0
+        sliderView.isHidden = true
+        
+        reverseViewHeightConstraint.constant = 0
+        reverseView.isHidden = true
         
         if usingSlider {
             sliderViewHeightConstraint.constant = 24
             sliderView.isHidden = false
         }
-        if !soundOn {
-            soundViewHeightConstraint.constant = 24
-            soundOffView.isHidden = false
-        }
+       
         if usingLoops {
             loopsViewHeightConstraint.constant = 24
             loopsView.isHidden = false
         }
+    }
+    
+    func updateStatus() {
         
+        loopsViewHeightConstraint.constant = 0
+        loopsView.isHidden = true
+        
+        sliderViewHeightConstraint.constant = 0
+        sliderView.isHidden = true
+        
+        reverseViewHeightConstraint.constant = 0
+        reverseView.isHidden = true
+        
+        layoutIfNeeded()
+
+        if UserDataManager.usingMoreThanTwoLoops {
+            loopsViewHeightConstraint.constant = 24
+            loopsView.isHidden = false
+        }
+        
+        if UserDataManager.usingRverse {
+            reverseViewHeightConstraint.constant = 24
+            reverseView.isHidden = false
+        }
+        
+        if UserDataManager.speedSliderAboveOnePointFive {
+            sliderViewHeightConstraint.constant = 24
+            sliderView.isHidden = false
+            speedSliderLabel.text = "Faster Than 1.5x"
+        }
+        
+        else if UserDataManager.speedSliderBelowOne {
+            sliderViewHeightConstraint.constant = 24
+            sliderView.isHidden = false
+            speedSliderLabel.text = "Slower Than 1x"
+        }
+        
+
+        
+        layoutIfNeeded()
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {

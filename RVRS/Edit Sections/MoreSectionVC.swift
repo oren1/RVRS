@@ -60,7 +60,7 @@ class MoreSectionVC: SectionViewController {
     }
     
     @IBAction func mp4ButtonTapped(_ sender: UIButton) {
-        guard let _ = SpidProducts.store.userPurchasedProVersion() else {
+        guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
                 guard let self = self else {return}
                 self.userNeedsToPurchase?()
@@ -79,7 +79,7 @@ class MoreSectionVC: SectionViewController {
     }
     
     @IBAction func offButtonTapped(_ sender: Any) {
-        guard let purchasedProduct = SpidProducts.store.userPurchasedProVersion() else {
+        guard let purchasedProduct = BoomerangProducts.store.userPurchasedProVersion() else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
                 guard let self = self else {return}
                 self.userNeedsToPurchase?()

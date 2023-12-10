@@ -43,7 +43,6 @@
 		6B71AAE72AA1E01100C06619 /* UsingProFeaturesAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AAE52AA1E01000C06619 /* UsingProFeaturesAlertView.xib */; };
 		6B71AAE82AA1E01100C06619 /* UsingProFeaturesAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B71AAE62AA1E01100C06619 /* UsingProFeaturesAlertView.swift */; };
 		6B71AAED2AC2D3A400C06619 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AAEC2AC2D3A400C06619 /* GoogleService-Info.plist */; };
-		6B71AAEF2AC2D4D100C06619 /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B71AAEE2AC2D4D100C06619 /* remote_config_defaults.plist */; };
 		6B92E3592A77A192008CB22A /* AppOpenAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B92E3582A77A192008CB22A /* AppOpenAd.swift */; };
 		6B92E35B2A77C72C008CB22A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9A2ED2A5FC80C00FF8CB0 /* SceneDelegate.swift */; };
 		6B92E35D2A7933C3008CB22A /* SuccessMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B92E35C2A7933C3008CB22A /* SuccessMessageViewController.swift */; };
@@ -71,6 +70,7 @@
 		6BE9A3062A61811400FF8CB0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9A3052A61811400FF8CB0 /* PhotoCell.swift */; };
 		6BE9A30A2A618B2500FF8CB0 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9A3092A618B2500FF8CB0 /* UIImageView+Extension.swift */; };
 		6BE9A30C2A62809D00FF8CB0 /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9A30B2A62809D00FF8CB0 /* PHAsset+Extension.swift */; };
+		6BF9BBB12B258E7100400A3E /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BF9BBB02B258E7100400A3E /* remote_config_defaults.plist */; };
 		CAD789357939CBFCFF0E3ACF /* Pods_RVRS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37189D00D0A5671600F0B3B4 /* Pods_RVRS.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,7 +114,6 @@
 		6B71AAE52AA1E01000C06619 /* UsingProFeaturesAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsingProFeaturesAlertView.xib; sourceTree = "<group>"; };
 		6B71AAE62AA1E01100C06619 /* UsingProFeaturesAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsingProFeaturesAlertView.swift; sourceTree = "<group>"; };
 		6B71AAEC2AC2D3A400C06619 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6B71AAEE2AC2D4D100C06619 /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = remote_config_defaults.plist; sourceTree = "<group>"; };
 		6B92E3582A77A192008CB22A /* AppOpenAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAd.swift; sourceTree = "<group>"; };
 		6B92E35C2A7933C3008CB22A /* SuccessMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessMessageViewController.swift; sourceTree = "<group>"; };
 		6B92E3622A7B60AE008CB22A /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
@@ -144,6 +143,7 @@
 		6BE9A3052A61811400FF8CB0 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		6BE9A3092A618B2500FF8CB0 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		6BE9A30B2A62809D00FF8CB0 /* PHAsset+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
+		6BF9BBB02B258E7100400A3E /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = remote_config_defaults.plist; sourceTree = "<group>"; };
 		D38406C3A28F10CB6DC641E1 /* Pods-VideoSpeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoSpeed.release.xcconfig"; path = "Target Support Files/Pods-VideoSpeed/Pods-VideoSpeed.release.xcconfig"; sourceTree = "<group>"; };
 		DF12EDDA54B7688C44561AE8 /* Pods-RVRS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RVRS.release.xcconfig"; path = "Target Support Files/Pods-RVRS/Pods-RVRS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -300,7 +300,7 @@
 				6BE9A2F62A5FC80D00FF8CB0 /* LaunchScreen.storyboard */,
 				6BE9A2F92A5FC80D00FF8CB0 /* Info.plist */,
 				6B71AAEC2AC2D3A400C06619 /* GoogleService-Info.plist */,
-				6B71AAEE2AC2D4D100C06619 /* remote_config_defaults.plist */,
+				6BF9BBB02B258E7100400A3E /* remote_config_defaults.plist */,
 				6B6700952A6ABBCE006F2980 /* Managers */,
 				6BAC9BBD2A666E500071A41B /* CustomViews */,
 				6B4EDA972B1F444600B5D3CD /* Trimmer */,
@@ -378,9 +378,9 @@
 				6B71AAD22A9623AB00C06619 /* LoopSectionVC.xib in Resources */,
 				6BCAF7ED2A63C5100039BE15 /* SpeedSectionVC.xib in Resources */,
 				6B67009D2A6BCAD2006F2980 /* ProgressIndicatorView.xib in Resources */,
-				6B71AAEF2AC2D4D100C06619 /* remote_config_defaults.plist in Resources */,
 				6BE9A2F52A5FC80D00FF8CB0 /* Assets.xcassets in Resources */,
 				6B71AAE72AA1E01100C06619 /* UsingProFeaturesAlertView.xib in Resources */,
+				6BF9BBB12B258E7100400A3E /* remote_config_defaults.plist in Resources */,
 				6B71AAED2AC2D3A400C06619 /* GoogleService-Info.plist in Resources */,
 				6B71AAE42AA1E00200C06619 /* BlackTransparentOverlay.xib in Resources */,
 				6BAC9BBF2A666EBE0071A41B /* TopIndicatorView.xib in Resources */,

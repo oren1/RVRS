@@ -27,7 +27,7 @@ class PurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let productIdentifier = SpidProducts.proVersionLatest
+        let productIdentifier = BoomerangProducts.proVersionLatest
         product = UserDataManager.main.products.first {$0.productIdentifier == productIdentifier}
         priceLabel.text = product.localizedPrice
         
@@ -53,22 +53,22 @@ class PurchaseViewController: UIViewController {
     }
     
     @IBAction func purchaseButtonTapped(_ sender: Any) {
-        guard SpidProducts.store.canMakePayments() else {
+        guard BoomerangProducts.store.canMakePayments() else {
             showCantMakePaymentAlert()
             return
         }
         
-        guard let product = UserDataManager.main.productforIdentifier(productIndentifier: SpidProducts.proVersionLatest) else {
+        guard let product = UserDataManager.main.productforIdentifier(productIndentifier: BoomerangProducts.proVersionLatest) else {
             return
         }
         
         showLoading(opacity: 0.4, title: nil)
-        SpidProducts.store.buyProduct(product)
+        BoomerangProducts.store.buyProduct(product)
     }
     
     @IBAction func restoreButtonTapped(_ sender: Any) {
         showLoading(opacity: 0.4, title: nil)
-        SpidProducts.store.restorePurchases()
+        BoomerangProducts.store.restorePurchases()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

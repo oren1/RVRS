@@ -24,7 +24,7 @@ extension Notification.Name {
 }
 
 
-class SpidProducts {
+class BoomerangProducts {
     
     static let proVersionLatest = "ProVersion.Purchase"
     static let proVersion = "rvrs.pro.1234"

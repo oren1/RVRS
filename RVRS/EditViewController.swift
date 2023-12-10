@@ -13,7 +13,7 @@ import FirebaseRemoteConfig
 
 
 enum BusinessModelType: Int {
-    case onlyProVersionExport = 0, allowedReverseExport
+    case limitedFeatures = 1, oneTimeExport
 }
 
 class EditViewController: UIViewController {
@@ -79,7 +79,7 @@ class EditViewController: UIViewController {
         
         addSpeedSection()
         addLoopSection()
-        addSoundSection()
+//        addSoundSection()
         
 
         showLoopSection()
@@ -104,8 +104,7 @@ class EditViewController: UIViewController {
             
             
             guard let (composition, videoComposition) = await createCompositionWith(speed: speed,
-                                                                                    fps: fps,
-                                                                                    soundOn: UserDataManager.soundOn) else {
+                                                                                    fps: fps) else {
                 return showNoTracksError()
             }
             self.composition = composition
@@ -131,10 +130,11 @@ class EditViewController: UIViewController {
     }
 
     deinit {
-        UserDataManager.usingLoops = false
-        UserDataManager.usingSpeedSlider = false
-        UserDataManager.soundOn = true
-        
+        UserDataManager.usingRverse = false
+        UserDataManager.usingMoreThanTwoLoops = false
+        UserDataManager.speedSliderBelowOne = false
+        UserDataManager.speedSliderAboveOnePointFive = false
+
         tabs.forEach { tabItem in
             if tabItem.title == "Loops" {
                 tabItem.selected = true
@@ -378,22 +378,22 @@ class EditViewController: UIViewController {
         }
         
     }
-    func createCompositionWith(speed: Float, fps: Int32, soundOn: Bool) async -> (composition: AVMutableComposition, videoComposition: AVMutableVideoComposition)? {
+    func createCompositionWith(speed: Float, fps: Int32) async -> (composition: AVMutableComposition, videoComposition: AVMutableVideoComposition)? {
         let composition = AVMutableComposition(urlAssetInitializationOptions: nil)
 
         let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: 1)!
 
-        if  soundOn,
-            let audioTracks = try? await reversedAsset.loadTracks(withMediaType: .audio),
-            audioTracks.count > 0 {
-            let audioTrack = audioTracks[0]
-            let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
-            let audioDuration = try! await reversedAsset.load(.duration)
-            
-            try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: audioDuration),
-                                                                    of: audioTrack,
-                                                                    at: CMTime.invalid)
-        }
+//        if  soundOn,
+//            let audioTracks = try? await reversedAsset.loadTracks(withMediaType: .audio),
+//            audioTracks.count > 0 {
+//            let audioTrack = audioTracks[0]
+//            let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: 2)!
+//            let audioDuration = try! await reversedAsset.load(.duration)
+//
+//            try? compositionAudioTrack.insertTimeRange(CMTimeRange(start: .zero, duration: audioDuration),
+//                                                                    of: audioTrack,
+//                                                                    at: CMTime.invalid)
+//        }
         
         
         let videoTracks = try! await reversedAsset.loadTracks(withMediaType: .video)
@@ -478,8 +478,7 @@ class EditViewController: UIViewController {
         }
         
         guard let (composition, videoComposition) = await createCompositionWith(speed: speed,
-                                                                                fps: fps,
-                                                                                soundOn: UserDataManager.soundOn) else {
+                                                                                fps: fps) else {
             return showNoTracksError()
         }
         self.composition = composition
@@ -652,9 +651,7 @@ class EditViewController: UIViewController {
     }
     
     func showUsingProFeaturesAlertView() {
-        usingProFeaturesAlertView.updateStatus(usingSlider: UserDataManager.usingSpeedSlider,
-                                               usingLoops: UserDataManager.usingLoops,
-                                               soundOn: UserDataManager.soundOn)
+        usingProFeaturesAlertView.updateStatus()
         usingProFeaturesAlertView.layer.opacity = 0
         self.navigationController!.view.addSubview(usingProFeaturesAlertView)
         usingProFeaturesAlertView.translatesAutoresizingMaskIntoConstraints = false
@@ -705,10 +702,10 @@ class EditViewController: UIViewController {
     }
     
     func showProButtonIfNeeded() {
-        guard SpidProducts.store.userPurchasedProVersion() == nil else {return}
-        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
+        guard BoomerangProducts.store.userPurchasedProVersion() == nil else {return}
+        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
         let businessModel = BusinessModelType(rawValue: businessModelType)
-        guard businessModel == .allowedReverseExport  else {return}
+        guard businessModel == .limitedFeatures  else {return}
         
         if UserDataManager.main.usingProFeatures() {
             self.showProButton()
@@ -759,7 +756,7 @@ class EditViewController: UIViewController {
         speedSectionVC = SpeedSectionVC()
         
         speedSectionVC.sliderValueChange = { [weak self] (speed: Float) -> () in
-//            self?.showProButtonIfNeeded()
+            self?.showProButtonIfNeeded()
         }
         
         speedSectionVC.speedDidChange = { [weak self] (speed: Float) -> () in
@@ -778,7 +775,7 @@ class EditViewController: UIViewController {
         loopSectionVC.loopSettingsChanged = { [weak self] (numberOfLoops,loopStartingPoint) in
             self?.loopStartingPoint = loopStartingPoint
             self?.numberOfLoops = numberOfLoops
-//            self?.showProButtonIfNeeded()
+            self?.showProButtonIfNeeded()
             
             Task {
               await self?.reloadComposition()
@@ -805,21 +802,20 @@ class EditViewController: UIViewController {
     func showSpeedSection() {
         speedSectionVC.view.isHidden = false
         loopSectionVC.view.isHidden = true
-        soundSectionVC.view.isHidden = true
+//        soundSectionVC.view.isHidden = true
     }
     
     func showLoopSection() {
         speedSectionVC.view.isHidden = true
         loopSectionVC.view.isHidden = false
-        soundSectionVC.view.isHidden = true
+//        soundSectionVC.view.isHidden = true
 
     }
 
     func showSoundSection() {
         speedSectionVC.view.isHidden = true
         loopSectionVC.view.isHidden = true
-        soundSectionVC.view.isHidden = false
-
+//        soundSectionVC.view.isHidden = false
     }
     
     func showProgreeView() {
@@ -853,44 +849,53 @@ class EditViewController: UIViewController {
     // MARK: - Custom Logic
     @objc func tryToExportVideo() {
         
-        guard let _ = SpidProducts.store.userPurchasedProVersion() else {
-            InterstitialAd.manager.showAd(controller: self) { [weak self] in
-                    self?.playerController.player?.play()
-                    self?.exportVideo()
-            }
-            return
-        }
-
-        exportVideo()
-//        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
-//        let businessModel = BusinessModelType(rawValue: businessModelType)
-//        switch businessModel {
-//        case .onlyProVersionExport:
-//            guard let _ = SpidProducts.store.userPurchasedProVersion() else {
-//                showPurchaseViewController()
-//                return
+//        guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
+//            InterstitialAd.manager.showAd(controller: self) { [weak self] in
+//                    self?.playerController.player?.play()
+//                    self?.exportVideo()
 //            }
-//
-//            exportVideo()
-//        case .allowedReverseExport:
-//           guard let _ = SpidProducts.store.userPurchasedProVersion() else {
-//               if !UserDataManager.main.usingProFeatures() {
-//                   self.playerController.player?.pause()
-//                   InterstitialAd.manager.showAd(controller: self) { [weak self] in
-//                       self?.playerController.player?.play()
-//                       self?.exportVideo()
-//                   }
-//               }
-//               else {
-//                   showProFeatureAlert()
-//               }
-//               return
-//            }
-//
-//            exportVideo()
-//        case .none:
-//            fatalError()
+//            return
 //        }
+//
+//        exportVideo()
+        
+        
+        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
+        let businessModel = BusinessModelType(rawValue: businessModelType)
+        switch businessModel {
+        case .limitedFeatures:
+            guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
+                if UserDataManager.main.usingProFeatures() {
+                    // show alert, indicating the pro features being used
+                    return showProFeatureAlert()
+                }
+                InterstitialAd.manager.showAd(controller: self) { [weak self] in
+                        self?.playerController.player?.play()
+                        self?.exportVideo()
+                }
+                return
+            }
+
+            exportVideo()
+        case .oneTimeExport:
+           guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
+               if !UserDataManager.main.usingProFeatures() {
+                   self.playerController.player?.pause()
+                   InterstitialAd.manager.showAd(controller: self) { [weak self] in
+                       self?.playerController.player?.play()
+                       self?.exportVideo()
+                   }
+               }
+               else {
+                   showProFeatureAlert()
+               }
+               return
+            }
+
+            exportVideo()
+        case .none:
+            fatalError()
+        }
 
     }
     
@@ -903,7 +908,7 @@ class EditViewController: UIViewController {
         let purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
         
         purchaseViewController.onDismiss = { [weak self] in
-            if let _ = SpidProducts.store.userPurchasedProVersion() {
+            if let _ = BoomerangProducts.store.userPurchasedProVersion() {
                 self?.hideProButton()
             }
         }

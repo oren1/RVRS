@@ -23,7 +23,7 @@ class SplashViewController: UIViewController, GADFullScreenContentDelegate {
         let downloadGroup = DispatchGroup()
         
         downloadGroup.enter()
-        SpidProducts.store.requestProducts { success, products in
+        BoomerangProducts.store.requestProducts { success, products in
             if let products = products, success {
                 UserDataManager.main.products = products
                 downloadGroup.leave()
@@ -61,7 +61,7 @@ class SplashViewController: UIViewController, GADFullScreenContentDelegate {
     
     func loadAppOpenAdIfAppropriate(viewVontroller: UIViewController, completion: @escaping VoidClosure) {
         
-        guard SpidProducts.store.userPurchasedProVersion() == nil else {
+        guard BoomerangProducts.store.userPurchasedProVersion() == nil else {
             print("AppOpenAd: purchased pro version")
             completion()
             return

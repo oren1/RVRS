@@ -75,7 +75,7 @@ extension FPSSectionVC: UIPickerViewDelegate, UIPickerViewDataSource {
         return 38
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        guard let purchasedProduct = SpidProducts.store.userPurchasedProVersion() else {
+        guard let purchasedProduct = BoomerangProducts.store.userPurchasedProVersion() else {
             pickerView.selectRow(29, inComponent: 0, animated: true)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
                 guard let self = self else {return}

@@ -97,12 +97,17 @@ extension LoopSectionVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         let loopOption = loopOptions[indexPath.row]
+        
+        UserDataManager.usingRverse = false
+        UserDataManager.usingMoreThanTwoLoops = false
+        
         if loopOption == 0 {
-            UserDataManager.usingLoops = false
+            UserDataManager.usingRverse = true
         }
-        else {
-            UserDataManager.usingLoops = true
+        else if loopOption > 2 {
+            UserDataManager.usingMoreThanTwoLoops = true
         }
+        
         selectedLoop = loopOption
 
         collectionView.reloadData()
