@@ -9,6 +9,7 @@ import UIKit
 import Photos
 import AdSupport
 import AppTrackingTransparency
+import FirebaseRemoteConfig
 
 class MainViewController: UIViewController {
     
@@ -177,7 +178,16 @@ class MainViewController: UIViewController {
     
     // MARK: - Custom Logic
     @objc func showPurchaseViewController() {
-        let purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+        let purchaseViewController: PurchaseViewController
+        
+        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
+        let businessModel = BusinessModelType(rawValue: businessModelType)
+        switch businessModel {
+        case .limitedFeatures:
+           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+        default:
+            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OneExportPurchaseViewController") as! OneExportPurchaseViewController
+        }
         
         if UIDevice.current.userInterfaceIdiom == .phone {
             purchaseViewController.modalPresentationStyle = .fullScreen

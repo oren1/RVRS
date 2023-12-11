@@ -522,8 +522,8 @@ class EditViewController: UIViewController {
             }
             
             let compositionDuration = try! await theComposition.load(.duration)
-            let fifthOfSecond = CMTime(value: 20, timescale: 1000)
-            exportSession.timeRange = CMTimeRange(start: fifthOfSecond, duration: compositionDuration - fifthOfSecond)
+//            let fifthOfSecond = CMTime(value: 20, timescale: 1000)
+//            exportSession.timeRange = CMTimeRange(start: fifthOfSecond, duration: compositionDuration - fifthOfSecond)
             self.exportSession = nil
             self.exportSession = exportSession
             
@@ -876,20 +876,17 @@ class EditViewController: UIViewController {
                 return
             }
 
-            exportVideo()
+            return exportVideo()
         case .oneTimeExport:
            guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
-               if !UserDataManager.main.usingProFeatures() {
-                   self.playerController.player?.pause()
-                   InterstitialAd.manager.showAd(controller: self) { [weak self] in
-                       self?.playerController.player?.play()
-                       self?.exportVideo()
-                   }
+               // if user already exported 1 time for free, then show purchase screen
+               // else allow him to export
+               let amountOfExportsAllowed = RemoteConfig.remoteConfig().configValue(forKey: "amountOfExportsAllowed").numberValue.intValue
+               if UserDataManager.amountOfExports >= amountOfExportsAllowed {
+                   return showPurchaseViewController()
                }
-               else {
-                   showProFeatureAlert()
-               }
-               return
+               UserDataManager.amountOfExports += 1
+               return exportVideo()
             }
 
             exportVideo()
@@ -905,7 +902,17 @@ class EditViewController: UIViewController {
     }
 
     func showPurchaseViewController() {
-        let purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+        let purchaseViewController: PurchaseViewController
+        
+        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
+        let businessModel = BusinessModelType(rawValue: businessModelType)
+        switch businessModel {
+        case .limitedFeatures:
+           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+        default:
+            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OneExportPurchaseViewController") as! OneExportPurchaseViewController
+        }
+//        let purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
         
         purchaseViewController.onDismiss = { [weak self] in
             if let _ = BoomerangProducts.store.userPurchasedProVersion() {

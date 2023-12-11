@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseRemoteConfig
 
 let loadinViewTag = 12
 

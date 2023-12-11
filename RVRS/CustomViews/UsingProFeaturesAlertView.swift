@@ -8,6 +8,18 @@
 import UIKit
 import AVFoundation
 
+enum ProFetureType: String {
+  case moreThanTwoLoops = "More Than 2 Loops"
+  case rvrs = "Reverse"
+  case fasterThanOnePointFive = "Speed Faster Than 1.5x"
+  case slowerThanOne = "Speed Slower Than 1x"
+}
+
+struct ProFeature {
+    var proFeatureType: ProFetureType
+    var imageName: String
+}
+
 class UsingProFeaturesAlertView: UIView {
 
     @IBOutlet var contentView: UIView!
@@ -15,20 +27,14 @@ class UsingProFeaturesAlertView: UIView {
     var onCancel: VoidClosure?
     var onContinue: VoidClosure?
     
+    @IBOutlet weak var tableView: UITableView!
+    var proFeaturesInUse: [ProFeature] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
    
-    @IBOutlet weak var loopsView: UIView!
-    @IBOutlet weak var sliderView: UIView!
-    @IBOutlet weak var reverseView: UIView!
-    
-    @IBOutlet weak var speedSliderLabel: UILabel!
-    @IBOutlet weak var sliderViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var loopsViewHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var reverseViewHeightConstraint: NSLayoutConstraint!
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
@@ -41,68 +47,45 @@ class UsingProFeaturesAlertView: UIView {
         contentView.layer.cornerRadius = 8
         continueButton.layer.cornerRadius = 8
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        registerTableViewCell()
     }
     
-    func updateStatus(usingSlider: Bool, usingLoops: Bool, soundOn: Bool) {
-        
-        loopsViewHeightConstraint.constant = 0
-        loopsView.isHidden = true
-        
-        sliderViewHeightConstraint.constant = 0
-        sliderView.isHidden = true
-        
-        reverseViewHeightConstraint.constant = 0
-        reverseView.isHidden = true
-        
-        if usingSlider {
-            sliderViewHeightConstraint.constant = 24
-            sliderView.isHidden = false
-        }
-       
-        if usingLoops {
-            loopsViewHeightConstraint.constant = 24
-            loopsView.isHidden = false
-        }
+
+    private func registerTableViewCell() {
+        let cell = UINib(nibName: "ProFeatureTableViewCell",
+                                  bundle: nil)
+        self.tableView.register(cell,
+                                forCellReuseIdentifier: "ProFeatureTableViewCell")
     }
     
     func updateStatus() {
-        
-        loopsViewHeightConstraint.constant = 0
-        loopsView.isHidden = true
-        
-        sliderViewHeightConstraint.constant = 0
-        sliderView.isHidden = true
-        
-        reverseViewHeightConstraint.constant = 0
-        reverseView.isHidden = true
-        
-        layoutIfNeeded()
+
+        proFeaturesInUse.removeAll()
 
         if UserDataManager.usingMoreThanTwoLoops {
-            loopsViewHeightConstraint.constant = 24
-            loopsView.isHidden = false
+            let proFeature = ProFeature(proFeatureType: .moreThanTwoLoops, imageName: "infinity")
+            proFeaturesInUse.append(proFeature)
+        }
+        
+        
+        if UserDataManager.speedSliderAboveOnePointFive {
+            let proFeature = ProFeature(proFeatureType: .fasterThanOnePointFive, imageName: "slider.horizontal.2.square.on.square")
+            proFeaturesInUse.append(proFeature)
+        }
+        else if UserDataManager.speedSliderBelowOne {
+            let proFeature = ProFeature(proFeatureType: .slowerThanOne, imageName: "slider.horizontal.2.square.on.square")
+            proFeaturesInUse.append(proFeature)
         }
         
         if UserDataManager.usingRverse {
-            reverseViewHeightConstraint.constant = 24
-            reverseView.isHidden = false
+            let proFeature = ProFeature(proFeatureType: .rvrs, imageName: "backward")
+            proFeaturesInUse.append(proFeature)
         }
         
-        if UserDataManager.speedSliderAboveOnePointFive {
-            sliderViewHeightConstraint.constant = 24
-            sliderView.isHidden = false
-            speedSliderLabel.text = "Faster Than 1.5x"
-        }
-        
-        else if UserDataManager.speedSliderBelowOne {
-            sliderViewHeightConstraint.constant = 24
-            sliderView.isHidden = false
-            speedSliderLabel.text = "Slower Than 1x"
-        }
-        
-
-        
-        layoutIfNeeded()
+        tableView.reloadData()
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -113,4 +96,29 @@ class UsingProFeaturesAlertView: UIView {
         onContinue?()
     }
     
+   
+}
+
+fileprivate typealias TableView = UsingProFeaturesAlertView
+extension TableView: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return proFeaturesInUse.count
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ProFeatureTableViewCell") as? ProFeatureTableViewCell {
+            let proFeature = proFeaturesInUse[indexPath.row]
+            cell.nameLabel.text = proFeature.proFeatureType.rawValue
+            cell.featureImageView.image = UIImage(systemName: proFeature.imageName)
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
 }

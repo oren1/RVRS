@@ -25,6 +25,15 @@ class UserDataManager {
         return nil
     }
     
+    static var amountOfExports: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "amountOfExports")
+        }
+        get {
+            UserDefaults.standard.integer(forKey: "amountOfExports")
+        }
+    }
+    
     func usingProFeatures() -> Bool {
         if UserDataManager.usingMoreThanTwoLoops ||
             UserDataManager.usingRverse ||

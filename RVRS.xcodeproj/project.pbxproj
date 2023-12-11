@@ -49,6 +49,9 @@
 		6B92E3632A7B60AE008CB22A /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B92E3622A7B60AE008CB22A /* InterstitialAd.swift */; };
 		6B92E3672A7E2F3C008CB22A /* PhotoLibraryUsageDisabledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B92E3662A7E2F3C008CB22A /* PhotoLibraryUsageDisabledView.swift */; };
 		6B92E3692A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B92E3682A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib */; };
+		6B9E701D2B25FF36004F56AB /* ProFeatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E701B2B25FF36004F56AB /* ProFeatureTableViewCell.swift */; };
+		6B9E701E2B25FF36004F56AB /* ProFeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B9E701C2B25FF36004F56AB /* ProFeatureTableViewCell.xib */; };
+		6B9E70202B2701B4004F56AB /* OneExportPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E701F2B2701B4004F56AB /* OneExportPurchaseViewController.swift */; };
 		6BAC9BBF2A666EBE0071A41B /* TopIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BAC9BBE2A666EBE0071A41B /* TopIndicatorView.xib */; };
 		6BAC9BC12A666EEA0071A41B /* TopIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAC9BC02A666EEA0071A41B /* TopIndicatorView.swift */; };
 		6BB4EE702A8268C2006CF87C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB4EE6F2A8268C2006CF87C /* UIViewController+Extension.swift */; };
@@ -119,6 +122,9 @@
 		6B92E3622A7B60AE008CB22A /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
 		6B92E3662A7E2F3C008CB22A /* PhotoLibraryUsageDisabledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryUsageDisabledView.swift; sourceTree = "<group>"; };
 		6B92E3682A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoLibraryUsageDisabledView.xib; sourceTree = "<group>"; };
+		6B9E701B2B25FF36004F56AB /* ProFeatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProFeatureTableViewCell.swift; sourceTree = "<group>"; };
+		6B9E701C2B25FF36004F56AB /* ProFeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProFeatureTableViewCell.xib; sourceTree = "<group>"; };
+		6B9E701F2B2701B4004F56AB /* OneExportPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneExportPurchaseViewController.swift; sourceTree = "<group>"; };
 		6BAC9BBE2A666EBE0071A41B /* TopIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopIndicatorView.xib; sourceTree = "<group>"; };
 		6BAC9BC02A666EEA0071A41B /* TopIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopIndicatorView.swift; sourceTree = "<group>"; };
 		6BB4EE6F2A8268C2006CF87C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -224,6 +230,8 @@
 				6B71AAE22AA1E00200C06619 /* BlackTransparentOverlay.xib */,
 				6B71AAE62AA1E01100C06619 /* UsingProFeaturesAlertView.swift */,
 				6B71AAE52AA1E01000C06619 /* UsingProFeaturesAlertView.xib */,
+				6B9E701B2B25FF36004F56AB /* ProFeatureTableViewCell.swift */,
+				6B9E701C2B25FF36004F56AB /* ProFeatureTableViewCell.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 				6B4EDAA02B1F469A00B5D3CD /* TrimmViewController.swift */,
 				6B92E35C2A7933C3008CB22A /* SuccessMessageViewController.swift */,
 				6B6700A52A6CF77E006F2980 /* PurchaseViewController.swift */,
+				6B9E701F2B2701B4004F56AB /* OneExportPurchaseViewController.swift */,
 				6B6700A12A6CD981006F2980 /* SplashViewController.swift */,
 				6BE9A3052A61811400FF8CB0 /* PhotoCell.swift */,
 				6B71AACD2A95E09000C06619 /* TabCollectionViewCell.swift */,
@@ -370,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B9E701E2B25FF36004F56AB /* ProFeatureTableViewCell.xib in Resources */,
 				6BB4EE722A862E5A006CF87C /* bla.mp3 in Resources */,
 				6B92E3692A7E2F5E008CB22A /* PhotoLibraryUsageDisabledView.xib in Resources */,
 				6BE9A2F82A5FC80D00FF8CB0 /* LaunchScreen.storyboard in Resources */,
@@ -461,6 +471,7 @@
 				6B71AAE82AA1E01100C06619 /* UsingProFeaturesAlertView.swift in Sources */,
 				6B92E3592A77A192008CB22A /* AppOpenAd.swift in Sources */,
 				6BE9A30C2A62809D00FF8CB0 /* PHAsset+Extension.swift in Sources */,
+				6B9E701D2B25FF36004F56AB /* ProFeatureTableViewCell.swift in Sources */,
 				6B71AADD2A9DE5C800C06619 /* SoundSectionVC.swift in Sources */,
 				6BE9A2EC2A5FC80C00FF8CB0 /* AppDelegate.swift in Sources */,
 				6B6700AA2A6E5FE7006F2980 /* AppStoreReviewManager.swift in Sources */,
@@ -477,6 +488,7 @@
 				6BCAF7EC2A63C5100039BE15 /* SpeedSectionVC.swift in Sources */,
 				6B71AAC92A92215C00C06619 /* AssetReverseSession.swift in Sources */,
 				6B4EDAA12B1F469A00B5D3CD /* TrimmViewController.swift in Sources */,
+				6B9E70202B2701B4004F56AB /* OneExportPurchaseViewController.swift in Sources */,
 				6B4EDA9B2B1F449D00B5D3CD /* HandlerView.swift in Sources */,
 				6B6700AC2A6E6032006F2980 /* Consts.swift in Sources */,
 				6B4EDAA52B2034E900B5D3CD /* AVPlayer+isPlaying.swift in Sources */,
