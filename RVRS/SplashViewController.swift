@@ -75,7 +75,7 @@ class SplashViewController: UIViewController, GADFullScreenContentDelegate {
         
         var unitId = "ca-app-pub-5159016515859793/1688354407"
         #if DEBUG
-        unitId = "ca-app-pub-3940256099942544/5662855259"
+        unitId = "ca-app-pub-3940256099942544/5575463023"
         #endif
                 
         GADAppOpenAd.load(withAdUnitID: unitId, request: GADRequest(),

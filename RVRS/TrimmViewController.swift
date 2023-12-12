@@ -40,11 +40,13 @@ class TrimmViewController: AssetSelectionViewController {
     
     @IBAction func continueButtonTapped(_ sender: Any) {
         Task {
+            view.isUserInteractionEnabled = false
             guard let assetUrl = try? await getTrimmedAsset() else {return}
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
             vc.assetUrl = assetUrl
             navigationController?.pushViewController(vc, animated: true)
             player?.pause()
+            view.isUserInteractionEnabled = true
         }
     }
     

@@ -47,7 +47,7 @@ class UsingProFeaturesAlertView: UIView {
         contentView.layer.cornerRadius = 8
         continueButton.layer.cornerRadius = 8
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
+//        contentView.backgroundColor = .white
         tableView.dataSource = self
         tableView.delegate = self
         registerTableViewCell()

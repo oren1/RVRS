@@ -178,16 +178,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Custom Logic
     @objc func showPurchaseViewController() {
-        let purchaseViewController: PurchaseViewController
-        
-        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
-        let businessModel = BusinessModelType(rawValue: businessModelType)
-        switch businessModel {
-        case .limitedFeatures:
-           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
-        default:
-            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OneExportPurchaseViewController") as! OneExportPurchaseViewController
-        }
+        let purchaseViewController = getPurchaseViewController()
         
         if UIDevice.current.userInterfaceIdiom == .phone {
             purchaseViewController.modalPresentationStyle = .fullScreen
@@ -214,7 +205,7 @@ extension MainViewController: UIImagePickerControllerDelegate {
         let url = info[UIImagePickerController.InfoKey.mediaURL] as? URL,
         UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(url.path)
         else { return }
-      
+        
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
             vc.assetUrl = url
             self.navigationController?.pushViewController(vc, animated: true)

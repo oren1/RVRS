@@ -23,7 +23,7 @@ class EditViewController: UIViewController {
     var reversedAudio: AVAsset?
     var composition: AVMutableComposition!
     var videoComposition: AVMutableVideoComposition!
-    var speed: Float = 1
+    var speed: Float = 1.5
     var fps: Int32 = 30
     var fileType: AVFileType = .mov
     var soundOn: Bool! = true
@@ -902,17 +902,7 @@ class EditViewController: UIViewController {
     }
 
     func showPurchaseViewController() {
-        let purchaseViewController: PurchaseViewController
-        
-        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
-        let businessModel = BusinessModelType(rawValue: businessModelType)
-        switch businessModel {
-        case .limitedFeatures:
-           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
-        default:
-            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OneExportPurchaseViewController") as! OneExportPurchaseViewController
-        }
-//        let purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+        let purchaseViewController = getPurchaseViewController() 
         
         purchaseViewController.onDismiss = { [weak self] in
             if let _ = BoomerangProducts.store.userPurchasedProVersion() {

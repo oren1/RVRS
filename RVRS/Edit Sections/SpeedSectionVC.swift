@@ -18,7 +18,7 @@ class SpeedSectionVC: SectionViewController {
     var speedDidChange: SpeedClosure?
     var sliderValueChange: SpeedClosure?
     
-    var speed: Float = 1 {
+    var speed: Float = 1.5 {
         didSet {
             speedLabel?.text = "\(speed)x"
         }
@@ -26,10 +26,13 @@ class SpeedSectionVC: SectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 16.50 is the value that represent 1.5, the initial slider starting point
+        slider.setValue(16.50, animated: true)
+        speed = 1.5
     }
     
     @IBAction func onSliderChange(_ sender: Any) {
+        print("slider.value \(slider.value)")
         let slider = sender as! UISlider
         speed = convertSliderValue(value: slider.value)
         if speed > 1.5 {
