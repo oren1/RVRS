@@ -80,7 +80,7 @@ public protocol TrimmerViewDelegate: AnyObject {
     private let handleWidth: CGFloat = 15
 
     /// The minimum duration allowed for the trimming. The handles won't pan further if the minimum duration is attained.
-    public var minDuration: Double = 3
+    public var minDuration: Double = 1
 
     // MARK: - View & constraints configurations
 
