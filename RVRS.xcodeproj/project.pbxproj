@@ -74,13 +74,13 @@
 		6BE9A30A2A618B2500FF8CB0 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9A3092A618B2500FF8CB0 /* UIImageView+Extension.swift */; };
 		6BE9A30C2A62809D00FF8CB0 /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9A30B2A62809D00FF8CB0 /* PHAsset+Extension.swift */; };
 		6BF9BBB12B258E7100400A3E /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BF9BBB02B258E7100400A3E /* remote_config_defaults.plist */; };
-		CAD789357939CBFCFF0E3ACF /* Pods_RVRS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37189D00D0A5671600F0B3B4 /* Pods_RVRS.framework */; };
+		86ADAC741DA5066D346CBD3F /* Pods_RVRS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188B1F444F354AF2710499D0 /* Pods_RVRS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		37189D00D0A5671600F0B3B4 /* Pods_RVRS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RVRS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41B541F26891959A885C76DA /* Pods-VideoSpeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoSpeed.debug.xcconfig"; path = "Target Support Files/Pods-VideoSpeed/Pods-VideoSpeed.debug.xcconfig"; sourceTree = "<group>"; };
-		66B32283D13CCB3D61A1CDB4 /* Pods-RVRS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RVRS.debug.xcconfig"; path = "Target Support Files/Pods-RVRS/Pods-RVRS.debug.xcconfig"; sourceTree = "<group>"; };
+		01BACAEB505B6B4460C3A6DA /* Pods-RVRS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RVRS.debug.xcconfig"; path = "Target Support Files/Pods-RVRS/Pods-RVRS.debug.xcconfig"; sourceTree = "<group>"; };
+		16C9EB3B49ED3E314AD6FDD7 /* Pods-RVRS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RVRS.release.xcconfig"; path = "Target Support Files/Pods-RVRS/Pods-RVRS.release.xcconfig"; sourceTree = "<group>"; };
+		188B1F444F354AF2710499D0 /* Pods_RVRS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RVRS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4EDA982B1F449D00B5D3CD /* PryntTrimmerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PryntTrimmerView.swift; sourceTree = "<group>"; };
 		6B4EDA992B1F449D00B5D3CD /* HandlerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandlerView.swift; sourceTree = "<group>"; };
 		6B4EDA9C2B1F44F700B5D3CD /* AVAssetTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAssetTimeSelector.swift; sourceTree = "<group>"; };
@@ -150,8 +150,6 @@
 		6BE9A3092A618B2500FF8CB0 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		6BE9A30B2A62809D00FF8CB0 /* PHAsset+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
 		6BF9BBB02B258E7100400A3E /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = remote_config_defaults.plist; sourceTree = "<group>"; };
-		D38406C3A28F10CB6DC641E1 /* Pods-VideoSpeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoSpeed.release.xcconfig"; path = "Target Support Files/Pods-VideoSpeed/Pods-VideoSpeed.release.xcconfig"; sourceTree = "<group>"; };
-		DF12EDDA54B7688C44561AE8 /* Pods-RVRS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RVRS.release.xcconfig"; path = "Target Support Files/Pods-RVRS/Pods-RVRS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B6700A02A6C1D9A006F2980 /* StoreKit.framework in Frameworks */,
-				CAD789357939CBFCFF0E3ACF /* Pods_RVRS.framework in Frameworks */,
+				86ADAC741DA5066D346CBD3F /* Pods_RVRS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,10 +168,8 @@
 		1023E4CDF9BE781F3276CF92 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				41B541F26891959A885C76DA /* Pods-VideoSpeed.debug.xcconfig */,
-				D38406C3A28F10CB6DC641E1 /* Pods-VideoSpeed.release.xcconfig */,
-				66B32283D13CCB3D61A1CDB4 /* Pods-RVRS.debug.xcconfig */,
-				DF12EDDA54B7688C44561AE8 /* Pods-RVRS.release.xcconfig */,
+				01BACAEB505B6B4460C3A6DA /* Pods-RVRS.debug.xcconfig */,
+				16C9EB3B49ED3E314AD6FDD7 /* Pods-RVRS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -207,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				6B67009F2A6C1D9A006F2980 /* StoreKit.framework */,
-				37189D00D0A5671600F0B3B4 /* Pods_RVRS.framework */,
+				188B1F444F354AF2710499D0 /* Pods_RVRS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -326,11 +322,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BE9A2FC2A5FC80D00FF8CB0 /* Build configuration list for PBXNativeTarget "RVRS" */;
 			buildPhases = (
-				6F1E1D0FFDB75DBCC8739916 /* [CP] Check Pods Manifest.lock */,
+				C4B54E5B69E006111443FEE0 /* [CP] Check Pods Manifest.lock */,
 				6BE9A2E42A5FC80C00FF8CB0 /* Sources */,
 				6BE9A2E52A5FC80C00FF8CB0 /* Frameworks */,
 				6BE9A2E62A5FC80C00FF8CB0 /* Resources */,
-				4245F38C4B12CCCC4F8FDA27 /* [CP] Embed Pods Frameworks */,
+				B5F9D1787975BECA8B2A6034 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -405,7 +401,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4245F38C4B12CCCC4F8FDA27 /* [CP] Embed Pods Frameworks */ = {
+		B5F9D1787975BECA8B2A6034 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -422,7 +418,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RVRS/Pods-RVRS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6F1E1D0FFDB75DBCC8739916 /* [CP] Check Pods Manifest.lock */ = {
+		C4B54E5B69E006111443FEE0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -638,7 +634,7 @@
 		};
 		6BE9A2FD2A5FC80D00FF8CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66B32283D13CCB3D61A1CDB4 /* Pods-RVRS.debug.xcconfig */;
+			baseConfigurationReference = 01BACAEB505B6B4460C3A6DA /* Pods-RVRS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -674,7 +670,7 @@
 		};
 		6BE9A2FE2A5FC80D00FF8CB0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF12EDDA54B7688C44561AE8 /* Pods-RVRS.release.xcconfig */;
+			baseConfigurationReference = 16C9EB3B49ED3E314AD6FDD7 /* Pods-RVRS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
