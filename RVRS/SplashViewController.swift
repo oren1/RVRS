@@ -22,6 +22,12 @@ class SplashViewController: UIViewController, GADFullScreenContentDelegate {
         
         let downloadGroup = DispatchGroup()
         
+        Task {
+            downloadGroup.enter()
+            let _ = try? await BoomerangProducts.store.refreshPurchasedProducts()
+            downloadGroup.leave()
+        }
+        
         downloadGroup.enter()
         BoomerangProducts.store.requestProducts { success, products in
             if let products = products, success {

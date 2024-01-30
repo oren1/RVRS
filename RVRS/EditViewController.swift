@@ -703,10 +703,10 @@ class EditViewController: UIViewController {
     
     func showProButtonIfNeeded() {
         guard BoomerangProducts.store.userPurchasedProVersion() == nil else {return}
-        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
-        let businessModel = BusinessModelType(rawValue: businessModelType)
-        guard businessModel == .limitedFeatures  else {return}
-        
+//        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
+//        let businessModel = BusinessModelType(rawValue: businessModelType)
+//        guard businessModel == .limitedFeatures  else {return}
+//        
         if UserDataManager.main.usingProFeatures() {
             self.showProButton()
         }
@@ -849,51 +849,20 @@ class EditViewController: UIViewController {
     // MARK: - Custom Logic
     @objc func tryToExportVideo() {
         
-//        guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
-//            InterstitialAd.manager.showAd(controller: self) { [weak self] in
-//                    self?.playerController.player?.play()
-//                    self?.exportVideo()
-//            }
-//            return
-//        }
-//
-//        exportVideo()
-        
-        
-        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
-        let businessModel = BusinessModelType(rawValue: businessModelType)
-        switch businessModel {
-        case .limitedFeatures:
-            guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
-                if UserDataManager.main.usingProFeatures() {
-                    // show alert, indicating the pro features being used
-                    return showProFeatureAlert()
-                }
-                InterstitialAd.manager.showAd(controller: self) { [weak self] in
-                        self?.playerController.player?.play()
-                        self?.exportVideo()
-                }
-                return
+        guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
+            if UserDataManager.main.usingProFeatures() {
+                // show alert, indicating the pro features being used
+                return showProFeatureAlert()
             }
-
-            return exportVideo()
-        case .oneTimeExport:
-           guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
-               // if user already exported 1 time for free, then show purchase screen
-               // else allow him to export
-               let amountOfExportsAllowed = RemoteConfig.remoteConfig().configValue(forKey: "amountOfExportsAllowed").numberValue.intValue
-               if UserDataManager.amountOfExports >= amountOfExportsAllowed {
-                   return showPurchaseViewController()
-               }
-               UserDataManager.amountOfExports += 1
-               return exportVideo()
+            InterstitialAd.manager.showAd(controller: self) { [weak self] in
+                    self?.playerController.player?.play()
+                    self?.exportVideo()
             }
-
-            exportVideo()
-        case .none:
-            fatalError()
+            return
         }
 
+        return exportVideo()
+        
     }
     
     @objc func updateExportProgress() {

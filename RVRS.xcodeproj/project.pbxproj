@@ -16,6 +16,10 @@
 		6B4EDAA52B2034E900B5D3CD /* AVPlayer+isPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EDAA42B2034E900B5D3CD /* AVPlayer+isPlaying.swift */; };
 		6B51C1FA2A7233A50013ABAD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B51C1F92A7233A50013ABAD /* LoadingView.swift */; };
 		6B51C1FC2A7233B80013ABAD /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B51C1FB2A7233B80013ABAD /* LoadingView.xib */; };
+		6B59549C2B6793FF00483047 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59549B2B6793FF00483047 /* AnalyticsManager.swift */; };
+		6B59549E2B67C2B300483047 /* SubscriptionPurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59549D2B67C2B300483047 /* SubscriptionPurchaseVC.swift */; };
+		6B5954A12B67C2F900483047 /* SubscriptionOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59549F2B67C2F900483047 /* SubscriptionOptionView.swift */; };
+		6B5954A22B67C2F900483047 /* SubscriptionOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B5954A02B67C2F900483047 /* SubscriptionOptionView.xib */; };
 		6B6700942A6A6C13006F2980 /* PhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6700932A6A6C13006F2980 /* PhotosHeader.swift */; };
 		6B6700972A6ABBF6006F2980 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6700962A6ABBF6006F2980 /* IAPManager.swift */; };
 		6B6700992A6BAE36006F2980 /* VideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6700982A6BAE36006F2980 /* VideoHelper.swift */; };
@@ -90,6 +94,10 @@
 		6B4EDAA42B2034E900B5D3CD /* AVPlayer+isPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+isPlaying.swift"; sourceTree = "<group>"; };
 		6B51C1F92A7233A50013ABAD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6B51C1FB2A7233B80013ABAD /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		6B59549B2B6793FF00483047 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		6B59549D2B67C2B300483047 /* SubscriptionPurchaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionPurchaseVC.swift; sourceTree = "<group>"; };
+		6B59549F2B67C2F900483047 /* SubscriptionOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionOptionView.swift; sourceTree = "<group>"; };
+		6B5954A02B67C2F900483047 /* SubscriptionOptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubscriptionOptionView.xib; sourceTree = "<group>"; };
 		6B6700932A6A6C13006F2980 /* PhotosHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosHeader.swift; sourceTree = "<group>"; };
 		6B6700962A6ABBF6006F2980 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		6B6700982A6BAE36006F2980 /* VideoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHelper.swift; sourceTree = "<group>"; };
@@ -195,6 +203,7 @@
 				6B6700A92A6E5FE7006F2980 /* AppStoreReviewManager.swift */,
 				6B92E3582A77A192008CB22A /* AppOpenAd.swift */,
 				6B92E3622A7B60AE008CB22A /* InterstitialAd.swift */,
+				6B59549B2B6793FF00483047 /* AnalyticsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -228,6 +237,8 @@
 				6B71AAE52AA1E01000C06619 /* UsingProFeaturesAlertView.xib */,
 				6B9E701B2B25FF36004F56AB /* ProFeatureTableViewCell.swift */,
 				6B9E701C2B25FF36004F56AB /* ProFeatureTableViewCell.xib */,
+				6B59549F2B67C2F900483047 /* SubscriptionOptionView.swift */,
+				6B5954A02B67C2F900483047 /* SubscriptionOptionView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -296,6 +307,7 @@
 				6B4EDAA02B1F469A00B5D3CD /* TrimmViewController.swift */,
 				6B92E35C2A7933C3008CB22A /* SuccessMessageViewController.swift */,
 				6B6700A52A6CF77E006F2980 /* PurchaseViewController.swift */,
+				6B59549D2B67C2B300483047 /* SubscriptionPurchaseVC.swift */,
 				6B9E701F2B2701B4004F56AB /* OneExportPurchaseViewController.swift */,
 				6B6700A12A6CD981006F2980 /* SplashViewController.swift */,
 				6BE9A3052A61811400FF8CB0 /* PhotoCell.swift */,
@@ -393,6 +405,7 @@
 				6BCDCF522A67FAC800D8B656 /* MoreSectionVC.xib in Resources */,
 				6BE9A2F32A5FC80C00FF8CB0 /* Main.storyboard in Resources */,
 				6B51C1FC2A7233B80013ABAD /* LoadingView.xib in Resources */,
+				6B5954A22B67C2F900483047 /* SubscriptionOptionView.xib in Resources */,
 				6B71AADA2A9B79B700C06619 /* LoopItemCollectionViewCell.xib in Resources */,
 				6B71AADE2A9DE5C800C06619 /* SoundSectionVC.xib in Resources */,
 			);
@@ -465,12 +478,14 @@
 				6B6700A82A6CFBF8006F2980 /* SKProduct+Utils.swift in Sources */,
 				6BE9A3062A61811400FF8CB0 /* PhotoCell.swift in Sources */,
 				6B71AAE82AA1E01100C06619 /* UsingProFeaturesAlertView.swift in Sources */,
+				6B59549C2B6793FF00483047 /* AnalyticsManager.swift in Sources */,
 				6B92E3592A77A192008CB22A /* AppOpenAd.swift in Sources */,
 				6BE9A30C2A62809D00FF8CB0 /* PHAsset+Extension.swift in Sources */,
 				6B9E701D2B25FF36004F56AB /* ProFeatureTableViewCell.swift in Sources */,
 				6B71AADD2A9DE5C800C06619 /* SoundSectionVC.swift in Sources */,
 				6BE9A2EC2A5FC80C00FF8CB0 /* AppDelegate.swift in Sources */,
 				6B6700AA2A6E5FE7006F2980 /* AppStoreReviewManager.swift in Sources */,
+				6B5954A12B67C2F900483047 /* SubscriptionOptionView.swift in Sources */,
 				6BCDCF542A67FADD00D8B656 /* SectionViewController.swift in Sources */,
 				6B6700942A6A6C13006F2980 /* PhotosHeader.swift in Sources */,
 				6B71AACE2A95E09000C06619 /* TabCollectionViewCell.swift in Sources */,
@@ -478,6 +493,7 @@
 				6BCDCF4D2A67E5FA00D8B656 /* FPSSectionVC.swift in Sources */,
 				6B71AAD12A9623AB00C06619 /* LoopSectionVC.swift in Sources */,
 				6BAC9BC12A666EEA0071A41B /* TopIndicatorView.swift in Sources */,
+				6B59549E2B67C2B300483047 /* SubscriptionPurchaseVC.swift in Sources */,
 				6B6700AE2A6E608C006F2980 /* UIApplication+Utils.swift in Sources */,
 				6B92E35B2A77C72C008CB22A /* SceneDelegate.swift in Sources */,
 				6B71AACC2A94BD6A00C06619 /* EditViewController+BottomView.swift in Sources */,

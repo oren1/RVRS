@@ -8,10 +8,12 @@
 import UIKit
 import StoreKit
 import FirebaseRemoteConfig
+import FirebaseAnalytics
 
 class PurchaseViewController: UIViewController {
 
     var product: SKProduct!
+    var productIdentifier: ProductIdentifier!
 
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -27,7 +29,7 @@ class PurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let productIdentifier = BoomerangProducts.proVersionLatest
+        productIdentifier = BoomerangProducts.proVersionLatest
         product = UserDataManager.main.products.first {$0.productIdentifier == productIdentifier}
         priceLabel.text = product.localizedPrice
         
@@ -47,28 +49,76 @@ class PurchaseViewController: UIViewController {
             backButton.isHidden = true
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(purchaseCompleted), name: .IAPManagerPurchaseNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(restoreCompleted), name: .IAPManagerRestoreNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(purchaseFailed), name: .IAPManagerPurchaseFailedNotification, object: nil)
     }
     
     @IBAction func purchaseButtonTapped(_ sender: Any) {
-        guard BoomerangProducts.store.canMakePayments() else {
-            showCantMakePaymentAlert()
-            return
-        }
+                Task {
+                    do {
+                        showLoading()
+                        let products = try await Product.products(for: [productIdentifier])
+                        let product =  products.first
+                        let purchaseResult = try await product?.purchase()
+                        switch purchaseResult {
+                        case .success(let verificationResult):
+                            switch verificationResult {
+                            case .verified(let transaction):
+                                // Give the user access to purchased content.
+                                print("verified transaction \(transaction)")
+                                Analytics.logTransaction(transaction)
+                                BoomerangProducts.store.updateIdentifier(identifier: transaction.productID)
+                                AnalyticsManager.purchaseEvent()
+                                purchaseCompleted()
+                                // Complete the transaction after providing
+                                // the user access to the content.
+                                await transaction.finish()
+                            case .unverified(_, let verificationError):
+                                // Handle unverified transactions based
+                                // on your business model.
+                                showVerificationError(error: verificationError)
+                                
+                            }
+                        case .pending:
+                            // The purchase requires action from the customer.
+                            // If the transaction completes,
+                            // it's available through Transaction.updates.
+                            self.hideLoading()
+
+                            break
+                        case .userCancelled:
+                            // The user canceled the purchase.
+                            self.hideLoading()
+                            break
+                        @unknown default:
+                            self.hideLoading()
+                            break
+                        }
+                    }
+                    catch {
+                        print("fatal error: couldn't get subscription products from Product struct")
+                    }
         
-        guard let product = UserDataManager.main.productforIdentifier(productIndentifier: BoomerangProducts.proVersionLatest) else {
-            return
-        }
-        
-        showLoading(opacity: 0.4, title: nil)
-        BoomerangProducts.store.buyProduct(product)
+                }
     }
     
+    
     @IBAction func restoreButtonTapped(_ sender: Any) {
-        showLoading(opacity: 0.4, title: nil)
-        BoomerangProducts.store.restorePurchases()
+        Task {
+            do {
+                showLoading()
+                try await AppStore.sync() // syncs all transactions from the appstore
+                let refreshStatus =  try await BoomerangProducts.store.refreshPurchasedProducts()
+                switch refreshStatus {
+                case .foundActivePurchase:
+                    showRefreshAlert(title: "You're All Set")
+                case .noPurchasesFound:
+                    showRefreshAlert(title: "No Active Subscriptions Found")
+                }
+            }
+            catch {
+                print(error)
+            }
+            
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -76,67 +126,44 @@ class PurchaseViewController: UIViewController {
     }
     
     
-    func showCantMakePaymentAlert() {
-        let alertController = UIAlertController(title: "Error", message: "Payment Not Available", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(action)
-        
-        present(alertController, animated: true, completion: nil)
+    func showVerificationError(error: VerificationResult<Transaction>.VerificationError) {
+        let alert = UIAlertController(
+          title: "Could't Complete Purchase",
+          message: error.localizedDescription,
+          preferredStyle: .alert)
+        alert.addAction(UIAlertAction(
+          title: "OK",
+          style: UIAlertAction.Style.cancel,
+          handler: { [weak self] _ in
+              self?.hideLoading()
+          }))
+        present(alert, animated: true, completion: nil)
+    }
+   
+    func showRefreshAlert(title: String)  {
+        let alert = UIAlertController(
+          title: title,
+          message: nil,
+          preferredStyle: .alert)
+        alert.addAction(UIAlertAction(
+          title: "OK",
+          style: UIAlertAction.Style.cancel,
+          handler: { [weak self] _ in
+              self?.restoreCompleted()
+          }))
+        present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - NotificationCenter Selectors
-    @objc func purchaseCompleted(notification: Notification) {
+    func purchaseCompleted() {
         onDismiss?()
         hideLoading()
         dismiss(animated: true)
-        
     }
-
     
-    
-    @objc func restoreCompleted(notification: Notification) {
+    func restoreCompleted() {
         onDismiss?()
         hideLoading()
         dismiss(animated: true)
-        
-    }
-    
-    @objc func purchaseFailed(notification: Notification) {
-        hideLoading()
-        if let text = notification.object as? String {
-            let alertController = UIAlertController(title: text, message: nil, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(action)
-            present(alertController, animated: true, completion: nil)
-        }
     }
  
-//    func showLoading() {
-//        disablePresentaionDismiss()
-//        loadingView.activityIndicator.startAnimating()
-//        view.addSubview(loadingView)
-//        loadingView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        let constraints = [
-//            loadingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            loadingView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-//            loadingView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-//            loadingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//        ]
-//        NSLayoutConstraint.activate(constraints)
-//    }
-//    
-//    func hideLoading() {
-//        enablePresentationDismiss()
-//        loadingView.activityIndicator.stopAnimating()
-//        loadingView.removeFromSuperview()
-//    }
-//    
-//    func disablePresentaionDismiss() {
-//        isModalInPresentation = true
-//    }
-//   
-//    func enablePresentationDismiss() {
-//        isModalInPresentation = false
-//    }
 }

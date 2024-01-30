@@ -16,20 +16,21 @@ extension UIViewController {
     
     func getPurchaseViewController() -> PurchaseViewController {
         let purchaseViewController: PurchaseViewController
-        
-        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
-        let businessModel = BusinessModelType(rawValue: businessModelType)
-        switch businessModel {
-        case .limitedFeatures:
-           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
-        default:
-            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OneExportPurchaseViewController") as! OneExportPurchaseViewController
-        }
-        
+        purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+       
+//        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
+//        let businessModel = BusinessModelType(rawValue: businessModelType)
+//        switch businessModel {
+//        case .limitedFeatures:
+//           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+//        default:
+//            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OneExportPurchaseViewController") as! OneExportPurchaseViewController
+//        }
+//        
         return purchaseViewController
     }
     
-    func showLoading(opacity: Float?, title: String?) {
+    func showLoading(opacity: Float? = nil, title: String? = nil) {
         let loadingView = LoadingView()
         loadingView.layer.opacity = opacity ?? 1
         loadingView.titleLabel.text = title ?? ""

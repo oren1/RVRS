@@ -14,6 +14,10 @@ enum StoreError: Int {
     case paymentCancelled = 2
 }
 
+enum RefreshPurchasesStatus {
+    case noPurchasesFound, foundActivePurchase
+}
+
 public typealias ProductIdentifier = String
 public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> Void
 
@@ -29,7 +33,10 @@ class BoomerangProducts {
     static let proVersionLatest = "ProVersion.Purchase"
     static let proVersion = "rvrs.pro.1234"
     static let proVersionConsumable = "reverse.pro.consumable.1234"
+    static let weeklySubscription = "Weekly.Subscription"
+    static let yearlySubscription = "Boomerang.Yearly"
 
+    
     private static let productIdentifiers: Set<ProductIdentifier> = [proVersion, proVersionConsumable,proVersionLatest]
     
     static let store = IAPManager(productIds: productIdentifiers)
@@ -99,6 +106,38 @@ class IAPManager: NSObject {
       return purchasedProductIdentifiers.contains(productIdentifier)
     }
     
+    func refreshPurchasedProducts() async throws -> RefreshPurchasesStatus {
+        // Iterate through the user's purchased products.
+        let products = try await Product.products(for: BoomerangProducts.store.getProductIdentifiers())
+        var verifiedActiveTransactions: [Transaction] = []
+        
+        for product in products {
+            
+            guard let verificationResult = await product.currentEntitlement else {
+                
+                BoomerangProducts.store.removeProductEntitlement(productIdentifier: product.id)
+                continue
+            }
+
+
+            switch verificationResult {
+            case .verified(let transaction):
+                // Check the transaction and give the user access to purchased
+                // content as appropriate.
+                print("transaction \(transaction)")
+                BoomerangProducts.store.updateIdentifier(identifier: transaction.productID)
+                verifiedActiveTransactions.append(transaction)
+            case .unverified(let transaction, let verificationError):
+                print("verificationError", verificationError)
+                print("verificationError transaction", transaction)
+            }
+        }
+    
+        if verifiedActiveTransactions.count > 0 {return RefreshPurchasesStatus.foundActivePurchase}
+        return RefreshPurchasesStatus.noPurchasesFound
+    }
+
+    
     public func buyProduct(_ product: SKProduct) {
       print("Buying \(product.productIdentifier)...")
       let payment = SKPayment(product: product)
@@ -128,6 +167,10 @@ class IAPManager: NSObject {
         return formatter.string(from: product.price)
     }
     
+    func removeProductEntitlement(productIdentifier: ProductIdentifier) {
+        purchasedProductIdentifiers.remove(productIdentifier)
+        UserDefaults.standard.removeObject(forKey: productIdentifier)
+    }
 }
 
 
