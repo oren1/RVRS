@@ -28,10 +28,10 @@ class SubscriptionPurchaseVC: PurchaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSubscriptionOptionViews()
-        bestOptionView.select()
+        secondOptionView.select()
         discountView.layer.cornerRadius = discountView.frame.height / 8
         
-        productIdentifier = BoomerangProducts.yearlySubscription
+        productIdentifier = BoomerangProducts.weeklySubscription
     }
     
   
@@ -51,11 +51,11 @@ class SubscriptionPurchaseVC: PurchaseViewController {
     }
     
     @IBAction func termsOfUse(_ sender: Any) {
-        showLink("https://rvrs-app-info.onrender.com/privacy-policy.html")
+        showLink("https://rvrs-app-info.onrender.com/terms-of-use.html")
     }
     
     @IBAction func privacyPolicyButtonTapped(_ sender: Any) {
-        showLink("https://rvrs-app-info.onrender.com/terms-of-use.html")
+        showLink("https://rvrs-app-info.onrender.com/privacy-policy.html")
     }
     
     // MARK: Custom Logic
@@ -90,15 +90,13 @@ class SubscriptionPurchaseVC: PurchaseViewController {
         let weeklySubscriptionProduct = UserDataManager.main.products.first {$0.productIdentifier == BoomerangProducts.weeklySubscription }
 
          // 2. set the local price to the 'priceLabel' of the view
-        bestOptionView.priceLabel.text = "Yearly \(yearlySubscriptionProduct!.localizedPrice)"
-        secondOptionView.priceLabel.text = "Weekly \(weeklySubscriptionProduct!.localizedPrice)"
+        bestOptionView.priceLabel.text = "Yearly plan \(yearlySubscriptionProduct!.localizedPrice)"
+        secondOptionView.priceLabel.text = "Weekly plan \(weeklySubscriptionProduct!.localizedPrice)"
 
         // 3. set the monthly amount to the descriptionLabel of the view
         let fullPrice = weeklySubscriptionProduct!.price.multiplying(by: 48)
         discountLabel.text = percentageOff(fullPrice: fullPrice, discountPrice: yearlySubscriptionProduct!.price)
-        
-        
-        let segmentPrice = priceDividedBy(segments: 12, of: yearlySubscriptionProduct!)
+                
         bestOptionView.descriptionLabel.text = ""
         secondOptionView.descriptionLabel.text = ""
     }

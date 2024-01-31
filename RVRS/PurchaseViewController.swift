@@ -31,20 +31,8 @@ class PurchaseViewController: UIViewController {
         super.viewDidLoad()
         productIdentifier = BoomerangProducts.proVersionLatest
         product = UserDataManager.main.products.first {$0.productIdentifier == productIdentifier}
-        priceLabel.text = product.localizedPrice
-        
-        
-//        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "business_model_type").numberValue.intValue
-//        let businessModel = BusinessModelType(rawValue: businessModelType)
-//        switch businessModel {
-//        case .onlyProVersionExport:
-//            titleLabel.text = "Start Using Rvrs Now!"
-//        case .allowedReverseExport:
-//            titleLabel.text = "Use Boomerang Pro Now!"
-//        case .none:
-//            fatalError()
-//        }
-        
+        priceLabel?.text = product.localizedPrice
+
         if UIDevice.current.userInterfaceIdiom == .pad {
             backButton.isHidden = true
         }
@@ -54,7 +42,7 @@ class PurchaseViewController: UIViewController {
     @IBAction func purchaseButtonTapped(_ sender: Any) {
                 Task {
                     do {
-                        showLoading()
+                        showLoading(opacity: 0.4)
                         let products = try await Product.products(for: [productIdentifier])
                         let product =  products.first
                         let purchaseResult = try await product?.purchase()
@@ -104,7 +92,7 @@ class PurchaseViewController: UIViewController {
     @IBAction func restoreButtonTapped(_ sender: Any) {
         Task {
             do {
-                showLoading()
+                showLoading(opacity: 0.4)
                 try await AppStore.sync() // syncs all transactions from the appstore
                 let refreshStatus =  try await BoomerangProducts.store.refreshPurchasedProducts()
                 switch refreshStatus {

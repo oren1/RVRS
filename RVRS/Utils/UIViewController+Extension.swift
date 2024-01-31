@@ -16,17 +16,16 @@ extension UIViewController {
     
     func getPurchaseViewController() -> PurchaseViewController {
         let purchaseViewController: PurchaseViewController
-        purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
        
-//        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
-//        let businessModel = BusinessModelType(rawValue: businessModelType)
-//        switch businessModel {
-//        case .limitedFeatures:
-//           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
-//        default:
-//            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OneExportPurchaseViewController") as! OneExportPurchaseViewController
-//        }
-//        
+        let businessModelRaw = RemoteConfig.remoteConfig().configValue(forKey: "business_model").stringValue!
+        let businessModel = BusinessModel(rawValue: businessModelRaw)
+        switch businessModel {
+        case .oneTimeCharge:
+           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+        default:
+            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionPurchaseVC") as! SubscriptionPurchaseVC
+        }
+        
         return purchaseViewController
     }
     
