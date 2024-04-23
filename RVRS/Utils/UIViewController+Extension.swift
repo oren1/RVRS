@@ -17,13 +17,13 @@ extension UIViewController {
     func getPurchaseViewController() -> PurchaseViewController {
         let purchaseViewController: PurchaseViewController
        
-        let businessModelRaw = RemoteConfig.remoteConfig().configValue(forKey: "business_model").stringValue!
-        let businessModel = BusinessModel(rawValue: businessModelRaw)
+        let businessModelRaw = RemoteConfig.remoteConfig().configValue(forKey: "pricing_model").stringValue!
+        let businessModel = PricingModel(rawValue: businessModelRaw)
         switch businessModel {
-        case .oneTimeCharge:
+        case .lifetime:
            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
         default:
-            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionPurchaseVC") as! SubscriptionPurchaseVC
+            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "YearlySubscriptionPurchaseVC") as! YearlySubscriptionPurchaseVC
         }
         
         return purchaseViewController

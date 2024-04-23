@@ -35,9 +35,12 @@ class BoomerangProducts {
     static let proVersionConsumable = "reverse.pro.consumable.1234"
     static let weeklySubscription = "Weekly.Subscription"
     static let yearlySubscription = "Boomerang.Yearly"
+    static let weeklySubscriptionRound2 = "Boomerang.Weekly"
+    static let monthlySubscription = "Boomerang.Monthly"
+    static let boomerangYearlySubscription = "Boomerang.Yearly.10"
 
-    
-    private static let productIdentifiers: Set<ProductIdentifier> = [proVersion, proVersionConsumable,proVersionLatest,weeklySubscription,yearlySubscription]
+    private static let productIdentifiers: Set<ProductIdentifier> = [proVersion, proVersionConsumable,proVersionLatest,weeklySubscription,yearlySubscription,weeklySubscriptionRound2,monthlySubscription,
+    boomerangYearlySubscription]
     
     static let store = IAPManager(productIds: productIdentifiers)
 

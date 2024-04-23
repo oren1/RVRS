@@ -29,7 +29,8 @@ class SubscriptionPurchaseVC: PurchaseViewController {
         super.viewDidLoad()
         setSubscriptionOptionViews()
         secondOptionView.select()
-        discountView.layer.cornerRadius = discountView.frame.height / 8
+        discountView.isHidden = true
+//        discountView.layer.cornerRadius = discountView.frame.height / 8
         
         productIdentifier = BoomerangProducts.weeklySubscription
     }
@@ -39,13 +40,13 @@ class SubscriptionPurchaseVC: PurchaseViewController {
     
     // MARK: - Actions
     @IBAction func bestOfferOptionViewTapped(gestureRecognizer: UITapGestureRecognizer) {
-        productIdentifier = BoomerangProducts.yearlySubscription
+        productIdentifier = BoomerangProducts.monthlySubscription
         bestOptionView.select()
         secondOptionView.unSelect()
     }
     
     @IBAction func secondOptionViewTapped(gestureRecognizer: UITapGestureRecognizer) {
-        productIdentifier = BoomerangProducts.weeklySubscription
+        productIdentifier = BoomerangProducts.weeklySubscriptionRound2
         secondOptionView.select()
         bestOptionView.unSelect()
     }
@@ -86,17 +87,17 @@ class SubscriptionPurchaseVC: PurchaseViewController {
     // MARK: - UI
     func setSubscriptionOptionViews() {
          // 1. grab the products for the productIdentifier's
-        let yearlySubscriptionProduct = UserDataManager.main.products.first {$0.productIdentifier == BoomerangProducts.yearlySubscription }
-        let weeklySubscriptionProduct = UserDataManager.main.products.first {$0.productIdentifier == BoomerangProducts.weeklySubscription }
+        let monthlySubscriptionProduct = UserDataManager.main.products.first {$0.productIdentifier == BoomerangProducts.monthlySubscription }
+        let weeklySubscriptionProduct = UserDataManager.main.products.first {$0.productIdentifier == BoomerangProducts.weeklySubscriptionRound2 }
 
          // 2. set the local price to the 'priceLabel' of the view
-        bestOptionView.priceLabel.text = "Yearly plan \(yearlySubscriptionProduct!.localizedPrice)"
+        bestOptionView.priceLabel.text = "Monthly plan \(monthlySubscriptionProduct!.localizedPrice)"
         secondOptionView.priceLabel.text = "Weekly plan \(weeklySubscriptionProduct!.localizedPrice)"
 
         // 3. set the monthly amount to the descriptionLabel of the view
-        let fullPrice = weeklySubscriptionProduct!.price.multiplying(by: 48)
-        discountLabel.text = percentageOff(fullPrice: fullPrice, discountPrice: yearlySubscriptionProduct!.price)
-                
+//        let fullPrice = weeklySubscriptionProduct!.price.multiplying(by: 48)
+//        discountLabel.text = percentageOff(fullPrice: fullPrice, discountPrice: yearlySubscriptionProduct!.price)
+//                
         bestOptionView.descriptionLabel.text = ""
         secondOptionView.descriptionLabel.text = ""
     }
