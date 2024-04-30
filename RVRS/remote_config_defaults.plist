@@ -6,8 +6,6 @@
 	<string>2</string>
 	<key>business_model</key>
 	<string>one_time_charge</string>
-	<key>amountOfExportsAllowed</key>
-	<string>1</string>
 	<key>minimumReviewWorthyActionCount</key>
 	<string>1</string>
 	<key>business_model_type</key>
