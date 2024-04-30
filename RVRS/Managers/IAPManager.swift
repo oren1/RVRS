@@ -14,6 +14,10 @@ enum StoreError: Int {
     case paymentCancelled = 2
 }
 
+enum RefreshPurchasesStatus {
+    case noPurchasesFound, foundActivePurchase
+}
+
 public typealias ProductIdentifier = String
 public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> Void
 
@@ -29,8 +33,14 @@ class BoomerangProducts {
     static let proVersionLatest = "ProVersion.Purchase"
     static let proVersion = "rvrs.pro.1234"
     static let proVersionConsumable = "reverse.pro.consumable.1234"
+    static let weeklySubscription = "Weekly.Subscription"
+    static let yearlySubscription = "Boomerang.Yearly"
+    static let weeklySubscriptionRound2 = "Boomerang.Weekly"
+    static let monthlySubscription = "Boomerang.Monthly"
+    static let boomerangYearlySubscription = "Boomerang.Yearly.10"
 
-    private static let productIdentifiers: Set<ProductIdentifier> = [proVersion, proVersionConsumable,proVersionLatest]
+    private static let productIdentifiers: Set<ProductIdentifier> = [proVersion, proVersionConsumable,proVersionLatest,weeklySubscription,yearlySubscription,weeklySubscriptionRound2,monthlySubscription,
+    boomerangYearlySubscription]
     
     static let store = IAPManager(productIds: productIdentifiers)
 
@@ -58,7 +68,6 @@ class IAPManager: NSObject {
           }
             
           super.init()
-          SKPaymentQueue.default().add(self)
 
         }
 
@@ -99,20 +108,36 @@ class IAPManager: NSObject {
       return purchasedProductIdentifiers.contains(productIdentifier)
     }
     
-    public func buyProduct(_ product: SKProduct) {
-      print("Buying \(product.productIdentifier)...")
-      let payment = SKPayment(product: product)
-      SKPaymentQueue.default().add(payment)
-    }
-    
-    public func restorePurchases() {
-      SKPaymentQueue.default().restoreCompletedTransactions()
-    }
+    func refreshPurchasedProducts() async throws -> RefreshPurchasesStatus {
+        // Iterate through the user's purchased products.
+        let products = try await Product.products(for: BoomerangProducts.store.getProductIdentifiers())
+        var verifiedActiveTransactions: [Transaction] = []
+        
+        for product in products {
+            
+            guard let verificationResult = await product.currentEntitlement else {
+                
+                BoomerangProducts.store.removeProductEntitlement(productIdentifier: product.id)
+                continue
+            }
 
-    public func canMakePayments() -> Bool {
-      return SKPaymentQueue.canMakePayments()
-    }
+
+            switch verificationResult {
+            case .verified(let transaction):
+                // Check the transaction and give the user access to purchased
+                // content as appropriate.
+                print("transaction \(transaction)")
+                BoomerangProducts.store.updateIdentifier(identifier: transaction.productID)
+                verifiedActiveTransactions.append(transaction)
+            case .unverified(let transaction, let verificationError):
+                print("verificationError", verificationError)
+                print("verificationError transaction", transaction)
+            }
+        }
     
+        if verifiedActiveTransactions.count > 0 {return RefreshPurchasesStatus.foundActivePurchase}
+        return RefreshPurchasesStatus.noPurchasesFound
+    }
     
     enum IAPManagerError: Error {
         case noProductIDsFound
@@ -128,6 +153,15 @@ class IAPManager: NSObject {
         return formatter.string(from: product.price)
     }
     
+    func updateIdentifier(identifier: String) {
+        purchasedProductIdentifiers.insert(identifier)
+        UserDefaults.standard.set(true, forKey: identifier)
+    }
+    
+    func removeProductEntitlement(productIdentifier: ProductIdentifier) {
+        purchasedProductIdentifiers.remove(productIdentifier)
+        UserDefaults.standard.removeObject(forKey: productIdentifier)
+    }
 }
 
 
@@ -167,79 +201,5 @@ extension IAPManager: SKProductsRequestDelegate {
     productsRequest = nil
     productsRequestCompletionHandler = nil
   }
-}
-
-// MARK: - SKPaymentTransactionObserver
-extension IAPManager: SKPaymentTransactionObserver {
- 
-  public func paymentQueue(_ queue: SKPaymentQueue,
-                           updatedTransactions transactions: [SKPaymentTransaction]) {
-    for transaction in transactions {
-      switch transaction.transactionState {
-      case .purchased:
-        complete(transaction: transaction)
-        break
-      case .failed:
-        fail(transaction: transaction)
-        break
-      case .restored:
-        restore(transaction: transaction)
-        break
-      case .deferred:
-        break
-      case .purchasing:
-        break
-      @unknown default:
-          fatalError()
-      }
-    }
-  }
- 
-  private func complete(transaction: SKPaymentTransaction) {
-    print("complete...")
-    deliverPurchaseNotificationFor(identifier: transaction.payment.productIdentifier)
-    SKPaymentQueue.default().finishTransaction(transaction)
-  }
- 
-  private func restore(transaction: SKPaymentTransaction) {
-    guard let productIdentifier = transaction.original?.payment.productIdentifier else { return }
-    print("restore... \(productIdentifier)")
-    deliverRestoreNotificationFor(identifier: productIdentifier)
-    SKPaymentQueue.default().finishTransaction(transaction)
-  }
- 
-  private func fail(transaction: SKPaymentTransaction) {
-    print("fail...")
-    if let error = transaction.error as NSError?,
-       error.code != StoreError.paymentCancelled.rawValue,
-      let localizedDescription = transaction.error?.localizedDescription {
-        print("error.code")
-        print(error.code)
-        NotificationCenter.default.post(name: .IAPManagerPurchaseFailedNotification, object: localizedDescription)
-      }
-      else {
-          NotificationCenter.default.post(name: .IAPManagerPurchaseFailedNotification, object: nil)
-      }
-
-    SKPaymentQueue.default().finishTransaction(transaction)
-  }
- 
-  private func deliverPurchaseNotificationFor(identifier: String?) {
-    guard let identifier = identifier else { return }
-    updateIdentifier(identifier: identifier)
-    NotificationCenter.default.post(name: .IAPManagerPurchaseNotification, object: identifier)
-  }
-    
-  private func deliverRestoreNotificationFor(identifier: String?) {
-    guard let identifier = identifier else { return }
-    updateIdentifier(identifier: identifier)
-    NotificationCenter.default.post(name: .IAPManagerRestoreNotification, object: identifier)
-  }
-    
-    
-    func updateIdentifier(identifier: String) {
-        purchasedProductIdentifiers.insert(identifier)
-        UserDefaults.standard.set(true, forKey: identifier)
-    }
 }
 
