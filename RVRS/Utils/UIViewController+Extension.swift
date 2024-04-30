@@ -15,17 +15,8 @@ let loadinViewTag = 12
 extension UIViewController {
     
     func getPurchaseViewController() -> PurchaseViewController {
-        let purchaseViewController: PurchaseViewController
-       
-        let businessModelRaw = RemoteConfig.remoteConfig().configValue(forKey: "pricing_model").stringValue!
-        let businessModel = PricingModel(rawValue: businessModelRaw)
-        switch businessModel {
-        case .lifetime:
-           purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
-        default:
-            purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "YearlySubscriptionPurchaseVC") as! YearlySubscriptionPurchaseVC
-        }
-        
+        let purchaseViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PurchaseViewController") as! PurchaseViewController
+    
         return purchaseViewController
     }
     
