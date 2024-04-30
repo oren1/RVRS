@@ -4,8 +4,6 @@
 <dict>
 	<key>minimumAppOpensToShowAd</key>
 	<string>2</string>
-	<key>boomerang_business_model_type</key>
-	<string>1</string>
 	<key>business_model</key>
 	<string>one_time_charge</string>
 	<key>amountOfExportsAllowed</key>

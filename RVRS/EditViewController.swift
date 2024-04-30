@@ -703,10 +703,7 @@ class EditViewController: UIViewController {
     
     func showProButtonIfNeeded() {
         guard BoomerangProducts.store.userPurchasedProVersion() == nil else {return}
-//        let businessModelType = RemoteConfig.remoteConfig().configValue(forKey: "boomerang_business_model_type").numberValue.intValue
-//        let businessModel = BusinessModelType(rawValue: businessModelType)
-//        guard businessModel == .limitedFeatures  else {return}
-//        
+
         if UserDataManager.main.usingProFeatures() {
             self.showProButton()
         }
