@@ -13,5 +13,10 @@ class AnalyticsManager {
         let eventName = "purchase_event"
         Analytics.logEvent(eventName, parameters: [:])
     }
+    
+    static func exportButtonTapped() {
+        let eventName = "export_button_tapped"
+        Analytics.logEvent(eventName, parameters: [:])
+    }
 }
 

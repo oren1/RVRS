@@ -52,14 +52,16 @@ class SplashViewController: UIViewController, GADFullScreenContentDelegate {
         
         
         downloadGroup.notify(queue: DispatchQueue.main) { [weak self] in
-             if let appOpenAd = self?.appOpenAd,
-                let rootViewController = self?.view.window?.rootViewController {
-                 appOpenAd.present(fromRootViewController: rootViewController)
-                 return
-             }
-             else {
-                self?.pushMainViewController()
-             }
+            self?.pushMainViewController()
+
+//            if let appOpenAd = self?.appOpenAd,
+//                let rootViewController = self?.view.window?.rootViewController {
+//                 appOpenAd.present(fromRootViewController: rootViewController)
+//                 return
+//             }
+//             else {
+//                self?.pushMainViewController()
+//             }
         }
     }
     

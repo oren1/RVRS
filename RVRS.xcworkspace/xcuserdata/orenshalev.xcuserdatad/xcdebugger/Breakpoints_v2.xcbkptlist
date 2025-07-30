@@ -34,38 +34,6 @@
             endingLineNumber = "124"
             landmarkName = "-assetByReversingAsset:forTempURL:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "046E2D0B-89BB-49BB-8C43-DF9BB1858BBB - e57f4a05843b8829"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AVReverser assetByReversingAsset:forTempURL:]"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/AVReverser.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
-                  offsetFromSymbolStart = "552">
-               </Location>
-               <Location
-                  uuid = "046E2D0B-89BB-49BB-8C43-DF9BB1858BBB - e57f4a05843b88ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AVReverser assetByReversingAsset:forTempURL:]"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/AVReverser.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
-                  offsetFromSymbolStart = "376">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -82,113 +50,6 @@
             endingLineNumber = "16"
             landmarkName = "reverse(_:outputURL:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - 7f315cd804bb81ae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "272">
-               </Location>
-               <Location
-                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - c532a54ff6c58179"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - 8e835412d16809a2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "356">
-               </Location>
-               <Location
-                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - e6cc504e3747d5a0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "356">
-               </Location>
-               <Location
-                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - 7f315cd804bb81ae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "248">
-               </Location>
-               <Location
-                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - c532a54ff6c58179"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "4312D35C-A8C3-4B43-B4F3-88B4F7B38B28 - 7f315cd804bb81ae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in static RVRS.AVUtilities.reverse(_: __C.AVAsset, outputURL: Foundation.URL, completion: (__C.AVAsset) -&gt; ()) -&gt; ()"
-                  moduleName = "RVRS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/orenshalev/Desktop/RVRS/RVRS/Utils/AVUtilities.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "516">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,22 +95,6 @@
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "orientationFromTransform(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "45840707-5108-41A8-AEE4-A7808C94A05C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RVRS/EditViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "705"
-            endingLineNumber = "705"
-            landmarkName = "showProButtonIfNeeded()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
