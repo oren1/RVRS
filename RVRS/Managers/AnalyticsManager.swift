@@ -23,5 +23,6 @@ class AnalyticsManager {
         let eventName = "spid_link_tapped"
         Analytics.logEvent(eventName, parameters: [:])
     }
+
 }
 
