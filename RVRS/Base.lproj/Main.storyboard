@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QeC-jB-azT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QeC-jB-azT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rzd-ei-5qB">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="754"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a7b-Oj-lsP">
                                     <size key="itemSize" width="128" height="128"/>
@@ -112,14 +112,29 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vqx-Nm-BFp">
+                                <rect key="frame" x="20" y="802" width="374" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HSp-fz-qEw"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ki6-7X-ytM" appends="YES" id="ZWW-Fa-t4E"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KhC-lI-i5Y"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Rzd-ei-5qB" firstAttribute="top" secondItem="KhC-lI-i5Y" secondAttribute="top" id="72Q-or-13l"/>
                             <constraint firstItem="Rzd-ei-5qB" firstAttribute="trailing" secondItem="KhC-lI-i5Y" secondAttribute="trailing" id="B76-46-NBh"/>
-                            <constraint firstItem="Rzd-ei-5qB" firstAttribute="bottom" secondItem="KhC-lI-i5Y" secondAttribute="bottom" id="mwt-Av-xUh"/>
+                            <constraint firstItem="KhC-lI-i5Y" firstAttribute="bottom" secondItem="vqx-Nm-BFp" secondAttribute="bottom" id="Unm-3b-Jnw"/>
+                            <constraint firstItem="KhC-lI-i5Y" firstAttribute="trailing" secondItem="vqx-Nm-BFp" secondAttribute="trailing" constant="20" id="fCx-Im-xXR"/>
+                            <constraint firstItem="vqx-Nm-BFp" firstAttribute="leading" secondItem="KhC-lI-i5Y" secondAttribute="leading" constant="20" id="kH0-St-Y9m"/>
                             <constraint firstItem="Rzd-ei-5qB" firstAttribute="leading" secondItem="KhC-lI-i5Y" secondAttribute="leading" id="sKb-Ap-bPP"/>
+                            <constraint firstItem="vqx-Nm-BFp" firstAttribute="top" secondItem="Rzd-ei-5qB" secondAttribute="bottom" id="vkQ-3Z-HgN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TbR-cY-Q5t">
@@ -132,11 +147,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Rzd-ei-5qB" id="YQY-gz-IQR"/>
+                        <outlet property="spidContainerView" destination="vqx-Nm-BFp" id="ub5-0l-FtU"/>
+                        <outlet property="spidContainerViewHeightConstraint" destination="HSp-fz-qEw" id="dDN-LR-3Mh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQd-iq-49N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ki6-7X-ytM">
+                    <connections>
+                        <action selector="spidReferenceViewTapped:" destination="sLw-pi-A3d" id="7ne-f1-MMe"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1052" y="9"/>
+            <point key="canvasLocation" x="-1052.1739130434783" y="8.7053571428571423"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="1BN-yp-Fu4">

@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
     private let itemsPerRow: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 5 : 3
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var spidContainerView: UIView!
+    @IBOutlet weak var spidContainerViewHeightConstraint: NSLayoutConstraint!
     lazy var photoLibraryUsageDisabledView: PhotoLibraryUsageDisabledView = {
         photoLibraryUsageDisabledView = PhotoLibraryUsageDisabledView()
         return photoLibraryUsageDisabledView
@@ -58,6 +60,27 @@ class MainViewController: UIViewController {
                 self.collectionView.reloadData()
               }
             }
+        
+        if UserDataManager.main.spidInstalled() {
+            let spidReferenceView = SecondSpidReferenceView()
+            spidReferenceView.translatesAutoresizingMaskIntoConstraints = false
+            spidContainerView.addSubview(spidReferenceView)
+            spidReferenceView.attachToEdges(of: spidContainerView, constant: 0)
+        }
+        else {
+            let spidReferenceView = SpidReferenceViewThree()
+//            let spidReferenceView = SpidReferenceView()
+            spidReferenceView.translatesAutoresizingMaskIntoConstraints = false
+            spidContainerView.addSubview(spidReferenceView)
+            spidReferenceView.attachToEdges(of: spidContainerView, constant: 0)
+           
+            spidContainerViewHeightConstraint.constant = 140
+            view.setNeedsLayout()
+            view.layoutIfNeeded()
+        }
+       
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +174,23 @@ class MainViewController: UIViewController {
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
         VideoHelper.startMediaBrowser(delegate: self, sourceType: .camera)
+    }
+    
+    @IBAction func spidReferenceViewTapped(_ sender: Any) {
+        AnalyticsManager.spidLinkTapped()
+        if UserDataManager.main.spidInstalled() {
+            if let url = URL(string: "spidApp://") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        else {
+            if let url = URL(string: "https://apps.apple.com/app/speed-up-video-slow-mo-spid/id6452276248") {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+        }
+        
     }
     
     // MARK: - UI

@@ -43,4 +43,17 @@ class UserDataManager {
         }
         return false
     }
+    
+    func spidInstalled() -> Bool {
+        if let url = URL(string: "spidApp://") {
+            if UIApplication.shared.canOpenURL(url) {
+                print("App is installed")
+                return true
+            } else {
+                print("App is not installed")
+                return false
+            }
+        }
+        return false
+    }
 }

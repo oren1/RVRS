@@ -2,17 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>minimumAppOpensToShowAd</key>
-	<string>2</string>
-	<key>business_model</key>
-	<string>one_time_charge</string>
-	<key>minimumReviewWorthyActionCount</key>
-	<string>1</string>
-	<key>business_model_type</key>
-	<string>0</string>
-	<key>business_model_round_two</key>
-	<string>one_time_charge</string>
-	<key>adsInterval</key>
-	<string>120</string>
+  <key>minimumAppOpensToShowAd</key>
+  <string>2</string>
+  <key>spidLinkText</key>
+  <string>Edit Videos Instantly With Spid</string>
+  <key>business_model</key>
+  <string>one_time_charge</string>
+  <key>minimumReviewWorthyActionCount</key>
+  <string>1</string>
+  <key>business_model_type</key>
+  <string>0</string>
+  <key>business_model_round_two</key>
+  <string>one_time_charge</string>
+  <key>adsInterval</key>
+  <string>120</string>
 </dict>
 </plist>

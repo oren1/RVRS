@@ -121,6 +121,7 @@ class SplashViewController: UIViewController, GADFullScreenContentDelegate {
           if status == .success {
             print("Config fetched!")
             remoteConfig.activate { changed, error in
+                print("changed: \(changed)")
               // ...
             }
           } else {
