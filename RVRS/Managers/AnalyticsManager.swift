@@ -18,5 +18,11 @@ class AnalyticsManager {
         let eventName = "export_button_tapped"
         Analytics.logEvent(eventName, parameters: [:])
     }
+    
+    static func spidLinkTapped() {
+        let eventName = "spid_link_tapped"
+        Analytics.logEvent(eventName, parameters: [:])
+    }
+
 }
 

@@ -2,12 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This app shows ads
-The ads can be random or personalized
-By allowing this, we can make the ads more personalized to you</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>spidApp</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
+		</dict>
+	</array>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-5159016515859793~4398795141</string>
 	<key>UIApplicationSceneManifest</key>
