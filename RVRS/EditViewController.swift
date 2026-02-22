@@ -630,7 +630,26 @@ class EditViewController: UIViewController {
     // MARK: - UI
     func setNavigationItems() {
         let exportButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tryToExportVideo))
-    
+        
+//        let symbolConfiguration = UIImage.SymbolConfiguration(scale: .medium)
+//
+//        var configuration = UIButton.Configuration.plain()
+//        configuration.title = "Export"
+//        configuration.image = UIImage(systemName: "square.and.arrow.up", withConfiguration: symbolConfiguration)
+//        configuration.imagePlacement = .trailing
+//        configuration.imagePadding = 4
+//        configuration.buttonSize = .medium
+//        
+//        let button = UIButton(configuration: configuration, primaryAction: nil)
+//        button.backgroundColor = .systemBlue
+//        button.tintColor = .white
+//        button.layer.cornerRadius = 12
+//        button.layer.borderWidth = 1
+//        button.addTarget(self, action: #selector(tryToExportVideo), for: .touchUpInside)
+//        
+//        let exportButton = UIBarButtonItem(customView: button)
+
+
         navigationItem.rightBarButtonItems = [exportButton]
     }
     func showBlackTransparentOverlay() {
@@ -689,6 +708,17 @@ class EditViewController: UIViewController {
     }
     
     func createProButton() -> UIButton {
+        
+//        var buttonConfiguration = UIButton.Configuration.plain()
+//        let symbolConfiguration = UIImage.SymbolConfiguration(scale: .large)
+//       
+//        buttonConfiguration.buttonSize = .small
+//        buttonConfiguration.image = UIImage(named: "crown16", in: nil, with: symbolConfiguration)
+//        buttonConfiguration.imagePlacement = .leading
+//        buttonConfiguration.imagePadding = 4
+//
+//        let proButton = UIButton(configuration: buttonConfiguration, primaryAction: nil)
+        
         let proButton = UIButton(type: .roundedRect)
         proButton.tintColor = .systemBlue
         proButton.backgroundColor = .white
@@ -698,6 +728,7 @@ class EditViewController: UIViewController {
         proButton.layer.cornerRadius = 8
         proButton.layer.borderWidth = 1
         proButton.layer.borderColor = UIColor.lightGray.cgColor
+//        proButton.contentHorizontalAlignment = .left
         return proButton
     }
     
@@ -845,16 +876,19 @@ class EditViewController: UIViewController {
     
     // MARK: - Custom Logic
     @objc func tryToExportVideo() {
-        
+        AnalyticsManager.exportButtonTapped()
         guard let _ = BoomerangProducts.store.userPurchasedProVersion() else {
             if UserDataManager.main.usingProFeatures() {
                 // show alert, indicating the pro features being used
                 return showProFeatureAlert()
             }
-            InterstitialAd.manager.showAd(controller: self) { [weak self] in
-                    self?.playerController.player?.play()
-                    self?.exportVideo()
-            }
+            
+            self.exportVideo()
+
+//            InterstitialAd.manager.showAd(controller: self) { [weak self] in
+//                    self?.playerController.player?.play()
+//                    self?.exportVideo()
+//            }
             return
         }
 

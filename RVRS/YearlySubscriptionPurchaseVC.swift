@@ -9,7 +9,7 @@ import UIKit
 
 enum PricingModel: String {
     case lifetime = "lifetime"
-    case yearly = "yearly"
+    case weekly = "weekly"
 }
 
 class YearlySubscriptionPurchaseVC: PurchaseViewController {
